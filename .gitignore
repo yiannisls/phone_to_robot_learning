@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+work/
+dist/
+checkpoints/
+data/
+results/*
+!results/dataset_v1.json
+!results/dataset_v2.json
+!results/world_model_control.json
+*.egg-info/
+.DS_Store

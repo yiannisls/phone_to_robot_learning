@@ -1,0 +1,301 @@
+{
+  "results": {
+    "normal": {
+      "bc": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_depth_passes": 20,
+        "worst_penetration_mm": 1.6959058212273537,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "grip_overrides": 0,
+        "pulse_triggered": 0,
+        "pulse_rejected": 0,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm_revision_2": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_depth_passes": 20,
+        "worst_penetration_mm": 1.6959058212273537,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "grip_overrides": 0,
+        "pulse_triggered": 0,
+        "pulse_rejected": 0,
+        "median_episode_planner_p95_ms": 0.5840125005306618
+      }
+    },
+    "opening_pulse": {
+      "bc": {
+        "episodes": 20,
+        "task_successes": 9,
+        "task_and_depth_passes": 0,
+        "worst_penetration_mm": 5.849960978852442,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "grip_overrides": 0,
+        "pulse_triggered": 20,
+        "pulse_rejected": 0,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm_revision_2": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_depth_passes": 20,
+        "worst_penetration_mm": 1.6959058212273537,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "grip_overrides": 20,
+        "pulse_triggered": 20,
+        "pulse_rejected": 20,
+        "median_episode_planner_p95_ms": 0.5479193750943523
+      }
+    }
+  },
+  "first_revision_fresh_evaluation": {
+    "normal": {
+      "bc": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_contact_depth_passes": 20,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "max_cube_penetration_m": 0.0016959058212273536,
+        "total_gripper_overrides": 0,
+        "pulse_triggered_episodes": 0,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 0,
+        "median_control_steps": 128.5,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_contact_depth_passes": 20,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "max_cube_penetration_m": 0.0016959058212273536,
+        "total_gripper_overrides": 139,
+        "pulse_triggered_episodes": 0,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 0,
+        "median_control_steps": 130.0,
+        "median_episode_planner_p95_ms": 0.6009291006193962
+      },
+      "paired_task_outcomes": {
+        "both_pass": 20,
+        "only_bc_pass": 0,
+        "only_wm_pass": 0,
+        "both_fail": 0
+      }
+    },
+    "opening_pulse": {
+      "bc": {
+        "episodes": 20,
+        "task_successes": 9,
+        "task_and_contact_depth_passes": 0,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "max_cube_penetration_m": 0.005849960978852442,
+        "total_gripper_overrides": 0,
+        "pulse_triggered_episodes": 20,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 9,
+        "median_control_steps": 240.0,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm": {
+        "episodes": 20,
+        "task_successes": 20,
+        "task_and_contact_depth_passes": 20,
+        "worst_jaw_peak_n": 1057.4813155634633,
+        "max_cube_penetration_m": 0.0016959058212273536,
+        "total_gripper_overrides": 159,
+        "pulse_triggered_episodes": 20,
+        "pulse_overridden_episodes": 20,
+        "triggered_episode_task_successes": 20,
+        "median_control_steps": 130.0,
+        "median_episode_planner_p95_ms": 0.5692522003300835
+      },
+      "paired_task_outcomes": {
+        "both_pass": 9,
+        "only_bc_pass": 0,
+        "only_wm_pass": 11,
+        "both_fail": 0
+      }
+    }
+  },
+  "revision_2_evaluation": "Development retest on the same previously evaluated positions; not fresh final testing",
+  "verification": {
+    "bc_validation_exact_reproduction": true,
+    "ordinary_revised_wm_rollouts_equal_bc": 20,
+    "pulse_revised_wm_rollouts_equal_unperturbed_bc": 20,
+    "audited_wm_episodes": 40,
+    "preserved_datasets_episodes": {
+      "dataset_v1": 65,
+      "dataset_v2": 65
+    },
+    "existing_policies_and_world_models_unchanged": true,
+    "existing_evaluation_scripts_unchanged": true,
+    "agent_recording_hashes_unchanged": true,
+    "state_action_alignment_physics_timing_and_torque_limits": true,
+    "test_source_used": false
+  },
+  "online_prediction_diagnostic": {
+    "one_step_executed_choice_cube_coordinate_mae_mm": 0.2084439484950011,
+    "minimum_pulse_predicted_improvement_mm": 23.068788842106475,
+    "one_step_opening_pulse_cube_coordinate_mae_mm": 3.1765387358858495,
+    "note": "Diagnostics on controller-visited states; predictions are not used as simulator ground truth."
+  },
+  "simple_rule_check": {
+    "would_flag_opening_pulses": 20,
+    "episodes": 20,
+    "rule": "Reject opening while cube above 45 mm and outside bin xy tolerance",
+    "live_rule_controller_evaluated": false,
+    "interpretation": "All tested pulses also satisfy a simple hand-coded condition. This experiment does not prove that a world model is necessary or better than a rule guard."
+  },
+  "scope": "Learned world model used online for gripper choices with hand-coded active states, reference and 5 mm margin. BC supplies movement. No force prediction or VLA.",
+  "protocol_seed": 20261009,
+  "case_offsets": [
+    {
+      "name": "layout_00",
+      "offset_xy_m": [
+        -0.002167785025274996,
+        -0.0010035321952943377
+      ]
+    },
+    {
+      "name": "layout_01",
+      "offset_xy_m": [
+        0.009388867615018323,
+        -0.01535418925644986
+      ]
+    },
+    {
+      "name": "layout_02",
+      "offset_xy_m": [
+        0.03617461165784224,
+        -0.001549522624508786
+      ]
+    },
+    {
+      "name": "layout_03",
+      "offset_xy_m": [
+        0.03464931039689698,
+        -0.00523380591283475
+      ]
+    },
+    {
+      "name": "layout_04",
+      "offset_xy_m": [
+        -0.027223872475910724,
+        0.03704168980335762
+      ]
+    },
+    {
+      "name": "layout_05",
+      "offset_xy_m": [
+        0.015799047627264896,
+        0.035174821887767355
+      ]
+    },
+    {
+      "name": "layout_06",
+      "offset_xy_m": [
+        0.014925641936892949,
+        0.010203620481274774
+      ]
+    },
+    {
+      "name": "layout_07",
+      "offset_xy_m": [
+        -0.01330956910041806,
+        0.008546670152052044
+      ]
+    },
+    {
+      "name": "layout_08",
+      "offset_xy_m": [
+        0.02760653201150475,
+        -0.015902386517979133
+      ]
+    },
+    {
+      "name": "layout_09",
+      "offset_xy_m": [
+        0.008420475525105164,
+        -0.006974927749287589
+      ]
+    },
+    {
+      "name": "layout_10",
+      "offset_xy_m": [
+        0.015282314711695548,
+        0.03864578160943974
+      ]
+    },
+    {
+      "name": "layout_11",
+      "offset_xy_m": [
+        0.036502488424299546,
+        -0.023542830151961687
+      ]
+    },
+    {
+      "name": "layout_12",
+      "offset_xy_m": [
+        -0.009098239245780633,
+        -0.018596287656203817
+      ]
+    },
+    {
+      "name": "layout_13",
+      "offset_xy_m": [
+        -0.01312631571684338,
+        0.039161780946271124
+      ]
+    },
+    {
+      "name": "layout_14",
+      "offset_xy_m": [
+        0.01954010600327899,
+        -0.0024077789459878603
+      ]
+    },
+    {
+      "name": "layout_15",
+      "offset_xy_m": [
+        0.0269506867992712,
+        -0.020504074853348046
+      ]
+    },
+    {
+      "name": "layout_16",
+      "offset_xy_m": [
+        0.010513700483524013,
+        0.0007874457645383852
+      ]
+    },
+    {
+      "name": "layout_17",
+      "offset_xy_m": [
+        -0.03935697562027318,
+        0.032466072284859156
+      ]
+    },
+    {
+      "name": "layout_18",
+      "offset_xy_m": [
+        -0.005229113909102169,
+        -0.0031606910093291106
+      ]
+    },
+    {
+      "name": "layout_19",
+      "offset_xy_m": [
+        0.0028292151834565377,
+        -0.009120034919282378
+      ]
+    }
+  ],
+  "paths": {
+    "first_results": "results/wm_gripper_control_v1/summary.json",
+    "revised_results": "results/wm_gripper_control_v2/results.json",
+    "first_protocol": "results/wm_gripper_control_v1_sources/protocol.json",
+    "revised_protocol": "results/wm_gripper_control_v2_sources/protocol.json"
+  }
+}

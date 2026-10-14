@@ -1,0 +1,9 @@
+# Versions observed in the successful local validation run; Python 3.12.
+# Clean installation is a separate acceptance check, not yet certified.
+numpy==2.5.3
+torch==2.14.1
+mujoco==3.14.0
+opencv-python==5.0.0.93
+matplotlib==3.11.2
+pyquaternion==0.9.9
+zarr==3.4.0
