@@ -12,6 +12,12 @@ Verified on Linux with Python 3.12.3, MuJoCo 3.14.0 and CPU policy inference. Th
 
 The clean clone used the separately supplied local simulator, not an independently downloaded upstream copy. Exact simulator fingerprints are recorded because an upstream revision for that local directory could not be established.
 
-The versioned archive contains historical experiment evidence and the saved comparison video. Newly reproduced outputs are kept under `work/reproducibility-20261014`; aggregate comparison verification will be recorded below when complete. No weights were retrained or altered.
+The versioned archive contains historical experiment evidence and the saved comparison video. Newly reproduced outputs are kept under `work/reproducibility-20261014`; aggregate comparison verification is recorded below. No weights were retrained or altered.
 
 GitHub publication is pending authentication. The archive round-trip was tested locally, not downloaded from a public Release.
+
+## Full paired comparison
+
+All 80 runs completed with seed 20261009 on the previously inspected development layouts. Ordinary BC and model-assisted control both succeeded 20/20 with contact-depth passes. Under the injected opening, BC succeeded 9/20 (0/20 contact-depth passes); model-assisted control succeeded 20/20 with depth passes. It made zero ordinary overrides and one override per stress episode. Worst force remained 1,057.48 N. These counts reproduce the historical experiment; they are not new generalization evidence.
+
+See [machine-readable results](reproduction-results.json). Source control code and model hashes remain unchanged. No training was performed.
