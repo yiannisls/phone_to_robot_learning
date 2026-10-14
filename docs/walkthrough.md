@@ -9,7 +9,7 @@ Python 3.12 was used for verification. Create an environment, then install `requ
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 export ROBOT_LEARNING_HW3=/absolute/path/to/hw3_imitation_learning
 export MUJOCO_GL=egl
 python scripts/check_setup.py

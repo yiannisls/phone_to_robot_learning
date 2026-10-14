@@ -1,6 +1,6 @@
 # Phone recordings to robot learning
 
-Start with [the project map](docs/project-map.md) and [the runnable walkthrough](docs/walkthrough.md). Checkpoint/data archive publication and clean-environment verification are pending.
+Start with [the project map](docs/project-map.md) and [the runnable walkthrough](docs/walkthrough.md). Clean-environment validation passed; see [verification evidence](docs/reproduction.md). The checkpoint/data archive is prepared locally; GitHub publication is pending authentication.
 
 This project uses five personally recorded manipulation videos to teach a
 simulated SO-100 arm to move a cube into a bin. An ArUco marker on the object
