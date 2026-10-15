@@ -118,6 +118,8 @@ For each accepted robot demonstration, save synchronized images, robot measureme
 
 **LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator; neither has been tested here.
 
+**Local hardware check:** the RTX 4060 Laptop GPU (8 GB) passes CUDA and a small BF16 training check. A real SmolVLA training-memory test is still pending; storage is being freed for a separate compatible environment. [Setup findings](docs/vla-setup.md)
+
 The immediate priority is a reliable dataset. First inspect one complete image–instruction–action episode, then choose the training configuration and GPU. A larger model alone does not establish better results on this task.
 
 ### How the experiment will be evaluated
