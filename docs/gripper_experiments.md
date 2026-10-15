@@ -1,5 +1,7 @@
 # Gripper experiments
 
+> Historical commands: some plotting, diagnostic and older evaluation scripts in this report were removed during cleanup. Use [the current walkthrough](walkthrough.md) for runnable simulation commands. The original scripts remain in Git commit `e686ed4`. Saved measurements and figures below are unchanged.
+
 The selected candidate for the next dataset version is a **1.0 rad/s closing
 target rate**, keeping the jaw actuator's existing +/-3.5 N m torque limit.
 It retained 20/20 successes on the saved development layouts and reduced the

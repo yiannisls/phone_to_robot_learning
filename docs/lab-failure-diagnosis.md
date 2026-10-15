@@ -1,5 +1,7 @@
 # First teleoperation-policy failure diagnosis
 
+> Historical commands: some plotting, diagnostic and older evaluation scripts in this report were removed during cleanup. Use [the current walkthrough](walkthrough.md) for runnable simulation commands. The original scripts remain in Git commit `e686ed4`. Saved measurements and figures below are unchanged.
+
 Replayed the first three shifted-obstacle episodes with the selected lab checkpoint, CPU inference, seed 987, 16-action execution horizon and 800-step limit. The sequence matches the saved confirmation log: success, success, failure. This diagnostic uses previously evaluated layouts and is not a new success-rate estimate.
 
 | Episode | Result | Steps | Final cube height |

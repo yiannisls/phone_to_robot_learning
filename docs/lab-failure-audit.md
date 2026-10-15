@@ -1,5 +1,7 @@
 # Why the 82% policy fails
 
+> Historical commands: some plotting, diagnostic and older evaluation scripts in this report were removed during cleanup. Use [the current walkthrough](walkthrough.md) for runnable simulation commands. The original scripts remain in Git commit `e686ed4`. Saved measurements and figures below are unchanged.
+
 The frozen width-256, epoch-10 BC + DAgger checkpoint was replayed for all 100 shifted-obstacle episodes using seed 987, CPU inference, execution horizon 16 and an 800-step limit. Every episode's success/failure matches the earlier confirmation log: 82 successes and 18 failures. This is a diagnostic replay of an inspected evaluation set, not new generalization evidence.
 
 | Observed failure outcome | Count | Episodes |

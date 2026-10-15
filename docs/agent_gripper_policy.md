@@ -1,5 +1,7 @@
 # Agent-operated grip recordings and BC v2
 
+> Historical commands: some plotting, diagnostic and older evaluation scripts in this report were removed during cleanup. Use [the current walkthrough](walkthrough.md) for runnable simulation commands. The original scripts remain in Git commit `e686ed4`. Saved measurements and figures below are unchanged.
+
 These notes preserve the earlier experiment. The subsequent online gripper-control
 experiment, both controller revisions and all outcomes are documented in
 [world_model_control.md](world_model_control.md).

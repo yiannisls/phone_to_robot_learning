@@ -25,10 +25,37 @@ IMG_5539, IMG_5540 and IMG_5541 are training families; IMG_5542 is validation; I
 
 Phone recordings supply the transport curve. Calibration is approximate; start/end intervals are manually chosen. Approach, grasp, placement, release and retreat are scripted during demonstration generation. They are not measured robot actions from the phone.
 
-## Supporting experiments
+## Which files are needed?
 
-Keep these for investigation rather than the first walkthrough: `inspect_videos.py`, `plot_marker.py`, `track_two_markers.py`, `evaluate_layouts.py`, `test_gripper_settings.py`, `probe_world_model.py`, `evaluate_world_model.py`, `collect_agent_grasps.py`, `replay_gripper.py`, and the older `evaluate_policy.py`. Historical reports and outputs retain their original names and provenance. No files need moving to understand the main workflow.
+To run the saved BC or BC + world-model controller, keep these six files together in `scripts/`:
+
+- `evaluate_model_control.py`: entry point for one rollout.
+- `policy.py`: behavioral-cloning network and observations.
+- `gripper_planner.py`: compares predicted gripper outcomes.
+- `world_model.py`: transition network and prediction helpers.
+- `record_gripper.py`: simulator setup, execution and contact logger.
+- `generate_demo.py`: observation helper imported by the logger.
+
+`compare_model_control.py` runs the paired multi-layout comparison. Keep the extraction, generation and training scripts in the table above to rebuild the pipeline. `collect_action_variations.py` imports helpers from `probe_world_model.py`, so the probe remains a training-data dependency.
+
+Other retained tools have specific roles: `evaluate_world_model.py` measures forecast error; `track_two_markers.py` processes the additional recordings; `collect_agent_grasps.py` and `replay_gripper.py` reproduce the separate gripper-recording experiment; `compare_demonstrations.py` checks human/phone data compatibility. `check_setup.py` and `release_artifacts.py` support setup and release verification.
+
+## Removed after the experiments
+
+The cleanup removed nine standalone scripts: `plot_marker.py`, `plot_release_comparison.py`, `make_readme_figures.py`, `inspect_videos.py`, `diagnose_lab_policy.py`, `summarize_lab_failures.py`, `evaluate_policy.py`, `evaluate_layouts.py`, and `test_gripper_settings.py`. The first six supported completed visualization/diagnostic work; the final three form the historical evaluation path superseded for current control runs. None is imported or launched by the retained scripts. Figures, reports, data and checkpoints remain.
+
+The code is recoverable from commit `e686ed4`. For example, inspect a removed plotting script without changing the current checkout:
+
+```bash
+git show e686ed4:scripts/make_readme_figures.py
+```
+
+Historical reproduction commands refer to that earlier source tree. Current evaluation uses `evaluate_model_control.py` and `compare_model_control.py`; the historical controllers are not claimed to be identical.
 
 ## Combining sources
 
 See [the single-episode compatibility audit](data-compatibility.md) before mixing phone-derived demonstrations with human teleoperation. Their action labels, bin positions and execution profiles differ. `compare_demonstrations.py` checks one training episode from each and renders recorded poses without physics stepping.
+
+## Cleanup verification
+
+After the nine removals, BC validation completed in 131 steps with task and contact-depth passes. Model-assisted validation under the artificial opening request also completed in 131 steps, with exactly one override. All 1,418 preserved artifact checksums passed. These checks use the existing MuJoCo 3.14 profile and validation source; they are not new generalization results.
