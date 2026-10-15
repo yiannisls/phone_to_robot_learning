@@ -94,4 +94,6 @@ The human replay also accepts `--jaw-torque-limit` for a separate contact diagno
 
 ## First human-only VLA training
 
-`train_vla.py` follows the lab trainer structure: top-level hyperparameters, `HumanChunkDataset`, `train_one_epoch`, `evaluate` and a linear `main`. It imports corpus verification from the existing converter and pinned model setup from the existing interface check. The first 200-update run saves a LoRA adapter and separate training/validation loss measurements. See [the code walkthrough, measured pilot and reproduction command](human-vla-training.md). Phone examples are not included, and closed-loop VLA control remains unevaluated.
+`train_vla.py` follows the lab trainer structure: top-level hyperparameters, `HumanChunkDataset`, `train_one_epoch`, `evaluate` and a linear `main`. It imports corpus verification from the existing converter and pinned model setup from the existing interface check. The first 200-update run saves a LoRA adapter and separate training/validation loss measurements. See [the code walkthrough, measured pilot and reproduction command](human-vla-training.md). Phone examples are not included.
+
+`evaluate_vla.py` loads the saved adapter, initializes a training scene once, then executes predictions from live images and robot measurements. The [first development rollout](human-vla-rollout.md) ran 400 steps but did not pick up the cube. It records model predictions, executed commands, physics traces and video, with no scripted grasp or world-model assistance.

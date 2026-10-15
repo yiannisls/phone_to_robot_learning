@@ -1,0 +1,88 @@
+{
+  "rollout": {
+    "task_success": false,
+    "quality_pass": true,
+    "termination": "step_limit",
+    "executed_steps": 400,
+    "simulated_seconds": 40.00000000000292,
+    "prediction_calls": 100,
+    "inference_seconds_mean": 0.20221528439004033,
+    "inference_seconds_max": 0.4788480700008222,
+    "peak_target_height_m": 0.01999994739513686,
+    "final_target_xyz_m": [
+      -0.2054610401391983,
+      0.34591230750083923,
+      0.01999994719755285
+    ],
+    "final_hand_cube_distance_m": 0.364019824804513,
+    "stable_final_cube": true,
+    "final_gripper_command": 0.5319183538758003,
+    "max_target_penetration_m": 5.246717109185657e-08,
+    "max_robot_self_penetration_m": 0.0,
+    "max_distractor_displacement_m": 2.01348198530793e-10,
+    "peak_target_contact_normal_force_n": 0.12262500038752946,
+    "movement_clips": 0,
+    "gripper_clips": 11,
+    "rollout_sha256": "983d95cdbebcd2536b82095d467f8acdae6bb1063d15dc5fa80cd857775cc7f1",
+    "purpose": "First VLA development rollout; one training start, not a success-rate benchmark.",
+    "controller": "SmolVLA with human-only LoRA adapter",
+    "episode": 0,
+    "split": "train",
+    "instruction": "Put the red cube in the bin.",
+    "seed": 42,
+    "camera": "angle",
+    "max_steps": 400,
+    "execution_horizon": 4,
+    "action_chunk": 50,
+    "max_movement_m": 0.012,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "jaw_torque_range_nm": [
+      -3.5,
+      3.5
+    ],
+    "jaw_command_range_rad": [
+      -0.17399999999999993,
+      1.75
+    ],
+    "executor": "Accumulate predicted achieved-motion deltas into mocap target; instant gripper target",
+    "orientation": "Initial measured quaternion held fixed",
+    "initialization": "Recorded initial poses; unknown velocities set to zero",
+    "physics_advances_during_inference": false,
+    "scripted_grasp_or_placement": false,
+    "world_model_used": false,
+    "phone_data_included_in_training": false,
+    "mujoco_version": "3.14.0",
+    "adapter_sha256": "50df61f5c3b9d145054585a8c0732856f9133ceb9bac48d2124f683feac97108",
+    "manifest_sha256": "677c3fe747573e6ca31183121539ff1bf6daabf0441d825e189942f1ea331574",
+    "normalization_sha256": "a807eee599e50d11932fd015052ee2c95db1d8544f9e1f0ffd4ea0b13634adc0",
+    "initial_episode_sha256": "c7302a0b3f528af14caf46e4cba517a377a197983c61f11898e5c7f6125435f6",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "script_sha256": "af462debadf156c2adbf47f209b757ba610ca83fed989200c1a671c2ff66fc13",
+    "limitation": "Small 200-update pilot; original command labels and contact physics remain imperfect."
+  },
+  "verification": {
+    "initial_image_matches": true,
+    "initial_robot_state_max_error": 1.941515437309249e-08,
+    "observations": 401,
+    "executed_actions": 400,
+    "physics_samples": 20000,
+    "replanning_every_four_steps": true,
+    "executed_prefix_matches_predictions": true,
+    "command_accumulation_matches": true,
+    "closest_hand_target_cube_distance_m": 0.16588608680826386,
+    "final_hand_target_tracking_error_m": 0.16733742657562664,
+    "historical_artifacts_verified": 1418
+  },
+  "assets": {
+    "docs/assets/human-vla-rollout.jpg": {
+      "sha256": "cd093b9da2335500efbeb0019d58896b4d68ab46ce5b074e1718dee69fd92fa5",
+      "bytes": 42031
+    },
+    "docs/assets/human-vla-rollout.mp4": {
+      "sha256": "0a5fbcabdf0deebdb5c8591514761c783dbfece5048b88fa36ead3772bf7ecb8",
+      "bytes": 106867
+    }
+  }
+}

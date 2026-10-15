@@ -55,6 +55,6 @@ The measured conversion retains its exact script snapshot and verification repor
 
 ## Training stage
 
-The [first human-only fine-tuning pilot](human-vla-training.md) is now complete using `train_vla.py`. It uses this manifest and training-only normalization, keeps action chunks inside episode boundaries, masks padded actions and saves a rank-four LoRA adapter with data fingerprints. Fixed-window training and validation losses decreased after 200 updates. Closed-loop robot evaluation is the next stage; reduced loss is not a success rate.
+The [first human-only fine-tuning pilot](human-vla-training.md) is now complete using `train_vla.py`. It uses this manifest and training-only normalization, keeps action chunks inside episode boundaries, masks padded actions and saves a rank-four LoRA adapter with data fingerprints. Fixed-window training and validation losses decreased after 200 updates. The [first development rollout](human-vla-rollout.md) subsequently failed to pick up the cube; reduced loss is not a success rate.
 
 Presentation explanation: “I reconstructed images from my 42 recorded robot demonstrations and paired each image with the robot state, colour instruction and following action. I kept three recordings for validation and fitted scaling only on the other 39. The first VLA experiment will test learning from those labels, with the replay limitations documented.”

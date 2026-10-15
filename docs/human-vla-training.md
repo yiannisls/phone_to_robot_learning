@@ -1,6 +1,6 @@
 # First human-only SmolVLA training run
 
-The first small fine-tuning run is complete. **200 optimizer updates** reduced loss on fixed validation windows from **3.3788 to 1.9726**. A saved LoRA adapter reloads in a fresh process and reproduces that result exactly. Robot control has not been evaluated yet.
+The first small fine-tuning run is complete. **200 optimizer updates** reduced loss on fixed validation windows from **3.3788 to 1.9726**. A saved LoRA adapter reloads in a fresh process and reproduces that result exactly. The subsequent [first simulation rollout](human-vla-rollout.md) failed to pick up the cube.
 
 [Measured report and verification](human-vla-training.json) · [Prepared human dataset](human-vla-dataset.md) · [Training script](../scripts/train_vla.py)
 
@@ -60,10 +60,10 @@ The output contains `adapter/adapter_model.safetensors`, adapter configuration, 
 
 The new DataLoader batches match the previous interface for state, language, actions and masks. CPU image scaling differs from the earlier GPU scaling by at most 5.96e-8, within the declared 1e-7 tolerance. Normal, final-action and next-episode boundaries were checked. The loader rejects changed split assignments and paths outside the dataset. Logged training IDs contain no validation episodes; all 200 sampled starts are distinct.
 
-A fresh process loaded the pinned base and restored all adapter tensors exactly. Seventy-four adapter tensors differed from initialization, and both fixed-window losses reproduced exactly. The restored model produced finite `(1, 50, 4)` action predictions, converted back to physical label units. **Those predictions were not executed.** The 1,418 immutable baseline artifacts remain unchanged.
+A fresh process loaded the pinned base and restored all adapter tensors exactly. Seventy-four adapter tensors differed from initialization, and both fixed-window losses reproduced exactly. The restored model produced finite `(1, 50, 4)` action predictions, converted back to physical label units. Those verification predictions were not executed; the separate [development rollout](human-vla-rollout.md) subsequently tested the saved adapter through physics. The 1,418 immutable baseline artifacts remain unchanged.
 
 The small measured report is tracked in Git. The adapter, logs, exact script snapshots and independent verification are retained locally at `work/human-vla-pilot-20261015-01`; they are not part of the older public baseline archive. Public packaging is still pending.
 
-Reconstructed images, achieved-motion action labels, missing original command/velocity records and unvalidated contact physics remain limitations. Reduced loss supports continuing the experiment; it does not establish colour grounding or successful grasp/placement. Next, load this adapter in the simulator with the same observation/action definitions and record a first closed-loop rollout before claiming a VLA success rate.
+Reconstructed images, achieved-motion action labels, missing original command/velocity records and unvalidated contact physics remain limitations. Reduced loss supports continuing the experiment; it does not establish colour grounding or successful grasp/placement. The subsequent first rollout failed to pick up the cube. A longer predeclared training experiment is the next candidate; a held-out VLA success-rate benchmark remains pending.
 
-Presentation explanation: “I fine-tuned a small set of SmolVLA adapter weights using my human demonstrations. On fixed held-out examples the learning loss decreased, and the saved adapter reloads correctly. The next test is whether its predicted actions actually complete the manipulation task.”
+Presentation explanation: “I fine-tuned a small set of SmolVLA adapter weights using my human demonstrations. On fixed held-out examples the learning loss decreased, and the saved adapter reloads correctly. The first simulation test did not pick up the cube, so lower loss has not yet translated into successful control.”

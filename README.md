@@ -91,7 +91,7 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 The next experiment uses the HW3 multicube scene: red, green and blue cubes with shuffled positions and a varying bin position. The task is to follow an instruction such as **“Put the green cube in the bin.”** This makes the requested object part of the task, rather than always moving the same cube.
 
-**Status: first human-only SmolVLA fine-tuning pilot complete. A saved LoRA adapter reduces fixed-window validation loss from 3.38 to 1.97 after 200 updates. Its robot control has not been evaluated yet.** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
+**Status: first human-only SmolVLA fine-tuning pilot complete. A saved LoRA adapter reduces fixed-window validation loss from 3.38 to 1.97 after 200 updates. Its first 40-second development rollout failed to pick up the cube. [Video and diagnosis](docs/human-vla-rollout.md).** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
 
 | What the VLA receives | What it should learn |
 |---|---|
@@ -116,7 +116,7 @@ For each accepted robot demonstration, save synchronized images, robot measureme
 
 ### Which model?
 
-**LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator. SmolVLA has passed synthetic and real-episode training/interface checks here; neither has been evaluated on the multicube task.
+**LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator. SmolVLA has passed synthetic and real-episode training/interface checks here; the fine-tuned SmolVLA pilot has now failed its first multicube development rollout. π₀.₅ has not been evaluated here.
 
 **Local hardware check:** pretrained SmolVLA passes isolated forward/backward/optimizer checks on both synthetic data and our recorded 13-state/4-action episode, using one camera, batch size one and rank-four LoRA on the RTX 4060 Laptop GPU (8 GB). Peak PyTorch allocation was 1.25 GiB (1.33 GiB reserved). This verifies the data interface and a small training configuration, not robot performance. [Real-batch checks](docs/vla-real-batch.md) · [Setup](docs/vla-setup.md)
 
@@ -136,6 +136,7 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; nine-state/four-action SmolVLA batch checks pass |
 | Prepare the human visual dataset | Complete: 39 training / 3 validation episodes; 9,616 training action examples; training-only normalization |
 | Fine-tune a pretrained VLA | Human-only pilot complete: 200 updates; fixed-window validation loss 3.38 → 1.97; saved adapter verified |
+| First VLA simulation rollout | Complete: no pickup on one training start; failure preserved with video |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 
@@ -147,7 +148,7 @@ The existing BC/world-model checkpoints and results remain the completed baselin
 
 A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning) achieved 97/100 original and 82/100 shifted-obstacle successes. Those are a different task setup and are not results of this phone-data controller. An integration pilot combined one human approach with phone-derived transport and scripted release; it completed a transfer but failed the contact-depth check. This integration is deferred and has not entered policy training.
 
-The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. A [one-batch SmolVLA check](docs/vla-human-batch.md) now passes with nine measured state values and four action values, including final-action padding. Those interface tests were independent temporary updates. The later fine-tuning pilot below now saves an adapter; no VLA task-success score is available.
+The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. A [one-batch SmolVLA check](docs/vla-human-batch.md) now passes with nine measured state values and four action values, including final-action padding. Those interface tests were independent temporary updates. The later fine-tuning pilot below now saves an adapter; the first development rollout failed to pick up the cube; no held-out VLA success-rate benchmark is available.
 
 A [physics replay of the human labels](docs/human-physics-replay.md) completed one red transfer but failed the 2 mm contact-depth screen (5.05 mm measured); the replay remains excluded from training. [Contact tracing](docs/human-contact-diagnosis.md) identifies a roughly 7 cm drop onto the bin floor, with high pickup force logged separately.
 
