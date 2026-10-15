@@ -13,7 +13,7 @@
 | BF16 forward/backward + AdamW update | Passed: three synthetic linear-model steps |
 | Isolated VLA environment | LeRobot 0.6.1, Transformers 5.5.4, PEFT 0.21.2; imports passed |
 | Free Linux disk space | 13 GB before installation; approximately 4.7 GB after the model test |
-| Pretrained SmolVLA + LoRA forward/backward/update | **Passed on a synthetic batch** |
+| Pretrained SmolVLA + LoRA forward/backward/update | **Passed on synthetic and real-episode batches** |
 
 A restricted process could not access the NVIDIA driver, but the host-access check succeeded. No driver repair was performed or needed for that check. VRAM availability changes with other applications.
 
@@ -70,14 +70,14 @@ These peaks are cumulative across loading, forward, backward, and the optimizer 
 
 [Saved machine-readable report](vla-memory.json). Raw attempts are preserved locally in `work/vla-memory-20261015-01`, `-02`, and `-03`. Attempt 01 loaded the weights but failed while accessing the tokenizer through the LoRA wrapper. Attempt 02 passed after fixing that access. Attempt 03 also passed and records the corrected precision metadata; it produced the same loss and memory peaks as attempt 02.
 
-An initial synthetic-batch test establishes only whether that configuration fits and can update parameters. It cannot establish task performance. Repeat with the real synchronized multicube data before committing to a long training run. Add cameras or batch size only after memory headroom is measured. Do not reduce image resolution without checking the model's actual internal resize behavior.
+An initial synthetic-batch test establishes only whether that configuration fits and can update parameters. It cannot establish task performance. A [subsequent real-episode interface check](vla-real-batch.md) also passed; it still does not establish task performance. Add cameras or batch size only after memory headroom is measured. Do not reduce image resolution without checking the model's actual internal resize behavior.
 
-LeRobot's hardware guide estimates 10–16 GB for its small-VLA group at batch size eight and default AdamW. This rank-four, single-camera synthetic test fits on the RTX 4060 Laptop GPU, but it does not measure full-parameter fine-tuning, longer runs, or task-specific batches. LoRA is supported for SmolVLA; its memory use depends on configuration.
+LeRobot's hardware guide estimates 10–16 GB for its small-VLA group at batch size eight and default AdamW. This rank-four, single-camera synthetic test fits on the RTX 4060 Laptop GPU, but it does not measure full-parameter fine-tuning or longer runs. The real-episode check uses the same low-memory adapter configuration. LoRA is supported for SmolVLA; its memory use depends on configuration.
 
 [Hardware guide](https://huggingface.co/docs/lerobot/main/hardware_guide) · [SmolVLA PEFT support](https://huggingface.co/docs/lerobot/main/peft_training)
 
-Pretrained weights have now been downloaded and one synthetic optimizer step has passed. No real-data fine-tuning run was started, no changed weights were saved, and the working BC environment, data splits, checkpoints and evaluation results remain unchanged. The script was previewed in full before creation.
+Pretrained weights have now been downloaded. Isolated synthetic and real-episode optimizer steps have passed. No task fine-tuning run or simulation evaluation was performed, no changed weights were saved, and the working BC environment, data splits, checkpoints and evaluation results remain unchanged. The script was previewed in full before creation.
 
 The small CUDA training check used a 1024-to-1024 linear layer, batch size two and BF16 autocast. All losses and gradients were finite; losses were 1.3477, 1.2310 and 1.1212. Peak allocated GPU memory was 39.3 MiB. This checks software execution only and is not evidence that SmolVLA fits. No trained weights were saved.
 
-One synchronized multicube candidate has now been recorded and inspected. The original placement failed the contact-depth check; a [scripted placement correction](visual-placement.md) passed that check on the same training case. The candidate has not been added to training. Next, check the real 13-state/4-action batch interface, review camera framing, and define a balanced colour/layout collection protocol before expanding the dataset or fine-tuning. The phone source-family split remains fixed; any new augmentation must keep all descendants of each recording in that recording's split.
+One synchronized multicube candidate has now been recorded and inspected. The original placement failed the contact-depth check; a [scripted placement correction](visual-placement.md) passed that check on the same training case. The candidate has not been added to training. The [real 13-state/4-action interface and boundary-padding checks](vla-real-batch.md) now pass. Next, review camera framing and define a balanced colour/layout collection protocol before expanding the dataset or fine-tuning. The phone source-family split remains fixed; any new augmentation must keep all descendants of each recording in that recording's split.
