@@ -161,12 +161,62 @@ def place_with_feedback(env, execute):
     return True
 
 
+def configure_camera(env, name, framing):
+    """Set a fixed workspace view without changing the robot or physics."""
+    camera = mujoco.mj_name2id(
+        env.model, mujoco.mjtObj.mjOBJ_CAMERA, name
+    )
+    if camera < 0:
+        raise ValueError(f"Unknown camera: {name}")
+
+    look_at = None
+    if framing == "workspace":
+        if env.model.cam_bodyid[camera] != 0:
+            raise ValueError("The workspace preset needs a world-mounted camera.")
+
+        position = np.array([-0.15, 0.15, 0.50])
+        look_at = np.array([-0.29, 0.49, 0.06])
+
+        forward = look_at - position
+        forward /= np.linalg.norm(forward)
+        right = np.cross(forward, [0.0, 0.0, 1.0])
+        right /= np.linalg.norm(right)
+        up = np.cross(right, forward)
+
+        # MuJoCo cameras look along their local negative Z axis.
+        rotation = np.column_stack([right, up, -forward])
+        env.model.cam_mode[camera] = mujoco.mjtCamLight.mjCAMLIGHT_FIXED
+        env.model.cam_pos[camera] = position
+        mujoco.mju_mat2Quat(
+            env.model.cam_quat[camera], rotation.ravel()
+        )
+        env.model.cam_fovy[camera] = 50.0
+        mujoco.mj_camlight(env.model, env.data)
+
+    return {
+        "name": name,
+        "framing": framing,
+        "initial_world_position_m": env.data.cam_xpos[camera].tolist(),
+        "initial_world_rotation": (
+            env.data.cam_xmat[camera].reshape(3, 3).tolist()
+        ),
+        "vertical_fov_deg": float(env.model.cam_fovy[camera]),
+        "fixed_to_world": bool(
+            env.model.cam_bodyid[camera] == 0
+            and env.model.cam_mode[camera]
+            == mujoco.mjtCamLight.mjCAMLIGHT_FIXED
+        ),
+        "look_at_world_m": None if look_at is None else look_at.tolist(),
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     training_sources = [name for name, split in SOURCE_SPLITS.items() if split == "train"]
     parser.add_argument("--source", choices=training_sources, default="IMG_5539")
     parser.add_argument("--color", choices=COLORS, default="green")
     parser.add_argument("--camera", default="angle")
+    parser.add_argument("--framing", choices=("scene", "workspace"), default="scene")
     parser.add_argument("--placement", choices=("replay", "feedback"), default="replay")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
@@ -192,6 +242,7 @@ def main():
     env = create_environment(homework, source, args.color)
     writer = None
     try:
+        camera_settings = configure_camera(env, args.camera, args.framing)
         if not np.isclose(env.dt_ctrl, source["control_dt_s"].item()):
             raise ValueError("Control timestep differs from the source.")
         if not np.isclose(env.sim_dt, source["physics_dt_s"].item()):
@@ -339,6 +390,7 @@ def main():
             "phone_contribution": "Transport trajectory; other motion phases are scripted.",
             "layout": "Fixed target and bin; two distractors placed aside; no shuffling.",
             "camera": args.camera,
+            "camera_settings": camera_settings,
             "placement_mode": args.placement,
             "placement_completed": placement_completed,
             "preserved_source_actions": preserved_steps,

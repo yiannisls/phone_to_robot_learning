@@ -1,0 +1,179 @@
+{
+  "purpose": "Fixed camera framing review on one training-source development episode; not a VLA evaluation.",
+  "source_family": "IMG_5539",
+  "split": "train",
+  "summary": {
+    "instruction": "Put the green cube in the bin.",
+    "origin": "Phone-derived demonstration replay; not human teleoperation.",
+    "source_family": "IMG_5539",
+    "split": "train",
+    "accepted_for_training": false,
+    "review_status": "Candidate for visual inspection only.",
+    "phone_contribution": "Transport trajectory; other motion phases are scripted.",
+    "layout": "Fixed target and bin; two distractors placed aside; no shuffling.",
+    "camera": "angle",
+    "camera_settings": {
+      "name": "angle",
+      "framing": "workspace",
+      "initial_world_position_m": [
+        -0.15,
+        0.15,
+        0.5
+      ],
+      "initial_world_rotation": [
+        [
+          0.9246780984747162,
+          -0.2921638386335249,
+          0.24415303724530452
+        ],
+        [
+          0.3807498052542948,
+          0.709540750967132,
+          -0.5929430904528824
+        ],
+        [
+          -1.3877787807814457e-17,
+          0.6412427107670872,
+          0.7673381170566714
+        ]
+      ],
+      "vertical_fov_deg": 50.0,
+      "fixed_to_world": true,
+      "look_at_world_m": [
+        -0.29,
+        0.49,
+        0.06
+      ]
+    },
+    "placement_mode": "feedback",
+    "placement_completed": true,
+    "preserved_source_actions": 89,
+    "source_prefix_unchanged": true,
+    "placement_handoff": "clear_bin_approach",
+    "recorded_transport_actions_preserved": 24,
+    "recorded_transport_actions_total": 46,
+    "recorded_transport_tail_replaced": true,
+    "placement_teacher": "Simulator cube pose and geometry feedback",
+    "worst_target_contact": {
+      "other_geometry": "bin_floor",
+      "other_body": "bin",
+      "phase": "placement_release",
+      "time_s": 20.94399999999927,
+      "action_index": 209,
+      "depth_m": 0.0009708668304269342
+    },
+    "image_shape": [
+      252,
+      240,
+      320,
+      3
+    ],
+    "robot_state_fields": [
+      "6 joint angles in radians",
+      "3 measured hand coordinates in metres",
+      "3 commanded hand-target coordinates in metres",
+      "1 applied native gripper command"
+    ],
+    "action_fields": [
+      "3 hand-target deltas in world-frame metres per control step",
+      "1 requested native gripper command; closing rate-limited"
+    ],
+    "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+    "diagnostics_only": [
+      "qpos",
+      "qvel",
+      "cubes"
+    ],
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "actions": 251,
+    "observations": 252,
+    "task_success": true,
+    "max_target_penetration_m": 0.0009708668304269342,
+    "quality_pass": true,
+    "max_distractor_displacement_m": 0.0010282112584439305,
+    "peak_target_height_m": 0.10387384148233969,
+    "gripper_close_rate_rad_s": 1.0,
+    "mujoco_version": "3.14.0",
+    "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+    "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "script_sha256": "60b82f2d695bce9a83ce221a35f68f9c9d102737b6aa73a0951bfb7730bc8732",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+  },
+  "checks": {
+    "physical_trajectory_and_actions_exact_match": true,
+    "images_changed": true,
+    "initial_cube_pixels": {
+      "scene": {
+        "red": {
+          "largest_visible_component_pixels": 159,
+          "bbox_width_px": 15,
+          "bbox_height_px": 13,
+          "discarded_disconnected_pixels": 5
+        },
+        "green": {
+          "largest_visible_component_pixels": 125,
+          "bbox_width_px": 13,
+          "bbox_height_px": 12,
+          "discarded_disconnected_pixels": 0
+        },
+        "blue": {
+          "largest_visible_component_pixels": 100,
+          "bbox_width_px": 12,
+          "bbox_height_px": 10,
+          "discarded_disconnected_pixels": 0
+        }
+      },
+      "workspace": {
+        "red": {
+          "largest_visible_component_pixels": 602,
+          "bbox_width_px": 30,
+          "bbox_height_px": 31,
+          "discarded_disconnected_pixels": 10
+        },
+        "green": {
+          "largest_visible_component_pixels": 541,
+          "bbox_width_px": 25,
+          "bbox_height_px": 31,
+          "discarded_disconnected_pixels": 1
+        },
+        "blue": {
+          "largest_visible_component_pixels": 430,
+          "bbox_width_px": 22,
+          "bbox_height_px": 27,
+          "discarded_disconnected_pixels": 0
+        }
+      }
+    },
+    "all_projected_points_in_front_of_camera": true,
+    "all_cube_corners_project_inside_frame": true,
+    "all_hand_sites_project_inside_frame": true,
+    "cube_corner_pixel_bounds": {
+      "min": [
+        92.28580894577169,
+        76.51840367413512
+      ],
+      "max": [
+        211.26865756865686,
+        187.58135261411627
+      ]
+    },
+    "hand_site_pixel_bounds": {
+      "min": [
+        158.3191025758274,
+        64.73060385457859
+      ],
+      "max": [
+        195.31665152420595,
+        156.85997101495585
+      ]
+    },
+    "caveat": "Projection checks do not prove absence of occlusion. Pixel component counts are initial-frame diagnostics, not VLA scores or dataset annotations.",
+    "pixel_metric": "Largest 8-connected component of each cube geometry in the initial segmentation render. Disconnected labels at other mesh edges are excluded."
+  },
+  "visual_episode_sha256": "50aad5bcaa9f682950eaa031a22338920383fcdc3d6e8962e6dc8f4b5b506c12",
+  "candidate_added_to_training": false
+}
