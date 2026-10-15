@@ -300,6 +300,72 @@ def convert_dataset(lab, camera, out):
     return manifest
 
 
+def read_visual_dataset(root):
+    """Check the prepared human corpus before a training run."""
+    root = root.expanduser().resolve()
+    manifest = json.loads((root / "manifest.json").read_text())
+    normalizer = json.loads((root / "normalization.json").read_text())
+    validation_ids = sorted(VALIDATION_EPISODES)
+    training_ids = [i for i in range(42) if i not in validation_ids]
+    if (
+        manifest["schema"] != "human_visual_dataset_v1"
+        or manifest["source_kind"] != "human_teleoperation"
+        or manifest["training_episode_ids"] != training_ids
+        or manifest["validation_episode_ids"] != validation_ids
+        or normalizer["episode_ids"] != training_ids
+        or manifest["dagger_included"]
+        or checksum(root / "normalization.json") != manifest["normalization_sha256"]
+        or [entry["episode"] for entry in manifest["episodes"]] != list(range(42))
+    ):
+        raise ValueError("Expected the original human corpus and its 39/3 split.")
+
+    training_states, training_actions = [], []
+    for entry in manifest["episodes"]:
+        identifier = entry["episode"]
+        folder = (root / entry["folder"]).resolve()
+        if not folder.is_relative_to(root):
+            raise ValueError("Episode path is outside the dataset.")
+        if (
+            checksum(folder / "episode.npz") != entry["episode_sha256"]
+            or checksum(folder / "summary.json") != entry["summary_sha256"]
+        ):
+            raise ValueError(f"Checksum mismatch for episode {identifier}.")
+        summary = json.loads((folder / "summary.json").read_text())
+        split = "validation" if identifier in validation_ids else "train"
+        with np.load(folder / "episode.npz", allow_pickle=False) as data:
+            state, action = data["robot_state"], data["actions"]
+            count = len(action)
+            if (
+                entry["split"] != split or summary["split"] != split
+                or data["split"].item() != split
+                or data["source_episode"].item() != identifier
+                or data["source_kind"].item() != "human_teleoperation"
+                or data["instruction"].item() != entry["instruction"]
+                or summary["instruction"] != entry["instruction"]
+                or state.shape != (count + 1, 9) or action.shape != (count, 4)
+                or count != entry["actions"] or count == 0
+                or not np.isfinite(state).all() or not np.isfinite(action).all()
+            ):
+                raise ValueError(f"Invalid human episode {identifier}.")
+            if split == "train":
+                if not summary["accepted_for_training"]:
+                    raise ValueError("A training episode is not accepted.")
+                training_states.append(state[:-1].astype(np.float64))
+                training_actions.append(action.astype(np.float64))
+
+    for key, parts in [("observation.state", training_states), ("action", training_actions)]:
+        values = np.concatenate(parts)
+        expected = normalizer["stats"][key]
+        if not (
+            np.array_equal(values.mean(axis=0), expected["mean"])
+            and np.array_equal(np.maximum(values.std(axis=0), 1e-6), expected["std"])
+        ):
+            raise ValueError("Normalization is not fitted on training rows only.")
+    if normalizer["transitions"] != sum(map(len, training_actions)):
+        raise ValueError("Normalization transition count differs.")
+    return manifest, normalizer
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lab", type=Path, required=True)

@@ -1,0 +1,308 @@
+{
+  "report": {
+    "status": "completed",
+    "experiment": "human_only_smolvla_lora_pilot",
+    "policy": "lerobot/smolvla_base",
+    "policy_revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+    "backbone_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+    "seed": 42,
+    "epochs": 1,
+    "learning_rate": 0.0001,
+    "batch_size": 1,
+    "lora_rank": 4,
+    "max_train_batches_per_epoch": 200,
+    "completed_updates": 200,
+    "trainable_parameters": 185664,
+    "initial_loss": {
+      "train": 2.6392529108527585,
+      "validation": 3.378818496637653
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "training_loss": 2.3656878330048796,
+        "updates": 200,
+        "fixed_train_loss": 1.7005713760689662,
+        "validation_loss": 1.9726087314984282
+      }
+    ],
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "memory": {
+      "allocated_mib": 1176.2958984375,
+      "peak_allocated_mib": 1293.4150390625,
+      "peak_reserved_mib": 1366.0
+    },
+    "versions": {
+      "torch": "2.11.0+cu130",
+      "lerobot": "0.6.1",
+      "transformers": "5.5.4",
+      "peft": "0.21.2"
+    },
+    "manifest_sha256": "677c3fe747573e6ca31183121539ff1bf6daabf0441d825e189942f1ea331574",
+    "normalization_sha256": "a807eee599e50d11932fd015052ee2c95db1d8544f9e1f0ffd4ea0b13634adc0",
+    "script_sha256": "7303d6ec6b434dc977218552f5349a1e411f581093a92967a2c09da03c9b8251",
+    "data_loader_sha256": "6a63c084526f24d5d80f19db6e28fb3a105fcd76ce157b0fd9091c49677e9374",
+    "model_loader_sha256": "c6e536e4031e82d17462df389d1e5e040bdfc03c678e96bde80f6cbdea238414",
+    "adapter_sha256": "50df61f5c3b9d145054585a8c0732856f9133ceb9bac48d2124f683feac97108",
+    "phone_data_included": false,
+    "dagger_included": false,
+    "images_reconstructed": true,
+    "robot_success_measured": false,
+    "checkpoint_selection": "Final epoch; no best-validation selection",
+    "limitation": "Fixed-window flow-matching loss; contact physics remains unvalidated."
+  },
+  "verification": {
+    "adapter_reload_in_fresh_process": true,
+    "adapter_tensors_exact": true,
+    "adapter_tensors_changed_from_initialization": 74,
+    "reloaded_loss": {
+      "train": 1.7005713760689662,
+      "validation": 1.9726087314984282
+    },
+    "max_loss_difference": 0.0,
+    "predicted_action_shape": [
+      1,
+      50,
+      4
+    ],
+    "predicted_physical_actions_finite": true,
+    "predictions_executed": false,
+    "training_updates": 200,
+    "unique_training_starts": 200,
+    "training_episodes_seen": 38,
+    "validation_rows_used_for_optimization": 0,
+    "adapter_bytes": 753728
+  },
+  "batch_interface": {
+    "normalization_and_split_verified": true,
+    "checks": [
+      {
+        "episode": 0,
+        "step": 0,
+        "valid_actions": 50,
+        "image_max_error": 5.960464477539063e-08,
+        "other_fields_exact": true
+      },
+      {
+        "episode": 0,
+        "step": 85,
+        "valid_actions": 50,
+        "image_max_error": 5.960464477539063e-08,
+        "other_fields_exact": true
+      },
+      {
+        "episode": 0,
+        "step": 337,
+        "valid_actions": 1,
+        "image_max_error": 5.960464477539063e-08,
+        "other_fields_exact": true
+      }
+    ],
+    "image_tolerance": 1e-07,
+    "reason_for_image_tolerance": "CPU versus GPU float32 division by 255 can differ by one rounding unit.",
+    "episode_boundary_preserved": true
+  },
+  "loss_probes": {
+    "train": [
+      [
+        7,
+        42
+      ],
+      [
+        14,
+        153
+      ],
+      [
+        24,
+        93
+      ],
+      [
+        8,
+        118
+      ],
+      [
+        4,
+        157
+      ],
+      [
+        16,
+        99
+      ],
+      [
+        29,
+        47
+      ],
+      [
+        40,
+        7
+      ],
+      [
+        13,
+        260
+      ],
+      [
+        1,
+        82
+      ],
+      [
+        22,
+        19
+      ],
+      [
+        8,
+        216
+      ],
+      [
+        34,
+        59
+      ],
+      [
+        33,
+        190
+      ],
+      [
+        37,
+        16
+      ],
+      [
+        14,
+        43
+      ],
+      [
+        18,
+        207
+      ],
+      [
+        23,
+        219
+      ],
+      [
+        17,
+        8
+      ],
+      [
+        39,
+        179
+      ],
+      [
+        0,
+        192
+      ],
+      [
+        15,
+        1
+      ],
+      [
+        8,
+        239
+      ],
+      [
+        21,
+        146
+      ]
+    ],
+    "validation": [
+      [
+        9,
+        0
+      ],
+      [
+        9,
+        43
+      ],
+      [
+        9,
+        87
+      ],
+      [
+        9,
+        130
+      ],
+      [
+        9,
+        174
+      ],
+      [
+        9,
+        217
+      ],
+      [
+        9,
+        261
+      ],
+      [
+        9,
+        305
+      ],
+      [
+        32,
+        0
+      ],
+      [
+        32,
+        36
+      ],
+      [
+        32,
+        72
+      ],
+      [
+        32,
+        108
+      ],
+      [
+        32,
+        144
+      ],
+      [
+        32,
+        180
+      ],
+      [
+        32,
+        216
+      ],
+      [
+        32,
+        253
+      ],
+      [
+        36,
+        0
+      ],
+      [
+        36,
+        31
+      ],
+      [
+        36,
+        63
+      ],
+      [
+        36,
+        95
+      ],
+      [
+        36,
+        127
+      ],
+      [
+        36,
+        159
+      ],
+      [
+        36,
+        191
+      ],
+      [
+        36,
+        223
+      ]
+    ]
+  },
+  "preserved_artifacts_verified": 1418,
+  "corpus_guard_checks": {
+    "changed_split_rejected": true,
+    "outside_dataset_path_rejected": true
+  }
+}

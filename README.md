@@ -91,7 +91,7 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 The next experiment uses the HW3 multicube scene: red, green and blue cubes with shuffled positions and a varying bin position. The task is to follow an instruction such as **“Put the green cube in the bin.”** This makes the requested object part of the task, rather than always moving the same cube.
 
-**Status: data and model integration. SmolVLA passes isolated synthetic and real-episode training/interface checks. No task-trained VLA checkpoint or simulation evaluation is available yet.** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
+**Status: first human-only SmolVLA fine-tuning pilot complete. A saved LoRA adapter reduces fixed-window validation loss from 3.38 to 1.97 after 200 updates. Its robot control has not been evaluated yet.** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
 
 | What the VLA receives | What it should learn |
 |---|---|
@@ -135,7 +135,7 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Generate and review balanced colour-conditioned demonstrations | Original layout: 12/18; smaller workspace: 18/18 scripted completions; zero training inclusions |
 | Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; nine-state/four-action SmolVLA batch checks pass |
 | Prepare the human visual dataset | Complete: 39 training / 3 validation episodes; 9,616 training action examples; training-only normalization |
-| Fine-tune a pretrained VLA | Next stage; no task-trained checkpoint or VLA success rate yet |
+| Fine-tune a pretrained VLA | Human-only pilot complete: 200 updates; fixed-window validation loss 3.38 → 1.97; saved adapter verified |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 
@@ -147,13 +147,15 @@ The existing BC/world-model checkpoints and results remain the completed baselin
 
 A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning) achieved 97/100 original and 82/100 shifted-obstacle successes. Those are a different task setup and are not results of this phone-data controller. An integration pilot combined one human approach with phone-derived transport and scripted release; it completed a transfer but failed the contact-depth check. This integration is deferred and has not entered policy training.
 
-The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. A [one-batch SmolVLA check](docs/vla-human-batch.md) now passes with nine measured state values and four action values, including final-action padding. These are independent temporary optimizer updates; no task-trained checkpoint or VLA task score is available.
+The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. A [one-batch SmolVLA check](docs/vla-human-batch.md) now passes with nine measured state values and four action values, including final-action padding. Those interface tests were independent temporary updates. The later fine-tuning pilot below now saves an adapter; no VLA task-success score is available.
 
 A [physics replay of the human labels](docs/human-physics-replay.md) completed one red transfer but failed the 2 mm contact-depth screen (5.05 mm measured); the replay remains excluded from training. [Contact tracing](docs/human-contact-diagnosis.md) identifies a roughly 7 cm drop onto the bin floor, with high pickup force logged separately.
 
 A [separate lower-first variant](docs/human-lower-first.md) uses one instant opening request and passes the depth screen on that same training case (1.00 mm); it remains a scripted diagnostic with high contact forces and no VLA task score. A [three-setting jaw-torque check](docs/human-jaw-torque.md) found that lowering motor torque alone does not solve the contact problem: 1 Nm loses the cube, and 2 Nm increases the pickup peak. The default is unchanged.
 
 The [full human visual corpus](docs/human-vla-dataset.md) is now prepared for an experimental fine-tuning run: **39 training episodes / 9,616 actions** and **3 validation episodes / 784 actions**. It uses the original recordings with reconstructed images and training-only normalization. Contact physics remains unvalidated; scripted replay corrections and DAgger segments are not included.
+
+The [first human-only SmolVLA pilot](docs/human-vla-training.md) has now run 200 training batches using a lab-style `Dataset`/`DataLoader`, `train_one_epoch` and `evaluate` structure. Its saved adapter reproduces the measured validation loss after reload. Phone data is not included in this run; a later human-only versus combined-data comparison will test its contribution.
 
 [Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
 

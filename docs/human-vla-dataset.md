@@ -53,8 +53,8 @@ Episode 0 matches the earlier converted example exactly, including RGB images. T
 
 The measured conversion retains its exact script snapshot and verification report locally. A subsequent CLI-only fix rejects an explicit `--episode 0` combined with `--all`; the conversion calculations are unchanged. The small report records both source hashes. The 94 MiB dataset and external lab data are not included in the older baseline release archive; a public dataset release is still pending.
 
-## Next runnable stage
+## Training stage
 
-Add a small SmolVLA fine-tuning entry point using the already tested rank-four LoRA configuration. It should read this manifest, use the saved training-only normalization, keep action chunks inside episode boundaries, mask padded actions, and save the adapter plus configuration and data fingerprints. Report training and validation loss separately. A loss reduction must not be presented as robot success; closed-loop evaluation follows.
+The [first human-only fine-tuning pilot](human-vla-training.md) is now complete using `train_vla.py`. It uses this manifest and training-only normalization, keeps action chunks inside episode boundaries, masks padded actions and saves a rank-four LoRA adapter with data fingerprints. Fixed-window training and validation losses decreased after 200 updates. Closed-loop robot evaluation is the next stage; reduced loss is not a success rate.
 
 Presentation explanation: “I reconstructed images from my 42 recorded robot demonstrations and paired each image with the robot state, colour instruction and following action. I kept three recordings for validation and fitted scaling only on the other 39. The first VLA experiment will test learning from those labels, with the replay limitations documented.”

@@ -20,7 +20,7 @@ The placement helper in the visual-data recorder is a scripted teacher for colle
 
 The frozen phone baseline achieved 99/100 ordinary successes for both BC and BC + WM. Under an artificial early-opening request, BC achieved 49/100 and BC + WM 99/100. Those used the original single-cube scene, execution settings and saved protocol. They remain historical results, not entries measured in a new multicube table.
 
-The current VLA work has passed data/memory/interface checks only. No task-trained VLA checkpoint or VLA closed-loop score exists yet. The 18-attempt visual pilot measures demonstration collection, not policy success.
+The current VLA work includes a [200-update human-only fine-tuning pilot](human-vla-training.md) with a saved adapter and reduced fixed-window validation loss. No VLA closed-loop score exists yet. The 18-attempt visual pilot measures demonstration collection, not policy success.
 
 ## Proposed matched evaluation
 
