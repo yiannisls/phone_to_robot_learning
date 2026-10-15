@@ -1,0 +1,136 @@
+{
+  "seed": 987,
+  "execution_horizon": 16,
+  "max_steps": 800,
+  "mujoco_version": "3.15.0",
+  "checkpoint_sha256": "7df4f13828e38c4a5a1fa0b7b12c0176311987daaa54d2e84108700e2406422d",
+  "trace_columns": [
+    "cube_x",
+    "cube_y",
+    "cube_z",
+    "hand_x",
+    "hand_y",
+    "hand_z",
+    "gripper_angle",
+    "goal_x",
+    "goal_y",
+    "goal_z"
+  ],
+  "contact_sampling": "End of each control step; transient contacts may be missed.",
+  "source_sha256": {
+    "hw3/eval_utils.py": "77409db203b24c34c3931dd19948f421be0f37481d3a48257e46d7c0e66654d8",
+    "hw3/model.py": "4c885a82ea0a38c101c4716f16e30c5eb27c591b842b5a527608fb4b627af677",
+    "hw3/sim_env.py": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174"
+  },
+  "episodes": [
+    {
+      "episode": 1,
+      "success": true,
+      "steps": 417,
+      "initial_cube_xyz": [
+        -0.2382819732597837,
+        0.39768618994264915,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12338793771893786,
+      "final_cube_xyz": [
+        -0.19151938790745288,
+        0.681651261934917,
+        0.027486851346952307
+      ],
+      "final_hand_xyz": [
+        -0.23347823903721368,
+        0.683280385893563,
+        0.16012912282093153
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.13784441487499408,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 0,
+      "gripper_command_min_max": [
+        -0.01251685619354248,
+        0.619671106338501
+      ]
+    },
+    {
+      "episode": 2,
+      "success": true,
+      "steps": 401,
+      "initial_cube_xyz": [
+        -0.22793028125356551,
+        0.39289841720390584,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.11666586603626482,
+      "final_cube_xyz": [
+        -0.18721326802551513,
+        0.6856107368647869,
+        0.02603442679642978
+      ],
+      "final_hand_xyz": [
+        -0.2237211367115404,
+        0.6705030724633838,
+        0.14495955194881088
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2993950217343368,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 14,
+      "gripper_command_min_max": [
+        -0.050517305731773376,
+        0.7436785697937012
+      ]
+    },
+    {
+      "episode": 3,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.22330671323472234,
+        0.4060286463641794,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12125821114303911,
+      "final_cube_xyz": [
+        -0.17771405484612976,
+        0.6634944216017894,
+        0.12125821114303911
+      ],
+      "final_hand_xyz": [
+        -0.20364712080669028,
+        0.6576370131577041,
+        0.14381921569420056
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.302517744197465,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 17,
+      "gripper_command_min_max": [
+        -0.11765657365322113,
+        0.7827861309051514
+      ]
+    }
+  ],
+  "purpose": "Failure diagnosis on previously evaluated layouts; not a new success-rate estimate."
+}
