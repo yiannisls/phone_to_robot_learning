@@ -3,6 +3,7 @@
 import argparse
 import hashlib
 import json
+from itertools import product
 import os
 from pathlib import Path
 import sys
@@ -17,6 +18,7 @@ from generate_demo import SOURCE_SPLITS
 
 PROJECT = Path(__file__).resolve().parents[1]
 COLORS = ("red", "green", "blue")
+PILOT_SLOTS = np.array([[-0.35, 0.35], [-0.23, 0.40], [-0.35, 0.52]])
 
 
 def checksum(path):
@@ -41,7 +43,7 @@ def capture(env, camera):
     }
 
 
-def create_environment(homework, source, color):
+def create_environment(homework, source, color, slot_colors=None):
     sys.path.insert(0, str(homework))
     from hw3.sim_env import SO100MulticubeSimEnv
 
@@ -69,6 +71,17 @@ def create_environment(homework, source, color):
             env.data.qvel[start:start + 6] = source["qvel"][0, 6:12]
         else:
             env.data.qpos[indices[:3]] = next(distractor_positions)
+
+    if slot_colors is not None:
+        for slot, cube_color in enumerate(slot_colors):
+            cube_index = COLORS.index(cube_color)
+            indices = env.cube_qpos_slices[cube_index]
+            pose = source["qpos"][0, 6:13].copy()
+            pose[:2] = PILOT_SLOTS[slot]
+            env.data.qpos[indices] = pose
+            joint = env.model.joint(f"{cube_color}_box_joint")
+            start = int(env.model.jnt_dofadr[joint.id])
+            env.data.qvel[start:start + 6] = source["qvel"][0, 6:12]
 
     env.model.body("bin").pos[:] = (
         source["goal_pos"][0] - env.model.site("bin_center").pos
@@ -161,6 +174,88 @@ def place_with_feedback(env, execute):
     return True
 
 
+def make_retargeted_plan(source, transport, cube_start, goal):
+    """Retarget scripted pickup and phone transport to a selected cube."""
+    if not np.allclose(
+        np.diff(transport["time_seconds"]), source["control_dt_s"].item()
+    ):
+        raise ValueError("Transport samples must match the control timestep.")
+
+    lower_indices = np.flatnonzero(source["phase"] == "lower")
+    approach_indices = np.flatnonzero(source["phase"] == "approach")
+    grasp_indices = np.flatnonzero(source["phase"] == "grasp")
+    offset = (
+        source["state_mocap_target"][lower_indices[-1] + 1]
+        - source["qpos"][0, 6:9]
+    )
+    clearance = (
+        source["state_mocap_target"][approach_indices[-1] + 1]
+        - source["state_mocap_target"][lower_indices[-1] + 1]
+    )
+    grasp = cube_start + offset
+    above = grasp + clearance
+    start = source["state_mocap_target"][0].astype(np.float64)
+    closed = float(source["actions"][grasp_indices[0], 3])
+    targets, grippers, phases = [start], [], []
+
+    def append(target, gripper, phase):
+        previous = targets[-1].copy()
+        target = np.asarray(target)
+        steps = max(1, int(np.ceil(np.linalg.norm(target - previous) / 0.012)))
+        for fraction in np.linspace(0, 1, steps + 1)[1:]:
+            targets.append(previous + fraction * (target - previous))
+            grippers.append(gripper)
+            phases.append(phase)
+
+    for fraction in np.linspace(0, 1, len(approach_indices)):
+        append(start + fraction * (above - start), 1.0, "approach")
+    for fraction in np.linspace(0, 1, len(lower_indices)):
+        append(above + fraction * (grasp - above), 1.0, "lower")
+    for _ in grasp_indices:
+        append(grasp, closed, "grasp")
+
+    displacement = goal[:2] - cube_start[:2]
+    distance = np.linalg.norm(displacement)
+    if distance < 0.01:
+        raise ValueError("Pickup and destination must be at least 1 cm apart.")
+    direction = displacement / distance
+    sideways = np.array([-direction[1], direction[0]])
+    for point in transport[1:]:
+        target = grasp.copy()
+        target[:2] += (
+            point["progress"] * displacement
+            + point["lateral_m"] * sideways
+        )
+        target[2] += point["height_m"]
+        append(target, closed, "recorded_transport")
+
+    # This boundary hands control to the existing placement helper.
+    append(targets[-1], closed, "gentle_place")
+    targets = np.asarray(targets)
+    plan = {
+        "state_mocap_target": targets,
+        "actions": np.column_stack([np.diff(targets, axis=0), grippers]),
+        "phase": np.asarray(phases),
+    }
+    details = {
+        "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+        "pickup_xyz_m": cube_start.tolist(),
+        "goal_xyz_m": goal.tolist(),
+        "grasp_offset_m": offset.tolist(),
+        "approach_clearance_m": clearance.tolist(),
+        "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+        "transport_rows": len(transport),
+        "transport_duration_s": float(transport["time_seconds"][-1]),
+        "planned_transport_duration_s": float(np.sum(plan["phase"] == "recorded_transport") * source["control_dt_s"]),
+        "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+        "max_planned_move_m": float(np.linalg.norm(plan["actions"][:, :3], axis=1).max()),
+        "original_recorded_transport_actions": int(
+            np.sum(source["phase"] == "recorded_transport")
+        ),
+    }
+    return plan, details
+
+
 def configure_camera(env, name, framing):
     """Set a fixed workspace view without changing the robot or physics."""
     camera = mujoco.mj_name2id(
@@ -210,16 +305,57 @@ def configure_camera(env, name, framing):
     }
 
 
+def check_camera_coverage(env, camera_name, arrays):
+    """Check image bounds for cube corners and the hand reference point."""
+    camera = env.model.camera(camera_name).id
+    rotation = env.data.cam_xmat[camera].reshape(3, 3)
+    position = env.data.cam_xpos[camera]
+    focal = env.render_h / (2 * np.tan(np.deg2rad(env.model.cam_fovy[camera]) / 2))
+    signs = np.asarray(list(product([-1, 1], repeat=3)))
+    points = [arrays["robot_state"][:, 6:9]]
+    for frame in arrays["cubes"].reshape(-1, 3, 7):
+        for color, pose in zip(COLORS, frame):
+            box_rotation = np.empty(9)
+            mujoco.mju_quat2Mat(box_rotation, pose[3:])
+            half_size = env.model.geom(f"{color}_box").size
+            corners = pose[:3] + (signs * half_size) @ box_rotation.reshape(3, 3).T
+            points.append(corners)
+    local = (np.concatenate(points) - position) @ rotation
+    depth = -local[:, 2]
+    if np.any(depth <= 0):
+        return {"passed": False, "reason": "A required point is behind the camera."}
+    pixels = np.column_stack([
+        env.render_w / 2 + focal * local[:, 0] / depth,
+        env.render_h / 2 - focal * local[:, 1] / depth,
+    ])
+    inside = (
+        (pixels[:, 0] >= 0) & (pixels[:, 0] < env.render_w)
+        & (pixels[:, 1] >= 0) & (pixels[:, 1] < env.render_h)
+    )
+    return {
+        "passed": bool(inside.all()),
+        "pixel_min": pixels.min(axis=0).tolist(),
+        "pixel_max": pixels.max(axis=0).tolist(),
+        "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility.",
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     training_sources = [name for name, split in SOURCE_SPLITS.items() if split == "train"]
     parser.add_argument("--source", choices=training_sources, default="IMG_5539")
     parser.add_argument("--color", choices=COLORS, default="green")
     parser.add_argument("--camera", default="angle")
+    parser.add_argument("--slot-colors", nargs=3, choices=COLORS)
     parser.add_argument("--framing", choices=("scene", "workspace"), default="scene")
     parser.add_argument("--placement", choices=("replay", "feedback"), default="replay")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
+    if args.slot_colors is not None:
+        if set(args.slot_colors) != set(COLORS):
+            parser.error("--slot-colors must contain each colour exactly once.")
+        if args.placement != "feedback" or args.framing != "workspace":
+            parser.error("Balanced slots require --placement feedback --framing workspace.")
 
     configured_homework = os.environ.get("ROBOT_LEARNING_HW3")
     if not configured_homework:
@@ -239,10 +375,16 @@ def main():
         raise ValueError("The transport path does not match the demonstration.")
 
     args.out.mkdir(parents=True, exist_ok=False)
-    env = create_environment(homework, source, args.color)
+    env = create_environment(homework, source, args.color, args.slot_colors)
     writer = None
     try:
         camera_settings = configure_camera(env, args.camera, args.framing)
+        plan, retargeting = source, None
+        if args.slot_colors is not None:
+            recorded_transport = np.genfromtxt(transport, delimiter=",", names=True)
+            plan, retargeting = make_retargeted_plan(
+                source, recorded_transport, env.get_cube_state()[:3], env.get_goal_pos()
+            )
         if not np.isclose(env.dt_ctrl, source["control_dt_s"].item()):
             raise ValueError("Control timestep differs from the source.")
         if not np.isclose(env.sim_dt, source["physics_dt_s"].item()):
@@ -312,8 +454,8 @@ def main():
             env.data.geom_xpos[env.model.geom(name).id, 2] + env.model.geom(name).size[2]
             for name in ("bin_wall", "bin_wall2", "bin_wall3", "bin_wall4")
         )
-        for index, action in enumerate(source["actions"]):
-            phase = str(source["phase"][index])
+        for index, action in enumerate(plan["actions"]):
+            phase = str(plan["phase"][index])
             rotation = env.data.geom_xmat[target_geometry].reshape(3, 3)
             bottom = (
                 env.data.geom_xpos[target_geometry, 2]
@@ -332,7 +474,7 @@ def main():
                 placement_handoff = "clear_bin_approach" if clear_approach else "source_placement_phase"
                 placement_completed = place_with_feedback(env, execute)
                 break
-            target = source["state_mocap_target"][index + 1].astype(np.float64)
+            target = plan["state_mocap_target"][index + 1].astype(np.float64)
             execute(target, float(action[3]), phase)
             preserved_steps += 1
         if args.placement == "feedback" and placement_completed is None:
@@ -346,12 +488,13 @@ def main():
         assert len(arrays["images"]) == len(actions) + 1
         assert np.allclose(np.diff(arrays["time_s"]), env.dt_ctrl)
         assert np.allclose(np.diff(arrays["mocap_target"], axis=0), actions[:, :3])
-        assert np.allclose(actions[:preserved_steps], source["actions"][:preserved_steps], atol=1e-6)
-        assert np.array_equal(phases[:preserved_steps], source["phase"][:preserved_steps])
+        assert np.allclose(actions[:preserved_steps], plan["actions"][:preserved_steps], atol=1e-6)
+        assert np.array_equal(phases[:preserved_steps], plan["phase"][:preserved_steps])
         for key, values in arrays.items():
             if not np.isfinite(values).all():
                 raise RuntimeError(f"Non-finite values in {key}.")
 
+        coverage = check_camera_coverage(env, args.camera, arrays) if args.framing == "workspace" else None
         target_index = COLORS.index(args.color)
         cubes = arrays["cubes"].reshape(-1, 3, 7)
         final_cube = cubes[-1, target_index, :3]
@@ -387,18 +530,24 @@ def main():
             "split": "train",
             "accepted_for_training": False,
             "review_status": "Candidate for visual inspection only.",
-            "phone_contribution": "Transport trajectory; other motion phases are scripted.",
-            "layout": "Fixed target and bin; two distractors placed aside; no shuffling.",
+            "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted" if retargeting else "Transport trajectory; other motion phases are scripted.",
+            "layout": "Balanced fixed slots; colour permutation; fixed bin" if args.slot_colors else "Fixed target and bin; two distractors placed aside; no shuffling.",
+            "slot_colors": args.slot_colors,
+            "slot_xy_m": PILOT_SLOTS.tolist() if args.slot_colors else None,
+            "target_slot": args.slot_colors.index(args.color) if args.slot_colors else None,
+            "retargeting": retargeting,
             "camera": args.camera,
             "camera_settings": camera_settings,
+            "camera_coverage": coverage,
             "placement_mode": args.placement,
             "placement_completed": placement_completed,
             "preserved_source_actions": preserved_steps,
-            "source_prefix_unchanged": True,
+            "source_prefix_unchanged": retargeting is None,
+            "executed_prefix_matches_plan": True,
             "placement_handoff": placement_handoff,
-            "recorded_transport_actions_preserved": int(np.sum(source["phase"][:preserved_steps] == "recorded_transport")),
-            "recorded_transport_actions_total": int(np.sum(source["phase"] == "recorded_transport")),
-            "recorded_transport_tail_replaced": bool(np.any(source["phase"][preserved_steps:] == "recorded_transport")),
+            "recorded_transport_actions_preserved": int(np.sum(plan["phase"][:preserved_steps] == "recorded_transport")),
+            "recorded_transport_actions_total": int(np.sum(plan["phase"] == "recorded_transport")),
+            "recorded_transport_tail_replaced": bool(np.any(plan["phase"][preserved_steps:] == "recorded_transport")),
             "placement_teacher": "Simulator cube pose and geometry feedback" if args.placement == "feedback" else "Original saved commands",
             "worst_target_contact": worst_contact,
             "image_shape": list(arrays["images"].shape),

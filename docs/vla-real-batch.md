@@ -73,4 +73,4 @@ Omit `--episode` and `--step` to retain the original synthetic test. Recorded lo
 
 ## Next
 
-Review camera framing, then define and collect balanced colour/layout demonstrations while preserving phone-family boundaries. Freeze the accepted corpus and training-only normalization before any task fine-tuning. Keep the single-cube BC/world-model baseline unchanged, and measure VLA success separately once a saved policy can run closed-loop in simulation.
+Camera framing and the first balanced collection pilot are now implemented. The [pilot](visual-pilot.md) recorded 12/18 task completions and a consistent third-slot grasp failure; correct that setup before expanding the corpus, while preserving phone-family boundaries. Freeze the accepted corpus and training-only normalization before any task fine-tuning. Keep the single-cube BC/world-model baseline unchanged, and measure VLA success separately once a saved policy can run closed-loop in simulation.

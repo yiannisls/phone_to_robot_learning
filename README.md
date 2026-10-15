@@ -120,9 +120,11 @@ For each accepted robot demonstration, save synchronized images, robot measureme
 
 **Local hardware check:** pretrained SmolVLA passes isolated forward/backward/optimizer checks on both synthetic data and our recorded 13-state/4-action episode, using one camera, batch size one and rank-four LoRA on the RTX 4060 Laptop GPU (8 GB). Peak PyTorch allocation was 1.25 GiB (1.33 GiB reserved). This verifies the data interface and a small training configuration, not robot performance. [Real-batch checks](docs/vla-real-batch.md) · [Setup](docs/vla-setup.md)
 
-The [fixed workspace camera](docs/camera-framing.md) now gives larger cube images while preserving the physical trajectory. The next step is an [18-attempt balanced pilot](docs/visual-collection-plan.md): six colour arrangements, each with three target instructions. This collection is planned, not yet recorded. One complete image–instruction–action candidate has been inspected and passed through the model.
+The [fixed workspace camera](docs/camera-framing.md) gives larger cube images while preserving the physical trajectory. The [first 18-attempt collection pilot](docs/visual-pilot.md) completed 12 transfers; all six failures came from the third pickup slot, where the grasp collides with the arm and fails to track its target. Every attempt is retained, and no pilot episode has entered training. Correct that pickup setup before expanding the dataset.
 
 ### How the experiment will be evaluated
+
+Compare BC + world model and SmolVLA only under a declared common task/execution protocol. The state controller receives exact target/bin coordinates; the VLA receives images and text. Keep the original single-cube results separate from future multicube scores. [Comparison protocol and required adaptations](docs/controller-comparison.md).
 
 Use held-out layouts with balanced red, green and blue targets. Test the same layout with different colour instructions to check whether actions follow the instruction. Report correct-cube placement, wrong-cube selection, and grasp/release failures separately. Training, validation and test phone families remain separate, including generated descendants; normalization uses training examples only.
 
@@ -130,7 +132,7 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 |---|---|
 | Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
 | Inspect one synchronized multicube visual demonstration | Original placement failed; scripted placement correction passed the 2 mm check on one training layout; not yet added to training |
-| Generate and review balanced colour-conditioned demonstrations | Fixed camera checked; 18-attempt collection pilot specified, not yet implemented |
+| Generate and review balanced colour-conditioned demonstrations | First pilot: 12/18 task completions; third-slot grasp fails; zero training inclusions |
 | Convert the verified dataset and fine-tune a pretrained VLA | Corpus training planned; real 13-state/4-action batch and episode-end padding checks pass |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |

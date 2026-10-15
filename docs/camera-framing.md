@@ -61,4 +61,4 @@ export ROBOT_LEARNING_HW3=/path/to/hw3_imitation_learning
 
 Use a fresh output folder. Expected output includes `camera_settings.framing: workspace`, `camera_settings.fixed_to_world: true`, `task_success: true`, `quality_pass: true`, 251 actions and 252 observations. Inspect your own values because versions/platforms can affect rendering and physics. The recorder saves an AVI preview; the linked public preview is an H.264 conversion of that recording.
 
-Next: implement the [balanced collection pilot](visual-collection-plan.md). Keep the camera fixed across instructions, and verify framing again for each new geometry before accepting data.
+Follow-up: the [balanced collection pilot](visual-pilot.md) has now been recorded; it exposed a third-slot grasp failure. Keep the camera fixed across instructions, and verify framing again for each new geometry before accepting data.

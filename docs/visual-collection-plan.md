@@ -1,6 +1,6 @@
 # Next visual-data collection pilot
 
-This is the collection specification, not a completed dataset. The camera and one canonical placement candidate have been checked; balanced target-slot collection and trajectory retargeting are not yet implemented.
+The first 18-attempt pilot has now been implemented and recorded: **12 task completions, six pickup failures at slot 2, and zero training inclusions**. See [the complete pilot and failure analysis](visual-pilot.md). The specification below records the matrix that was declared before collection; it is not a claim of a completed training dataset.
 
 ## First pilot: 18 candidates
 
@@ -12,9 +12,9 @@ For any one arrangement, the initial scene, camera and robot state must be the s
 
 ## Keep the phone data's role explicit
 
-The current recorder replays a saved demonstration at its original pickup position. Selecting another colour currently puts that colour at that same position; that alone is not a balanced language dataset.
+The original recorder mode replays a saved demonstration at its original pickup position. Selecting another colour in that mode puts that colour at that same position; that alone is not a balanced language dataset. The implemented `--slot-colors` mode instead assigns physical slots independently of the instruction and retargets the motion to the requested cube.
 
-The next implementation must retarget the phone-derived movement to the chosen slot and bin. Keep the measured transport shape/progress and label scripted approach, grasp, placement, release and retreat separately. Record any replaced transport tail, the retained fraction and all coordinate/timing transforms. A fully scripted transport must not be labelled as phone-derived motion. The original source files remain immutable.
+The implemented pilot retargets the phone-derived movement to the chosen slot and bin. It records interpolation needed to keep commands within 12 mm; the timing can stretch nonuniformly. Keep the measured transport shape/progress and label scripted approach, grasp, placement, release and retreat separately. Record any replaced transport tail, the retained fraction and all coordinate/timing transforms. A fully scripted transport must not be labelled as phone-derived motion. The original source files remain immutable.
 
 Each attempt needs an episode ID, source family, arrangement ID, target colour, slot coordinates, bin position, instruction, camera settings, actual states/actions/timestamps, motion provenance, script/dependency fingerprints, task result and quality measurements. New outputs belong in their own folder, outside frozen baseline datasets.
 
@@ -24,7 +24,7 @@ Record every prescribed attempt and retain failures. Use the existing task check
 
 Inspect examples for every target colour and pickup slot before freezing the pilot manifest. A helper stall, failed grasp, wrong-object movement, excessive penetration or clipped required workspace is a reported collection failure. Do not silently retry until only successes remain or present the accepted subset as a success rate. The collector's success rate and a learned policy's success rate are different measurements.
 
-The 18 count is an attempt count, not a promise of 18 accepted demonstrations. The pilot is not yet ready for training merely because one canonical episode passed.
+The 18 count is an attempt count, not a promise of 18 accepted demonstrations. The pilot is not ready for training: it lacks successful demonstrations for the third pickup slot, and robot self-contact needs inspection in addition to target-cube contact depth.
 
 ## Expansion after the pilot
 
