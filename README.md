@@ -10,7 +10,7 @@ The internship challenge asks applicants to collect their own data and use it to
 
 **Current result:** both frozen phone-derived controllers complete **99/100 transfers** in the expanded position evaluation. A learned world model also helps reject a deliberately early gripper-opening command. Under an artificial early-opening request, BC completes **49/100** and BC + world model **99/100**.
 
-[See the result](#3-the-result--testing-the-robot) · [Understand the pipeline](#2-the-middle--turning-movement-into-robot-demonstrations) · [Run it](#run-the-project) · [Read the code](docs/project-map.md)
+[See the result](#3-the-result--testing-the-robot) · [Understand the pipeline](#2-the-middle--turning-movement-into-robot-demonstrations) · [Next: multicube VLA](#4-next--choose-the-right-cube-from-a-language-instruction) · [Run it](#run-the-project) · [Read the code](docs/project-map.md)
 
 ## 1. The start — collect a small, personal dataset
 
@@ -45,7 +45,7 @@ flowchart LR
 
 **Behavioral cloning (BC)** learns by example. Given the current robot and object measurements, a small neural network predicts upcoming movement and gripper commands. During execution, the robot follows a few commands, receives updated measurements, and predicts again.
 
-The demonstrated trajectories teach the policy; the policy then chooses its own actions during evaluation. The current controller uses simulator state measurements. Camera and language inputs are planned as a possible later extension.
+The demonstrated trajectories teach the policy; the policy then chooses its own actions during evaluation. The current controller uses simulator state measurements. The next experiment adds camera images and colour instructions in a separate multicube task.
 
 ### Looking ahead: the world model
 
@@ -87,20 +87,53 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 [Prediction experiments](docs/world_model_v2_results.md) · [Gripper investigation](docs/gripper_experiments.md)
 
-## 4. The next step — test the phone-derived system more broadly
+## 4. Next — choose the right cube from a language instruction
 
-The active project uses the personally recorded phone footage, behavioral cloning and the state world model. The expanded evaluation now covers 100 starting positions in the same scene, with separate ordinary/opening-error conditions. It includes eighty further positions after the initial twenty-position confirmation. These are simulated layout variations, not new real recordings or different objects.
+The next experiment uses the HW3 multicube scene: red, green and blue cubes with shuffled positions and a varying bin position. The task is to follow an instruction such as **“Put the green cube in the bin.”** This makes the requested object part of the task, rather than always moving the same cube.
+
+**Status: planned. No VLA has been fine-tuned or evaluated in this project yet.** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
+
+| What the VLA receives | What it should learn |
+|---|---|
+| Simulator camera views | Locate the cubes, robot and bin |
+| “Put the green cube in the bin” | Select the requested colour |
+| Robot measurements, such as joints and gripper opening | Choose movement and gripper commands |
+
+```mermaid
+flowchart LR
+    A[Camera images] --> D[Pretrained VLA, then fine-tuning]
+    B[Instruction: put the green cube in the bin] --> D
+    C[Robot measurements] --> D
+    D --> E[Movement and gripper actions]
+    E --> F[Observe again in simulation]
+```
+
+### Keep the personal phone data central
+
+The planned dataset will adapt the recorded transport paths to a selected cube and the bin, with the robot-specific approach, grasp and release phases documented separately. Successful demonstrations must be verified in the multicube scene before use. Existing phone footage supplies motion; it does not contain robot action labels or examples of selecting coloured cubes from language.
+
+For each accepted robot demonstration, save synchronized images, robot measurements, action labels and a colour instruction. The existing state-only recordings do not already provide that visual dataset. Rendered simulator images will be labelled as simulated or reconstructed, rather than as direct phone-camera visual transfer.
+
+### Which model?
+
+**LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator; neither has been tested here.
+
+The immediate priority is a reliable dataset. First inspect one complete image–instruction–action episode, then choose the training configuration and GPU. A larger model alone does not establish better results on this task.
+
+### How the experiment will be evaluated
+
+Use held-out layouts with balanced red, green and blue targets. Test the same layout with different colour instructions to check whether actions follow the instruction. Report correct-cube placement, wrong-cube selection, and grasp/release failures separately. Training, validation and test phone families remain separate, including generated descendants; normalization uses training examples only.
 
 | Stage | Status |
 |---|---|
-| Collect phone recordings and extract motion | Complete |
-| Generate demonstrations and train BC | Complete |
-| Learn a state world model and test gripper decisions | Complete for the reported experiment |
-| Evaluate frozen controllers on 100 starting positions | Complete: 99/100 ordinary for both controllers |
-| Address remaining contact-physics limitations | Open |
-| Build visual action data and fine-tune a VLA | Optional later experiment |
+| Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
+| Inspect one synchronized multicube visual demonstration | Next |
+| Generate and review balanced colour-conditioned demonstrations | Planned |
+| Convert the verified dataset and fine-tune a pretrained VLA | Planned; model and GPU not finalized |
+| Evaluate language selection and manipulation on held-out layouts | Planned |
+| Resolve contact-physics limitations | Open |
 
-The source-family split and existing model checkpoints remain fixed. New outcomes are reported separately from the earlier development suite. These position tests do not establish robustness to different objects, friction or camera viewpoints.
+The existing BC/world-model checkpoints and results remain the completed baseline. The current world model is not yet integrated with a VLA.
 
 ### Earlier work: teleoperation integration, deferred
 
