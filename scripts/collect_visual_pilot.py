@@ -12,7 +12,7 @@ import sys
 import numpy as np
 
 from generate_demo import SOURCE_SPLITS
-from record_visual_episode import COLORS, PILOT_SLOTS
+from record_visual_episode import COLORS, SLOT_LAYOUTS
 
 PROJECT = Path(__file__).resolve().parents[1]
 
@@ -67,6 +67,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     training_sources = [name for name, split in SOURCE_SPLITS.items() if split == "train"]
     parser.add_argument("--source", choices=training_sources, default="IMG_5539")
+    parser.add_argument("--layout", choices=SLOT_LAYOUTS, default="original")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
     args.out = args.out.resolve()
@@ -90,7 +91,9 @@ def main():
         "source_family": args.source,
         "split": "train",
         "planned_attempts": 18,
-        "slots_xy_m": PILOT_SLOTS.tolist(),
+        "layout_preset": args.layout,
+        "slots_xy_m": SLOT_LAYOUTS[args.layout].tolist(),
+        "self_contact_review_rule": "No detected robot self-penetration at physics steps; contact forces remain unvalidated.",
         "recorder_sha256": checksum(recorder),
         "collector_sha256": checksum(Path(__file__)),
         "automatic_retries": False,
@@ -105,6 +108,7 @@ def main():
         command = [
             sys.executable, str(recorder),
             "--source", args.source,
+            "--layout", args.layout,
             "--placement", "feedback",
             "--framing", "workspace",
             "--slot-colors", *case["slot_colors"],
@@ -128,6 +132,7 @@ def main():
             case["eligible_before_scene_check"] = bool(
                 report["task_success"]
                 and report["quality_pass"]
+                and report["max_robot_self_penetration_m"] == 0.0
                 and report["camera_coverage"]["passed"]
                 and report["recorded_transport_actions_preserved"] > 0
             )
@@ -158,6 +163,10 @@ def main():
         "recorded": sum(case["status"] == "completed" for case in cases),
         "task_success": sum(case.get("report", {}).get("task_success", False) for case in cases),
         "quality_pass": sum(case.get("report", {}).get("quality_pass", False) for case in cases),
+        "no_robot_self_penetration": sum(
+            case.get("report", {}).get("max_robot_self_penetration_m") == 0.0
+            for case in cases
+        ),
         "eligible_for_review": sum(case["eligible_for_review"] for case in cases),
         "accepted_for_training": 0,
     }

@@ -18,7 +18,10 @@ from generate_demo import SOURCE_SPLITS
 
 PROJECT = Path(__file__).resolve().parents[1]
 COLORS = ("red", "green", "blue")
-PILOT_SLOTS = np.array([[-0.35, 0.35], [-0.23, 0.40], [-0.35, 0.52]])
+SLOT_LAYOUTS = {
+    "original": np.array([[-0.35, 0.35], [-0.23, 0.40], [-0.35, 0.52]]),
+    "front": np.array([[-0.35, 0.35], [-0.23, 0.40], [-0.35, 0.43]]),
+}
 
 
 def checksum(path):
@@ -43,7 +46,7 @@ def capture(env, camera):
     }
 
 
-def create_environment(homework, source, color, slot_colors=None):
+def create_environment(homework, source, color, slot_colors=None, layout="original"):
     sys.path.insert(0, str(homework))
     from hw3.sim_env import SO100MulticubeSimEnv
 
@@ -77,7 +80,7 @@ def create_environment(homework, source, color, slot_colors=None):
             cube_index = COLORS.index(cube_color)
             indices = env.cube_qpos_slices[cube_index]
             pose = source["qpos"][0, 6:13].copy()
-            pose[:2] = PILOT_SLOTS[slot]
+            pose[:2] = SLOT_LAYOUTS[layout][slot]
             env.data.qpos[indices] = pose
             joint = env.model.joint(f"{cube_color}_box_joint")
             start = int(env.model.jnt_dofadr[joint.id])
@@ -347,6 +350,7 @@ def main():
     parser.add_argument("--color", choices=COLORS, default="green")
     parser.add_argument("--camera", default="angle")
     parser.add_argument("--slot-colors", nargs=3, choices=COLORS)
+    parser.add_argument("--layout", choices=SLOT_LAYOUTS, default="original")
     parser.add_argument("--framing", choices=("scene", "workspace"), default="scene")
     parser.add_argument("--placement", choices=("replay", "feedback"), default="replay")
     parser.add_argument("--out", type=Path, required=True)
@@ -356,6 +360,9 @@ def main():
             parser.error("--slot-colors must contain each colour exactly once.")
         if args.placement != "feedback" or args.framing != "workspace":
             parser.error("Balanced slots require --placement feedback --framing workspace.")
+
+    if args.layout != "original" and args.slot_colors is None:
+        parser.error("--layout front requires --slot-colors.")
 
     configured_homework = os.environ.get("ROBOT_LEARNING_HW3")
     if not configured_homework:
@@ -375,7 +382,7 @@ def main():
         raise ValueError("The transport path does not match the demonstration.")
 
     args.out.mkdir(parents=True, exist_ok=False)
-    env = create_environment(homework, source, args.color, args.slot_colors)
+    env = create_environment(homework, source, args.color, args.slot_colors, args.layout)
     writer = None
     try:
         camera_settings = configure_camera(env, args.camera, args.framing)
@@ -404,6 +411,9 @@ def main():
         target_geometry = env.model.geom(f"{args.color}_box").id
         peak_height = float(env.get_cube_state()[2])
         max_penetration = 0.0
+        max_self_penetration = 0.0
+        worst_self_contact = None
+        robot_root = int(env.model.body_rootid[env.model.body("Fixed_Jaw").id])
         actions = []
         phases = []
         worst_contact = None
@@ -411,6 +421,7 @@ def main():
 
         def execute(target, requested_gripper, phase):
             nonlocal peak_height, max_penetration, worst_contact
+            nonlocal max_self_penetration, worst_self_contact
             previous = env.data.mocap_pos[env.mocap_id].copy()
             actions.append(np.r_[target - previous, requested_gripper])
             phases.append(phase)
@@ -426,6 +437,23 @@ def main():
                 mujoco.mj_step(env.model, env.data)
                 peak_height = max(peak_height, float(env.get_cube_state()[2]))
                 for contact in env.data.contact:
+                    body1 = int(env.model.geom_bodyid[contact.geom1])
+                    body2 = int(env.model.geom_bodyid[contact.geom2])
+                    robot_contact = (
+                        body1 != body2
+                        and env.model.body_rootid[body1] == robot_root
+                        and env.model.body_rootid[body2] == robot_root
+                    )
+                    depth = max(0.0, -float(contact.dist))
+                    if robot_contact and depth > max_self_penetration:
+                        max_self_penetration = depth
+                        worst_self_contact = {
+                            "bodies": [env.model.body(body1).name, env.model.body(body2).name],
+                            "phase": phase,
+                            "time_s": float(env.data.time),
+                            "action_index": len(actions) - 1,
+                            "depth_m": depth,
+                        }
                     if target_geometry not in (contact.geom1, contact.geom2):
                         continue
                     depth = max(0.0, -float(contact.dist))
@@ -533,7 +561,8 @@ def main():
             "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted" if retargeting else "Transport trajectory; other motion phases are scripted.",
             "layout": "Balanced fixed slots; colour permutation; fixed bin" if args.slot_colors else "Fixed target and bin; two distractors placed aside; no shuffling.",
             "slot_colors": args.slot_colors,
-            "slot_xy_m": PILOT_SLOTS.tolist() if args.slot_colors else None,
+            "layout_preset": args.layout,
+            "slot_xy_m": SLOT_LAYOUTS[args.layout].tolist() if args.slot_colors else None,
             "target_slot": args.slot_colors.index(args.color) if args.slot_colors else None,
             "retargeting": retargeting,
             "camera": args.camera,
@@ -550,6 +579,8 @@ def main():
             "recorded_transport_tail_replaced": bool(np.any(plan["phase"][preserved_steps:] == "recorded_transport")),
             "placement_teacher": "Simulator cube pose and geometry feedback" if args.placement == "feedback" else "Original saved commands",
             "worst_target_contact": worst_contact,
+            "max_robot_self_penetration_m": max_self_penetration,
+            "worst_robot_self_contact": worst_self_contact,
             "image_shape": list(arrays["images"].shape),
             "robot_state_fields": [
                 "6 joint angles in radians",

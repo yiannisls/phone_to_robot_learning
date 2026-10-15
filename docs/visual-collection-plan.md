@@ -1,6 +1,6 @@
 # Next visual-data collection pilot
 
-The first 18-attempt pilot has now been implemented and recorded: **12 task completions, six pickup failures at slot 2, and zero training inclusions**. See [the complete pilot and failure analysis](visual-pilot.md). The specification below records the matrix that was declared before collection; it is not a claim of a completed training dataset.
+The first 18-attempt pilot has now been implemented and recorded: **12 task completions, six pickup failures at slot 2, and zero training inclusions**. See [the complete pilot and failure analysis](visual-pilot.md). A [second pilot](visual-workspace.md) subsequently completed 18/18 scripted transfers in an explicitly smaller workspace; it preserves the original failed layout separately. The specification below records the matrix that was declared before the first collection; it is not a claim of a completed training dataset.
 
 ## First pilot: 18 candidates
 

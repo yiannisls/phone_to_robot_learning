@@ -1,0 +1,3646 @@
+{
+  "purpose": "Restricted-workspace demonstration collection; not a trained-policy score.",
+  "manifest": {
+    "purpose": "Demonstration-collection pilot; not a policy evaluation.",
+    "source_family": "IMG_5539",
+    "split": "train",
+    "planned_attempts": 18,
+    "layout_preset": "front",
+    "slots_xy_m": [
+      [
+        -0.35,
+        0.35
+      ],
+      [
+        -0.23,
+        0.4
+      ],
+      [
+        -0.35,
+        0.43
+      ]
+    ],
+    "self_contact_review_rule": "No detected robot self-penetration at physics steps; contact forces remain unvalidated.",
+    "recorder_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+    "collector_sha256": "1ab0ad6eb0fcf5d550abb093378db15fe1936a965644784aaddc8fba6029c95f",
+    "automatic_retries": false,
+    "training_inclusion": "None; candidates only.",
+    "cases": [
+      {
+        "id": "arrangement_00_red",
+        "arrangement": 0,
+        "slot_colors": [
+          "red",
+          "green",
+          "blue"
+        ],
+        "target": "red",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "green",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113237995
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771806
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771806,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515888,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "e37ce347191e305db98560db11ac8c124dca80848394cbe84dd1dbebf8768f90",
+        "report_sha256": "df9d508fba40b95b781bd0a29821e6af51523b6c896ca36078fb9729334c70dc",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_00_green",
+        "arrangement": 0,
+        "slot_colors": [
+          "red",
+          "green",
+          "blue"
+        ],
+        "target": "green",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "green",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381267
+            ],
+            "pixel_max": [
+              211.26874733294954,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313967744
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313967744,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.10387384247049901,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "2002257b1f7542c15803960c0f0a70f91d7ab1ebf01cedda097b9d08fcac39a7",
+        "report_sha256": "c514d6fad2932b26ffe2177731426d41664cdef358797785f01a55a05a321ef1",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_00_blue",
+        "arrangement": 0,
+        "slot_colors": [
+          "red",
+          "green",
+          "blue"
+        ],
+        "target": "blue",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "green",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234177
+            ],
+            "pixel_max": [
+              210.20312791413858,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.0011064898779460737
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.0011064898779460737,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.1027219381759997,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "5c72017f18f4f47c3feddf40f73cef242114af413e2b06a10189deda9ae38b48",
+        "report_sha256": "b37432f4349cf24643872a2cb035d5273b97789ec33396bb3bfef8b1ac911549",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_01_red",
+        "arrangement": 1,
+        "slot_colors": [
+          "red",
+          "blue",
+          "green"
+        ],
+        "target": "red",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "blue",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113237995
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771806
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771806,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515888,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "59219541f9910e7e7afaefd310b308a64cbc6265354e398edb3d18b0b37580e4",
+        "report_sha256": "870e80c84a284080b8f1c0d39339fa4c0387b669bed9876f6646b128c4bf1b82",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_01_green",
+        "arrangement": 1,
+        "slot_colors": [
+          "red",
+          "blue",
+          "green"
+        ],
+        "target": "green",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "blue",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234198
+            ],
+            "pixel_max": [
+              210.20312791413852,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.001106489877946135
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.001106489877946135,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10272193817599953,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "b5189dcf4ed8fc807c536d479b79f577104cf3845dccb793a7bfecc58a24c37a",
+        "report_sha256": "be6006fd4ab0c13517ae2f38c72df8c43b61bd270a877d6fe735f08cd7ea049d",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_01_blue",
+        "arrangement": 1,
+        "slot_colors": [
+          "red",
+          "blue",
+          "green"
+        ],
+        "target": "blue",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "red",
+            "blue",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381217
+            ],
+            "pixel_max": [
+              211.2687473329495,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313966912
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313966912,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.1038738424704991,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "48d888c72ff9139e8da480269fe8f87cd2332f9e2ed5198789078afb4145d48e",
+        "report_sha256": "977bf7665ef22c4278e1b9a6e3bdf8efc1616a7a4246e93d8893b2ff48f265fe",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_02_red",
+        "arrangement": 2,
+        "slot_colors": [
+          "green",
+          "red",
+          "blue"
+        ],
+        "target": "red",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "red",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381217
+            ],
+            "pixel_max": [
+              211.2687473329495,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313966912
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313966912,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.1038738424704991,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "4b2920cd3d7b92fbaca3fcd6586e34afe5147e409b954146566b8fe7702c35f0",
+        "report_sha256": "751ecd70b79e34845b37d8118b89efdc05f4edaf940fb6c339039351a7559f33",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_02_green",
+        "arrangement": 2,
+        "slot_colors": [
+          "green",
+          "red",
+          "blue"
+        ],
+        "target": "green",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "red",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113238013
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771803
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771803,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515903,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "b635b4f37b3d3e8e2a40cdaf369ef2ad84d6890b296b9e58a29740a10512b9d3",
+        "report_sha256": "c51727e50dc525896ac784bd874818780a3848a0a8d24bd9e5eece04038eff55",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_02_blue",
+        "arrangement": 2,
+        "slot_colors": [
+          "green",
+          "red",
+          "blue"
+        ],
+        "target": "blue",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "red",
+            "blue"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234177
+            ],
+            "pixel_max": [
+              210.20312791413858,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.0011064898779460737
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.0011064898779460737,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.1027219381759997,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "af0b3f1d1e63e43fe454bbb3905cc160f59b1e60769a12b83f7587916c443cff",
+        "report_sha256": "492b03767ae3d4c539d8a8753ea87e85fa2b8eb45c922cd87938cc0d8ae4f3b6",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_03_red",
+        "arrangement": 3,
+        "slot_colors": [
+          "green",
+          "blue",
+          "red"
+        ],
+        "target": "red",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "blue",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234177
+            ],
+            "pixel_max": [
+              210.20312791413858,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.0011064898779460737
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.0011064898779460737,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.1027219381759997,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "f9d29930f4296fc561568b84c622aacde9407af14b319d80b955f00f445377c0",
+        "report_sha256": "2b1723aa35f8581661399b5e190a083350f6110f10d5e4992441ab3908310e29",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_03_green",
+        "arrangement": 3,
+        "slot_colors": [
+          "green",
+          "blue",
+          "red"
+        ],
+        "target": "green",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "blue",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113238013
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771803
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771803,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515903,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "9f600a53fe985d396959e7a15b758812d21ed1bd34b634968d832bec6d1ccbba",
+        "report_sha256": "512a961b92bd276cf0268d8d7eb290d4a167246583431190e9b4b8c8545f7af8",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_03_blue",
+        "arrangement": 3,
+        "slot_colors": [
+          "green",
+          "blue",
+          "red"
+        ],
+        "target": "blue",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "green",
+            "blue",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381217
+            ],
+            "pixel_max": [
+              211.2687473329495,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313966912
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313966912,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.1038738424704991,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "804f2e17aab2b916c3bdd8aed07be2bc3f5e1a70a25019f039ba4022fa0d4cc7",
+        "report_sha256": "2805dbfc149aaa38761d1188ba28814292b018ba9b30d24b0d7825305a53ad49",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_04_red",
+        "arrangement": 4,
+        "slot_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "target": "red",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381217
+            ],
+            "pixel_max": [
+              211.2687473329495,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313966912
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313966912,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.1038738424704991,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "c8b9aad016ac3fdf2dfe0e22b0cdc96a1c19e4dfb0b03bd3ec4ba6dadc61edc6",
+        "report_sha256": "a22081b11de0796140d762e57f87b07ea00514782b9c55b3f33c0ab7667be8b0",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_04_green",
+        "arrangement": 4,
+        "slot_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "target": "green",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234198
+            ],
+            "pixel_max": [
+              210.20312791413852,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.001106489877946135
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.001106489877946135,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10272193817599953,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "fea35d038216411b1ab2629186003becd3ed3409df03bb2743ab0466f1683bd8",
+        "report_sha256": "bec976a33780ccd33238afafcef8b17e8893ee68f707e08c8bbe28bf4a3e622a",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_04_blue",
+        "arrangement": 4,
+        "slot_colors": [
+          "blue",
+          "red",
+          "green"
+        ],
+        "target": "blue",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "red",
+            "green"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113237995
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771806
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771806,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515888,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "013348e93205005054a34940ceeffa8a8b6798a5fb477a58851e4a4087923820",
+        "report_sha256": "1cd8d466b5c5700309eb0aa748bdf4417ea664b6736f5b701e9b77c678912dda",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_05_red",
+        "arrangement": 5,
+        "slot_colors": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "target": "red",
+        "target_slot": 2,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the red cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 2,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.4300000071525574,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.01132009920724444,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.72305767234177
+            ],
+            "pixel_max": [
+              210.20312791413858,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 92,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 27,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.841999999999327,
+            "action_index": 208,
+            "depth_m": 0.0011064898779460737
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            251,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 250,
+          "observations": 251,
+          "task_success": true,
+          "max_target_penetration_m": 0.0011064898779460737,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.1027219381759997,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "8c0e44f10c89eeb566717ad48e947b276ef6bbf6fc285a1f946c89a4a436f5da",
+        "report_sha256": "fa1c57749c436b9ae96705b6385092ddfaa5b9106501a276fbbd7423949aaa15",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_05_green",
+        "arrangement": 5,
+        "slot_colors": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "target": "green",
+        "target_slot": 1,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the green cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 1,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.23000000417232513,
+              0.4000000059604645,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.5,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.011075157230411,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              92.38701852418495,
+              64.73061048381267
+            ],
+            "pixel_max": [
+              211.26874733294954,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 89,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 24,
+          "recorded_transport_actions_total": 65,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.94399999999927,
+            "action_index": 209,
+            "depth_m": 0.0009708668313967744
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            252,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 251,
+          "observations": 252,
+          "task_success": true,
+          "max_target_penetration_m": 0.0009708668313967744,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399235955e-06,
+          "peak_target_height_m": 0.10387384247049901,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "85484c337e961bef29b92f19c9c3a61b476058031fa479cda9fff2a8557ab85d",
+        "report_sha256": "74d76561f3488e6d4fb8af043747fbd12c4619d3d1cec6776b3f9255ac44d16d",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      },
+      {
+        "id": "arrangement_05_blue",
+        "arrangement": 5,
+        "slot_colors": [
+          "blue",
+          "green",
+          "red"
+        ],
+        "target": "blue",
+        "target_slot": 0,
+        "status": "completed",
+        "exit_code": 0,
+        "report": {
+          "instruction": "Put the blue cube in the bin.",
+          "origin": "Phone-derived demonstration replay; not human teleoperation.",
+          "source_family": "IMG_5539",
+          "split": "train",
+          "accepted_for_training": false,
+          "review_status": "Candidate for visual inspection only.",
+          "phone_contribution": "Retargeted phone transport prefix; other motion phases are scripted",
+          "layout": "Balanced fixed slots; colour permutation; fixed bin",
+          "slot_colors": [
+            "blue",
+            "green",
+            "red"
+          ],
+          "layout_preset": "front",
+          "slot_xy_m": [
+            [
+              -0.35,
+              0.35
+            ],
+            [
+              -0.23,
+              0.4
+            ],
+            [
+              -0.35,
+              0.43
+            ]
+          ],
+          "target_slot": 0,
+          "retargeting": {
+            "method": "Scripted pickup plus retargeted phone transport, then feedback placement",
+            "pickup_xyz_m": [
+              -0.3499999940395355,
+              0.3499999940395355,
+              0.01999579928815365
+            ],
+            "goal_xyz_m": [
+              -0.23000000417232513,
+              0.5699999928474426,
+              0.020999999716877937
+            ],
+            "grasp_offset_m": [
+              -0.025000005960464478,
+              0.0,
+              0.03999999910593033
+            ],
+            "approach_clearance_m": [
+              0.0,
+              0.0,
+              0.09999999403953552
+            ],
+            "transport_rule": "grasp + progress * displacement + lateral * sideways; add measured-derived height",
+            "transport_rows": 66,
+            "transport_duration_s": 6.5,
+            "planned_transport_duration_s": 6.7,
+            "timing_adjustment": "Insert interpolated 0.1 s commands when a segment exceeds 12 mm; timing may stretch nonuniformly",
+            "max_planned_move_m": 0.0119125503498623,
+            "original_recorded_transport_actions": 46
+          },
+          "camera": "angle",
+          "camera_settings": {
+            "name": "angle",
+            "framing": "workspace",
+            "initial_world_position_m": [
+              -0.15,
+              0.15,
+              0.5
+            ],
+            "initial_world_rotation": [
+              [
+                0.9246780984747162,
+                -0.2921638386335249,
+                0.24415303724530452
+              ],
+              [
+                0.3807498052542948,
+                0.709540750967132,
+                -0.5929430904528824
+              ],
+              [
+                -1.3877787807814457e-17,
+                0.6412427107670872,
+                0.7673381170566714
+              ]
+            ],
+            "vertical_fov_deg": 50.0,
+            "fixed_to_world": true,
+            "look_at_world_m": [
+              -0.29,
+              0.49,
+              0.06
+            ]
+          },
+          "camera_coverage": {
+            "passed": true,
+            "pixel_min": [
+              84.02773109218813,
+              65.29613113237995
+            ],
+            "pixel_max": [
+              210.00377407353724,
+              187.57627136339926
+            ],
+            "limitation": "Projection bounds do not rule out occlusion or guarantee full-arm visibility."
+          },
+          "placement_mode": "feedback",
+          "placement_completed": true,
+          "preserved_source_actions": 96,
+          "source_prefix_unchanged": false,
+          "executed_prefix_matches_plan": true,
+          "placement_handoff": "clear_bin_approach",
+          "recorded_transport_actions_preserved": 31,
+          "recorded_transport_actions_total": 67,
+          "recorded_transport_tail_replaced": true,
+          "placement_teacher": "Simulator cube pose and geometry feedback",
+          "worst_target_contact": {
+            "other_geometry": "bin_floor",
+            "other_body": "bin",
+            "phase": "placement_release",
+            "time_s": 20.741999999999383,
+            "action_index": 207,
+            "depth_m": 0.001045052810771806
+          },
+          "max_robot_self_penetration_m": 0.0,
+          "worst_robot_self_contact": null,
+          "image_shape": [
+            250,
+            240,
+            320,
+            3
+          ],
+          "robot_state_fields": [
+            "6 joint angles in radians",
+            "3 measured hand coordinates in metres",
+            "3 commanded hand-target coordinates in metres",
+            "1 applied native gripper command"
+          ],
+          "action_fields": [
+            "3 hand-target deltas in world-frame metres per control step",
+            "1 requested native gripper command; closing rate-limited"
+          ],
+          "alignment": "observation[t], action[t], observation[t+1]; final observation included",
+          "diagnostics_only": [
+            "qpos",
+            "qvel",
+            "cubes"
+          ],
+          "control_dt_s": 0.1,
+          "physics_dt_s": 0.002,
+          "actions": 249,
+          "observations": 250,
+          "task_success": true,
+          "max_target_penetration_m": 0.001045052810771806,
+          "quality_pass": true,
+          "max_distractor_displacement_m": 4.147909399263711e-06,
+          "peak_target_height_m": 0.10367691009515888,
+          "gripper_close_rate_rad_s": 1.0,
+          "mujoco_version": "3.14.0",
+          "source_episode_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+          "source_video_sha256": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+          "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+          "script_sha256": "1af32b3d92632a9d424d23e85c063f2c5d16add336fabde477ed35a608d35b92",
+          "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+          "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+          "limitation": "Contact forces remain unvalidated; no VLA was trained or evaluated."
+        },
+        "episode_sha256": "1c929fd4cb4b4c882f5503316063455eeb64b1c81959e941580a236dd1ea17d4",
+        "report_sha256": "1a9474530bd4bbab86273d411e3517ccaa5475068f8be74cace1cafb39d47c5b",
+        "eligible_before_scene_check": true,
+        "eligible_for_review": true
+      }
+    ],
+    "initial_scene_checks": {
+      "0": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      },
+      "1": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      },
+      "2": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      },
+      "3": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      },
+      "4": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      },
+      "5": {
+        "passed": true,
+        "robot_and_physical_states_match": true,
+        "camera_settings_match": true,
+        "max_image_channel_difference": 0,
+        "image_tolerance": 1
+      }
+    },
+    "counts": {
+      "attempted": 18,
+      "recorded": 18,
+      "task_success": 18,
+      "quality_pass": 18,
+      "no_robot_self_penetration": 18,
+      "eligible_for_review": 18,
+      "accepted_for_training": 0
+    }
+  },
+  "audit": {
+    "by_slot": {
+      "0": {
+        "attempts": 6,
+        "task_success": 6
+      },
+      "1": {
+        "attempts": 6,
+        "task_success": 6
+      },
+      "2": {
+        "attempts": 6,
+        "task_success": 6
+      }
+    },
+    "by_color": {
+      "red": {
+        "attempts": 6,
+        "task_success": 6
+      },
+      "green": {
+        "attempts": 6,
+        "task_success": 6
+      },
+      "blue": {
+        "attempts": 6,
+        "task_success": 6
+      }
+    },
+    "max_action_move_m": 0.0119125503498623,
+    "target_penetration_range_m": [
+      0.0009708668313966912,
+      0.001106489877946135
+    ],
+    "retained_phone_actions_by_slot": {
+      "0": [
+        31
+      ],
+      "1": [
+        24
+      ],
+      "2": [
+        27
+      ]
+    },
+    "all_episode_hashes_and_alignment_verified": true,
+    "original_layout_regressions": {
+      "green": {
+        "physical_arrays_actions_and_labels_exactly_match_original": true,
+        "exact_match_fields": [
+          "robot_state",
+          "qpos",
+          "qvel",
+          "cubes",
+          "mocap_target",
+          "time_s",
+          "actions",
+          "phase",
+          "instruction",
+          "source_video",
+          "split"
+        ],
+        "image_comparison": {
+          "max_channel_difference": 1,
+          "differing_channel_fraction": 3.823578042328042e-06,
+          "allowed_channel_difference": 1
+        },
+        "task_success": true,
+        "max_robot_self_penetration_m": 0.0
+      },
+      "blue": {
+        "physical_arrays_actions_and_labels_exactly_match_original": true,
+        "exact_match_fields": [
+          "robot_state",
+          "qpos",
+          "qvel",
+          "cubes",
+          "mocap_target",
+          "time_s",
+          "actions",
+          "phase",
+          "instruction",
+          "source_video",
+          "split"
+        ],
+        "image_comparison": {
+          "max_channel_difference": 1,
+          "differing_channel_fraction": 2.591824644549763e-06,
+          "allowed_channel_difference": 1
+        },
+        "task_success": false,
+        "max_robot_self_penetration_m": 0.010160894375235135
+      }
+    }
+  },
+  "development_probes": {
+    "original_slot_approaches": {
+      "purpose": "Training-only approach diagnostics at the original failed slot; not policy evaluation or accepted training data.",
+      "slot_xy_m": [
+        -0.35,
+        0.52
+      ],
+      "orientation_changed": false,
+      "force_limits_changed": false,
+      "mujoco_version": "3.14.0",
+      "recorder_sha256": "105833cc6cbb3e43d4c8022ad152b5dd3d1cbf37d1c74a869fac256911b1edd7",
+      "results": [
+        {
+          "approach": "original",
+          "diagnostic_only": true,
+          "hand_target_error_after_grasp_m": 0.035239005783046756,
+          "measured_jaw_after_grasp_rad": 0.990798859387215,
+          "cube_after_grasp_xyz_m": [
+            -0.34990269822032727,
+            0.5200850247054567,
+            0.019886371320787705
+          ],
+          "cube_after_lift_xyz_m": [
+            -0.3490746755116105,
+            0.52006924456337,
+            0.020659425708245957
+          ],
+          "max_robot_self_penetration_m": 0.010160894375235135,
+          "worst_body_pair": [
+            "Rotation_Pitch",
+            "Fixed_Jaw"
+          ],
+          "actions": 90
+        },
+        {
+          "approach": "via_front",
+          "diagnostic_only": true,
+          "hand_target_error_after_grasp_m": 0.03524077388681995,
+          "measured_jaw_after_grasp_rad": 0.9908507733408504,
+          "cube_after_grasp_xyz_m": [
+            -0.3499030722488362,
+            0.5200851561639309,
+            0.019885914901125415
+          ],
+          "cube_after_lift_xyz_m": [
+            -0.3490791264421196,
+            0.5200690497701055,
+            0.020655742108512117
+          ],
+          "max_robot_self_penetration_m": 0.01015778136922064,
+          "worst_body_pair": [
+            "Rotation_Pitch",
+            "Fixed_Jaw"
+          ],
+          "actions": 130
+        },
+        {
+          "approach": "via_outside",
+          "diagnostic_only": true,
+          "hand_target_error_after_grasp_m": 0.03524076888130049,
+          "measured_jaw_after_grasp_rad": 0.9908510398988944,
+          "cube_after_grasp_xyz_m": [
+            -0.3499030708072368,
+            0.5200851619492908,
+            0.019885912876420553
+          ],
+          "cube_after_lift_xyz_m": [
+            -0.3490791296957293,
+            0.5200690563134391,
+            0.020655738750778443
+          ],
+          "max_robot_self_penetration_m": 0.010157781404197465,
+          "worst_body_pair": [
+            "Rotation_Pitch",
+            "Fixed_Jaw"
+          ],
+          "actions": 131
+        },
+        {
+          "approach": "higher_approach",
+          "diagnostic_only": true,
+          "hand_target_error_after_grasp_m": 0.035240767372817054,
+          "measured_jaw_after_grasp_rad": 0.9908371447691265,
+          "cube_after_grasp_xyz_m": [
+            -0.3499030875680179,
+            0.5200851282951265,
+            0.01988597499536162
+          ],
+          "cube_after_lift_xyz_m": [
+            -0.3490791135390251,
+            0.520069053182841,
+            0.020655788358333583
+          ],
+          "max_robot_self_penetration_m": 0.01015801716198622,
+          "worst_body_pair": [
+            "Rotation_Pitch",
+            "Fixed_Jaw"
+          ],
+          "actions": 122
+        }
+      ]
+    },
+    "alternative_workspaces": {
+      "purpose": "Two training-only workspace probes; no rendering, no training inclusion, no policy evaluation.",
+      "fixed_orientation": true,
+      "force_limits_changed": false,
+      "results": [
+        {
+          "candidate": "front",
+          "third_slot_xy_m": [
+            -0.35,
+            0.43
+          ],
+          "placement_completed": true,
+          "final_cube_xyz_m": [
+            -0.2299120714121618,
+            0.5698902314728352,
+            0.020999947249706847
+          ],
+          "peak_cube_m": 0.1027219381759997,
+          "target_penetration_m": 0.0011064898779460737,
+          "self_penetration_m": 0.0,
+          "worst_self_pair": null,
+          "actions": 250,
+          "recorded_transport_actions": 27
+        },
+        {
+          "candidate": "centre",
+          "third_slot_xy_m": [
+            -0.23,
+            0.48
+          ],
+          "placement_completed": true,
+          "final_cube_xyz_m": [
+            -0.22926732928874988,
+            0.5698007205428033,
+            0.020999947249706847
+          ],
+          "peak_cube_m": 0.10195881706870219,
+          "target_penetration_m": 0.0007632031397267872,
+          "self_penetration_m": 0.0,
+          "worst_self_pair": null,
+          "actions": 246,
+          "recorded_transport_actions": 17
+        }
+      ]
+    }
+  },
+  "decision": "All 18 are review candidates, none accepted for training. Original 12/18 geometry remains unresolved. No held-out family used.",
+  "limitations": [
+    "One training phone family and three fixed pickup slots, no randomized bin.",
+    "Fixed hand orientation; four actions encode XYZ target delta and gripper only.",
+    "Active robot self-contacts sampled at physics steps; contact forces remain unvalidated.",
+    "Camera projection bounds do not rule out occlusion."
+  ]
+}

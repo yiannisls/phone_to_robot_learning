@@ -2,6 +2,8 @@
 
 We recorded the full planned matrix: six colour arrangements, each with red, green and blue target instructions. **12 of 18 attempts completed the task.** The six failures all came from the third pickup slot. No candidate was added to training, and this is not a VLA policy score.
 
+**Follow-up:** a [separate smaller-workspace pilot](visual-workspace.md) completed 18/18 scripted transfers after moving slot 2. The original position and its 12/18 outcome below remain unchanged.
+
 [Complete manifest and failure audit](visual-pilot.json) · [Collection specification](visual-collection-plan.md) · [BC + WM versus VLA comparison protocol](controller-comparison.md)
 
 ## What was implemented
