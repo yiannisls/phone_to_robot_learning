@@ -13,3 +13,4 @@ results/*
 !results/world_model_control.json
 *.egg-info/
 .DS_Store
+.venv-vla/
