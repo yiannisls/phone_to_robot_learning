@@ -26,3 +26,5 @@ python scripts/diagnose_lab_policy.py \
 The output contains per-episode state/action arrays, end-of-step obstacle contact logs, summary metadata, and an episode-3 video sampled every five control steps. Original checkpoints and lab sources are unchanged.
 
 ![Failed episode: cube remains held above bin](assets/lab-release-failure.jpg)
+
+The [complete 100-episode audit](lab-failure-audit.md) now groups all 18 failures and compares successful and stalled release.

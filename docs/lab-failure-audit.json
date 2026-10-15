@@ -1,0 +1,686 @@
+{
+  "seed": 987,
+  "checkpoint_sha256": "7df4f13828e38c4a5a1fa0b7b12c0176311987daaa54d2e84108700e2406422d",
+  "episodes": 100,
+  "successes": 82,
+  "all_episode_outcomes_match_reference": true,
+  "rules": {
+    "no_sustained_lift": "Maximum sampled cube z < 45 mm",
+    "ends_elevated_near_bin": "Lifted; final XY within 50 mm on each bin axis and cube z > 60 mm",
+    "other": "All remaining failures"
+  },
+  "limitations": "Outcome labels are diagnostic thresholds, not causal explanations. Uses previously evaluated layouts; no new generalization claim.",
+  "failure_counts": {
+    "ends_elevated_near_bin": 10,
+    "no_sustained_lift": 7,
+    "other": 1
+  },
+  "failures": [
+    {
+      "episode": 3,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.22330671323472234,
+        0.4060286463641794,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12125821114303911,
+      "final_cube_xyz": [
+        -0.17771405484612976,
+        0.6634944216017894,
+        0.12125821114303911
+      ],
+      "final_hand_xyz": [
+        -0.20364712080669028,
+        0.6576370131577041,
+        0.14381921569420056
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.302517744197465,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 17,
+      "gripper_command_min_max": [
+        -0.11765657365322113,
+        0.7827861309051514
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 13,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23627588705042768,
+        0.4002357143671728,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.020335283855269858,
+      "final_cube_xyz": [
+        -0.24778050940589857,
+        0.4010795616764722,
+        0.019999947197552857
+      ],
+      "final_hand_xyz": [
+        -0.266955174066753,
+        0.42089176962430164,
+        0.11074685815441748
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.15410559426330678,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 0,
+      "gripper_command_min_max": [
+        0.026293069124221802,
+        0.5058382153511047
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 19,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23089258278038438,
+        0.3975371067436187,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.11234937611733804,
+      "final_cube_xyz": [
+        -0.1881200180533771,
+        0.6676403794847365,
+        0.11234937611733804
+      ],
+      "final_hand_xyz": [
+        -0.2115973528414247,
+        0.6630707314756819,
+        0.1373616874698716
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.294716790286482,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 19,
+      "gripper_command_min_max": [
+        -0.10621048510074615,
+        0.7194315195083618
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 21,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23498037295153024,
+        0.39329490604747347,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12179765256703975,
+      "final_cube_xyz": [
+        -0.20351946963863907,
+        0.6949399870211542,
+        0.11093660708844197
+      ],
+      "final_hand_xyz": [
+        -0.2187859412831203,
+        0.6676898050055226,
+        0.1407623603324032
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2979872715063786,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 62,
+      "gripper_command_min_max": [
+        -0.06746567785739899,
+        0.7316023707389832
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 22,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.2329654227646644,
+        0.4040928274433217,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12136245896701747,
+      "final_cube_xyz": [
+        -0.20175779028193166,
+        0.6885064630073588,
+        0.11226425790318043
+      ],
+      "final_hand_xyz": [
+        -0.22129573953958326,
+        0.6696063679867847,
+        0.14051334177120478
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.3010073854194448,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 13,
+      "gripper_command_min_max": [
+        -0.1738157719373703,
+        0.7222326397895813
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 27,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.24563751807561618,
+        0.39857109444539196,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.02929331138064792,
+      "final_cube_xyz": [
+        -0.2578721926349787,
+        0.39409484388260135,
+        0.025079986659907925
+      ],
+      "final_hand_xyz": [
+        -0.2748892116073156,
+        0.4263218242786158,
+        0.10595202510554413
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.14042174826442386,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 0,
+      "gripper_command_min_max": [
+        0.03654663264751434,
+        0.5847550630569458
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 30,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23430076724483143,
+        0.3898983025568403,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.03313926207958845,
+      "final_cube_xyz": [
+        -0.24730747631800207,
+        0.38842049621177577,
+        0.028274767408798054
+      ],
+      "final_hand_xyz": [
+        -0.2544387271090219,
+        0.34432211704003335,
+        0.08686353267670058
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.3019231045671244,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 11,
+      "gripper_command_min_max": [
+        -0.1006866842508316,
+        0.7020564079284668
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 35,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23363534140407205,
+        0.4003442005657425,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12453451401080644,
+      "final_cube_xyz": [
+        -0.1995899990822792,
+        0.6921647905695579,
+        0.11614719703174392
+      ],
+      "final_hand_xyz": [
+        -0.21868729561986336,
+        0.6662116940518973,
+        0.14429543081963656
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.3004598387028596,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 12,
+      "gripper_command_min_max": [
+        -0.0723438411951065,
+        0.7129051089286804
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 36,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23300626536449676,
+        0.4055663383200473,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12112799416355115,
+      "final_cube_xyz": [
+        -0.1815753229555313,
+        0.6657656455268841,
+        0.12112799416355115
+      ],
+      "final_hand_xyz": [
+        -0.20493514113493028,
+        0.6557502351743884,
+        0.14127249671280367
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2973344776707829,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 63,
+      "gripper_command_min_max": [
+        -0.12860806286334991,
+        0.7214180827140808
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 37,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23035695017665622,
+        0.41353715069316044,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.11905555703924234,
+      "final_cube_xyz": [
+        -0.18699678423587004,
+        0.6670141202924101,
+        0.11905555703924234
+      ],
+      "final_hand_xyz": [
+        -0.20671867895233817,
+        0.6620051371174256,
+        0.13739545838892386
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2989338608095008,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 112,
+      "gripper_command_min_max": [
+        -0.19043801724910736,
+        0.8185468316078186
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 43,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23254334572165047,
+        0.3921569949213085,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.03608237358261868,
+      "final_cube_xyz": [
+        -0.24585417897541775,
+        0.3932644281316475,
+        0.02815292049325346
+      ],
+      "final_hand_xyz": [
+        -0.2520656956471526,
+        0.3497800726355502,
+        0.08646386306882356
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.3055986044553388,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 9,
+      "gripper_command_min_max": [
+        -0.08183075487613678,
+        0.7122418284416199
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 47,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23385010871008974,
+        0.3910388511421382,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12513271043112834,
+      "final_cube_xyz": [
+        -0.19840225370108636,
+        0.6914827684271512,
+        0.11626245230606842
+      ],
+      "final_hand_xyz": [
+        -0.2184870768109941,
+        0.6650965554332174,
+        0.14575641247002263
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.29799183050837147,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 13,
+      "gripper_command_min_max": [
+        -0.06331078708171844,
+        0.7019223570823669
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 54,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23306263427664448,
+        0.4000871091886093,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12453345402157058,
+      "final_cube_xyz": [
+        -0.18239153086523827,
+        0.6723303207946628,
+        0.12453345402157058
+      ],
+      "final_hand_xyz": [
+        -0.20294374449429384,
+        0.6535706217718074,
+        0.14142163324000903
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.3004496248589629,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 59,
+      "gripper_command_min_max": [
+        -0.19634144008159637,
+        0.7154687643051147
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 63,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.2316863699870913,
+        0.4023972054138364,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.12320882135759466,
+      "final_cube_xyz": [
+        -0.19824553441252205,
+        0.6874155451835569,
+        0.11314846967471226
+      ],
+      "final_hand_xyz": [
+        -0.22088506180701367,
+        0.6671493419211405,
+        0.1427725077303165
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.30363821612250197,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 11,
+      "gripper_command_min_max": [
+        -0.09999538958072662,
+        0.7347064018249512
+      ],
+      "observed_outcome": "ends_elevated_near_bin"
+    },
+    {
+      "episode": 67,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.24058509553911483,
+        0.3995308992364077,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.03384298667223268,
+      "final_cube_xyz": [
+        -0.24589049566723464,
+        0.39537940452022535,
+        0.020131439862034042
+      ],
+      "final_hand_xyz": [
+        -0.25433344581618006,
+        0.35188157140203713,
+        0.08122886359581258
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2924437246796523,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 16,
+      "gripper_command_min_max": [
+        -0.040025219321250916,
+        0.7090033292770386
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 73,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23556257076699502,
+        0.3994149838017495,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.03464399777115341,
+      "final_cube_xyz": [
+        -0.24188621657756063,
+        0.3997838146510195,
+        0.019999947197552867
+      ],
+      "final_hand_xyz": [
+        -0.245952018628264,
+        0.3465845758199666,
+        0.08279243989383966
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.2990752740178111,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 12,
+      "gripper_command_min_max": [
+        -0.07792036235332489,
+        0.7420061826705933
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 86,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23832172056182485,
+        0.40377517382446876,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.019999947197552888,
+      "final_cube_xyz": [
+        -0.23832172056182485,
+        0.40377517382446876,
+        0.019999947197552877
+      ],
+      "final_hand_xyz": [
+        -0.23708422020512712,
+        0.3520656429477261,
+        0.09065502211507681
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.30357411454695427,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 10,
+      "gripper_command_min_max": [
+        -0.02697126567363739,
+        0.7013870477676392
+      ],
+      "observed_outcome": "no_sustained_lift"
+    },
+    {
+      "episode": 96,
+      "success": false,
+      "steps": 800,
+      "initial_cube_xyz": [
+        -0.23268181858793924,
+        0.40468924263524014,
+        0.0199958
+      ],
+      "max_cube_height_m": 0.09248174346454535,
+      "final_cube_xyz": [
+        -0.2044792446755097,
+        0.5755063442772844,
+        0.019999947197552888
+      ],
+      "final_hand_xyz": [
+        -0.29637236808616824,
+        0.46337687280128514,
+        0.15100079347694842
+      ],
+      "goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "obstacle_xyz": [
+        -0.30155519514417484,
+        0.45,
+        0.06
+      ],
+      "steps_with_obstacle_contacts": 590,
+      "gripper_command_min_max": [
+        -0.5633722543716431,
+        0.726235032081604
+      ],
+      "observed_outcome": "other"
+    }
+  ]
+}

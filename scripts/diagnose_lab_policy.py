@@ -17,6 +17,8 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--episodes', type=int, default=3)
     parser.add_argument('--seed', type=int, default=987)
+    parser.add_argument('--video-episodes', type=int, nargs='*', default=[2, 3],
+                        help='Episode numbers to record; other episodes save numeric traces only')
     args = parser.parse_args()
     if args.episodes < 1:
         parser.error('--episodes must be positive')
@@ -60,7 +62,7 @@ def main():
                         names.append({'geometries':pair, 'distance_m':float(contact.dist)})
                 if names:
                     contacts.append({'step':step+1, 'contacts':names})
-                if episode == 3 and step % 5 == 0:
+                if episode in args.video_episodes and step % 5 == 0:
                     frames.append(cv2.cvtColor(env.render_rgb('angle'), cv2.COLOR_RGB2BGR))
                 success = check_success(env)
                 if success or check_cube_out_of_bounds(env):
@@ -90,7 +92,7 @@ def main():
             print(json.dumps(row),flush=True)
     finally:
         env.renderer.close()
-    report={'seed':args.seed, 'execution_horizon':16,'max_steps':800,'mujoco_version':mujoco.__version__,
+    report={'video_episodes':args.video_episodes, 'seed':args.seed, 'execution_horizon':16,'max_steps':800,'mujoco_version':mujoco.__version__,
             'checkpoint_sha256':hashlib.sha256(args.checkpoint.read_bytes()).hexdigest(),
             'trace_columns':['cube_x','cube_y','cube_z','hand_x','hand_y','hand_z','gripper_angle','goal_x','goal_y','goal_z'],
             'contact_sampling':'End of each control step; transient contacts may be missed.',
