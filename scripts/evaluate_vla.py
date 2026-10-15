@@ -303,7 +303,10 @@ def main():
             "initial_episode_sha256": entry["episode_sha256"],
             "scene_sha256": checksum(scene), "simulator_sha256": checksum(lab / "hw3/sim_env.py"),
             "script_sha256": checksum(Path(__file__)),
-            "limitation": "Small 200-update pilot; original command labels and contact physics remain imperfect."
+            "limitation": (
+                f"Human-only adapter trained for {training['completed_updates']} updates; "
+                "original command labels and contact physics remain imperfect."
+            ),
         })
         (args.out / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2), flush=True)

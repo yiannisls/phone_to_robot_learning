@@ -91,7 +91,7 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 The next experiment uses the HW3 multicube scene: red, green and blue cubes with shuffled positions and a varying bin position. The task is to follow an instruction such as **“Put the green cube in the bin.”** This makes the requested object part of the task, rather than always moving the same cube.
 
-**Status: first human-only SmolVLA fine-tuning pilot complete. A saved LoRA adapter reduces fixed-window validation loss from 3.38 to 1.97 after 200 updates. Its first 40-second development rollout failed to pick up the cube. [Video and diagnosis](docs/human-vla-rollout.md).** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
+**Status: human-only SmolVLA training and first control tests complete. Fixed-window validation loss fell from 3.38 before training to 1.97 after 200 updates and 1.30 after 2,000. Both 40-second development rollouts failed to pick up the cube. [Training comparison and video](docs/human-vla-2000-updates.md).** The 99/100 result above belongs to the state-based, single-cube experiment and does not predict performance here.
 
 | What the VLA receives | What it should learn |
 |---|---|
@@ -135,8 +135,8 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Generate and review balanced colour-conditioned demonstrations | Original layout: 12/18; smaller workspace: 18/18 scripted completions; zero training inclusions |
 | Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; nine-state/four-action SmolVLA batch checks pass |
 | Prepare the human visual dataset | Complete: 39 training / 3 validation episodes; 9,616 training action examples; training-only normalization |
-| Fine-tune a pretrained VLA | Human-only pilot complete: 200 updates; fixed-window validation loss 3.38 → 1.97; saved adapter verified |
-| First VLA simulation rollout | Complete: no pickup on one training start; failure preserved with video |
+| Fine-tune a pretrained VLA | Human-only runs complete: 200 and 2,000 updates; validation loss 1.97 and 1.30 |
+| VLA development rollouts | Both adapters miss the cube on the same training start; failures preserved with video |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 

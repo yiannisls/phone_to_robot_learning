@@ -56,3 +56,5 @@ Keep this failed pilot as evidence. A predeclared longer training run on the sam
 This human-only VLA contains no phone data or DAgger segments. The completed phone-derived BC/world-model experiment remains separate. Its single-cube 99/100 result is not directly comparable with this multicube development case; the proposed common benchmark also uses a different closing-rate profile.
 
 Presentation explanation: “I trained a small adapter on my human demonstrations, then let its predictions control the simulated robot. The first short training run reduced learning loss but did not pick up the cube. I kept that failure and its video, so the next experiment can test whether additional training actually improves control.”
+
+Follow-up: the [2,000-update experiment](human-vla-2000-updates.md) lowered fixed validation loss to 1.2959 but still failed to pick up the cube on the same development start. The original pilot remains preserved.

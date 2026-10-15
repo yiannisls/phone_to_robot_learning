@@ -67,3 +67,5 @@ The small measured report is tracked in Git. The adapter, logs, exact script sna
 Reconstructed images, achieved-motion action labels, missing original command/velocity records and unvalidated contact physics remain limitations. Reduced loss supports continuing the experiment; it does not establish colour grounding or successful grasp/placement. The subsequent first rollout failed to pick up the cube. A longer predeclared training experiment is the next candidate; a held-out VLA success-rate benchmark remains pending.
 
 Presentation explanation: “I fine-tuned a small set of SmolVLA adapter weights using my human demonstrations. On fixed held-out examples the learning loss decreased, and the saved adapter reloads correctly. The first simulation test did not pick up the cube, so lower loss has not yet translated into successful control.”
+
+Follow-up: the [2,000-update experiment](human-vla-2000-updates.md) lowered fixed validation loss to 1.2959 but still failed to pick up the cube on the same development start. The original pilot remains preserved.
