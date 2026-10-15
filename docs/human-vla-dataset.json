@@ -1,0 +1,647 @@
+{
+  "verification": {
+    "schema": "human_visual_dataset_verification_v1",
+    "dataset": "work/human-vla-dataset-20261015-01",
+    "manifest_sha256": "677c3fe747573e6ca31183121539ff1bf6daabf0441d825e189942f1ea331574",
+    "normalization_sha256": "a807eee599e50d11932fd015052ee2c95db1d8544f9e1f0ffd4ea0b13634adc0",
+    "counts": {
+      "train": {
+        "episodes": 39,
+        "observations": 9655,
+        "transitions": 9616,
+        "colours": {
+          "red": 10,
+          "green": 14,
+          "blue": 15
+        }
+      },
+      "validation": {
+        "episodes": 3,
+        "observations": 787,
+        "transitions": 784,
+        "colours": {
+          "green": 1,
+          "blue": 1,
+          "red": 1
+        }
+      }
+    },
+    "validation_episode_ids": [
+      9,
+      32,
+      36
+    ],
+    "source_arrays_and_processed_actions_match": true,
+    "source_verification_note": "All 42 sources re-read independently before CLI guard repair; saved arrays and source hashes rechecked afterward.",
+    "image_state_action_alignment_pass": true,
+    "episode_zero_regression": {
+      "images": true,
+      "robot_state": true,
+      "actions": true,
+      "time_s": true,
+      "instruction": true,
+      "split": true,
+      "source_kind": true,
+      "source_episode": true,
+      "state_joints": true,
+      "state_ee": true,
+      "state_gripper": true,
+      "action_gripper": true,
+      "state_goal": true,
+      "goal_pos": true,
+      "pos_cube_red": true,
+      "pos_cube_green": true,
+      "pos_cube_blue": true
+    },
+    "normalization_matches_training_rows_only": true,
+    "normalization_excludes_terminal_states": true,
+    "max_reconstructed_hand_error_m": 9.742687111202276e-05,
+    "training_max_action_xyz_norm_m": 0.01002991882046127,
+    "invalid_cli_combinations_rejected": true,
+    "existing_output_preserved": true,
+    "preview_paths": {
+      "Put the red cube in the bin.": "work/human-vla-dataset-20261015-01/episode_000/preview.jpg",
+      "Put the green cube in the bin.": "work/human-vla-dataset-20261015-01/episode_005/preview.jpg",
+      "Put the blue cube in the bin.": "work/human-vla-dataset-20261015-01/episode_020/preview.jpg"
+    },
+    "images_reconstructed": true,
+    "contact_physics_certified": false,
+    "trained_policy": false,
+    "dagger_included": false,
+    "immutable_artifacts_verified": 1418,
+    "conversion_script_sha256": "4395e5eb263d3e519c4b081973b2269e7efc682e78b02458b1c7ed97f376b34c",
+    "current_script_sha256": "32bef7ae7409b1b513f4dc7008f0b7b7648626a666a8ef2421db184d91891439",
+    "script_difference": "CLI guard fix only: distinguish omitted episode from explicit episode 0.",
+    "current_single_episode_cli_regression": {
+      "folder": "work/human-dataset-single-regression-20261015-01",
+      "default_episode": 0,
+      "all_arrays_match_original": true,
+      "accepted_for_training": false
+    }
+  },
+  "manifest": {
+    "schema": "human_visual_dataset_v1",
+    "source_kind": "human_teleoperation",
+    "camera": "angle",
+    "training_episode_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      33,
+      34,
+      35,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "validation_episode_ids": [
+      9,
+      32,
+      36
+    ],
+    "episodes": [
+      {
+        "episode": 0,
+        "split": "train",
+        "folder": "episode_000",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 339,
+        "actions": 338,
+        "episode_sha256": "c7302a0b3f528af14caf46e4cba517a377a197983c61f11898e5c7f6125435f6",
+        "summary_sha256": "917c020def4dc2fb1b1d9da63d80c5827acf111e0dedb61b5c220997dfa134c6"
+      },
+      {
+        "episode": 1,
+        "split": "train",
+        "folder": "episode_001",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 398,
+        "actions": 397,
+        "episode_sha256": "9a0034b3fa974b7f548ec1fb802f77bccfc5c259e334dfc1a8d40622d210d8dc",
+        "summary_sha256": "825de51c5ee65f4ababaef1bb5d1a8598a2b5cdacb29f1396b5da2a6ff6dc852"
+      },
+      {
+        "episode": 2,
+        "split": "train",
+        "folder": "episode_002",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 281,
+        "actions": 280,
+        "episode_sha256": "f8b3e9470f296a7219d729a7742a3b2d363adc843ee79072ed6b38d701d5d0a7",
+        "summary_sha256": "9b2cac10e8f5b75ede6f7843565012d7c956de7c1666feaba4289404ae61ebae"
+      },
+      {
+        "episode": 3,
+        "split": "train",
+        "folder": "episode_003",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 244,
+        "actions": 243,
+        "episode_sha256": "98c564f10a35fb0d12936ddf7e831292213deec566a982922c8b457b1a2acb08",
+        "summary_sha256": "d79dcedf9bf8a80415ff8d132bffcc32b82ba5ef237db8b95003adb45cfc9dde"
+      },
+      {
+        "episode": 4,
+        "split": "train",
+        "folder": "episode_004",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 224,
+        "actions": 223,
+        "episode_sha256": "8dc2f41fc8d0f19a33c02bc5743362f6c45fd6e275235c13a35d7b20c34ca8f7",
+        "summary_sha256": "ec280b462e53d81b6c9f92bb18865c02f9e50ef62c5415449be541392010a468"
+      },
+      {
+        "episode": 5,
+        "split": "train",
+        "folder": "episode_005",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 339,
+        "actions": 338,
+        "episode_sha256": "da1b7695febe9a2a9884c1cbe1711a8f6b4ce4be1833214b6ebf0033e9a28277",
+        "summary_sha256": "35c8e94c6d75233c2bf9a4f788cf73ba98763b667616885de0580b2e6af4a258"
+      },
+      {
+        "episode": 6,
+        "split": "train",
+        "folder": "episode_006",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 298,
+        "actions": 297,
+        "episode_sha256": "308b91e2bd5c864adaafc51d6fc2cb1a64499346be9bba509a102a2e4405cb0d",
+        "summary_sha256": "7cd921e7664452bd297595ed75789ef81c91f454c3c1e80f21cffee74ac63cd4"
+      },
+      {
+        "episode": 7,
+        "split": "train",
+        "folder": "episode_007",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 300,
+        "actions": 299,
+        "episode_sha256": "6d29dd34e2434aa49f8b29aa9187306f394cf647840747cd822b3f8cf5ce5bdf",
+        "summary_sha256": "de1a82838bbd7235dd97bbfb1f9ffd95ef84bafc38ad8f0ec2dcf990e10144f1"
+      },
+      {
+        "episode": 8,
+        "split": "train",
+        "folder": "episode_008",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 260,
+        "actions": 259,
+        "episode_sha256": "22a71d08a4811e24ca15046e24059a2e022c0c6deb7ece70de26c6828da91b2c",
+        "summary_sha256": "716bfa31e0b6e583f6a9e021e6cf1a11277688b045d0dfd4b48e636548bd23ba"
+      },
+      {
+        "episode": 9,
+        "split": "validation",
+        "folder": "episode_009",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 307,
+        "actions": 306,
+        "episode_sha256": "f8ea9bdca02531daf506cd0603a03ba509590b58c356a8e2422f2eebc15ba09b",
+        "summary_sha256": "d1314362f2102aaa95b0196e198df264b40435bb83b0ff653a455a8103ba4b66"
+      },
+      {
+        "episode": 10,
+        "split": "train",
+        "folder": "episode_010",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 241,
+        "actions": 240,
+        "episode_sha256": "e4eb1d0ca81adb26282875987411b9e59440c7cf278984ffcd42a5cea4ff81b9",
+        "summary_sha256": "4e15e8e6c0879e22121989f18d651ccb1194370fcd96bc99b95b26da64fe5564"
+      },
+      {
+        "episode": 11,
+        "split": "train",
+        "folder": "episode_011",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 209,
+        "actions": 208,
+        "episode_sha256": "6fd9903f72ac3febe13c16a87fefea62f7efde112965b93e867eaf48a0411fbc",
+        "summary_sha256": "7f9b6d50be8fc428dc5dd661aac3bb510713f3d36704bcbfa1a69a6eb39b3755"
+      },
+      {
+        "episode": 12,
+        "split": "train",
+        "folder": "episode_012",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 269,
+        "actions": 268,
+        "episode_sha256": "a81158ab47059854b05a4b2fa132770f40b9b4297d2e28b785a18beb2571d11f",
+        "summary_sha256": "22163a602a702e137fc37ea57e41430c19374f6cb5dd4c9c14aff52bd029e3ff"
+      },
+      {
+        "episode": 13,
+        "split": "train",
+        "folder": "episode_013",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 308,
+        "actions": 307,
+        "episode_sha256": "ae9ca713dd15519beb1ed230b0b85dcc55cd334a2ee500db9404c97ae7e010aa",
+        "summary_sha256": "713cd50bcea5aa7ee101f5432e3f86928dcc41f808bcab4fd13db3f7c1719425"
+      },
+      {
+        "episode": 14,
+        "split": "train",
+        "folder": "episode_014",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 338,
+        "actions": 337,
+        "episode_sha256": "4b0060ec9b39db930a30b6dbe2f8717fb1c661ec90a169b0fdf9f7240745deeb",
+        "summary_sha256": "3d018ed24044191064f87a5c8f6d05f7202966238f9481f16d17771ec65d1169"
+      },
+      {
+        "episode": 15,
+        "split": "train",
+        "folder": "episode_015",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 203,
+        "actions": 202,
+        "episode_sha256": "78d94e538247f2923e285f13bdf6a4eaedc89b28fb0433c38c799869f6fd1c44",
+        "summary_sha256": "6fbea150948b28e9feda9c0bb13951e658d9e43d1342d3d2032652a13eae6c80"
+      },
+      {
+        "episode": 16,
+        "split": "train",
+        "folder": "episode_016",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 216,
+        "actions": 215,
+        "episode_sha256": "15a80a9e690b61d08cad1e5ce4919679fad7963cb3ef63429253b64e917b3e2b",
+        "summary_sha256": "fa1a98963f37ccedf3d183c153456753a22cac6d51313d6dc61da3fd45f00bc6"
+      },
+      {
+        "episode": 17,
+        "split": "train",
+        "folder": "episode_017",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 190,
+        "actions": 189,
+        "episode_sha256": "82939af2a08756fe130b30ed96b22c9f3a81e37b50b1ea33da6ba5d42dc8a5ad",
+        "summary_sha256": "78235c5c4effc00d5ec9bfa46e8e48928f4b4eaa2eb1fdbf833cf04f4aa436d6"
+      },
+      {
+        "episode": 18,
+        "split": "train",
+        "folder": "episode_018",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 272,
+        "actions": 271,
+        "episode_sha256": "f6b169cdb25c9c70c830165231e18b3d2c2ad34f97bdded4077b1b078adc8ffb",
+        "summary_sha256": "64586a9061689646dd10d691a0674672e8f219d4ce9a9f7a12702caf24be275b"
+      },
+      {
+        "episode": 19,
+        "split": "train",
+        "folder": "episode_019",
+        "instruction": "Put the green cube in the bin.",
+        "observations": 259,
+        "actions": 258,
+        "episode_sha256": "9cefce94516aba1e8239389ba57c36af7b15359b165c635b23a99b79c595183e",
+        "summary_sha256": "d5ec129a79b8f6da5bcc8abc80b0369f5de99d8eaa7472a92a0ef3684b7030aa"
+      },
+      {
+        "episode": 20,
+        "split": "train",
+        "folder": "episode_020",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 224,
+        "actions": 223,
+        "episode_sha256": "b01e28d2617c8ddd61ad1cace3c21e1f06e4993d114808971b2d67af044578ed",
+        "summary_sha256": "53925a23dca2df5f5fb18550a8442149e1e536d78d436157dcefabc4ca8553b3"
+      },
+      {
+        "episode": 21,
+        "split": "train",
+        "folder": "episode_021",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 227,
+        "actions": 226,
+        "episode_sha256": "e5efb75b1ae59cafa9d5e2f379c7fd9b05436481274f5589714d0f3136ca0c8a",
+        "summary_sha256": "e034a883a326915c96742db6ae1b3cbd0c7951d09cf832b7a7a825ef0a7d32bb"
+      },
+      {
+        "episode": 22,
+        "split": "train",
+        "folder": "episode_022",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 308,
+        "actions": 307,
+        "episode_sha256": "74235a3f81d31067b5bc9d546b8026e4c2b480a45fc04c2c5181ac18068fe5bd",
+        "summary_sha256": "e8bb3dca83b5a07261392f16de58cec7b6a707516d73bd393bdd680dbb9941c4"
+      },
+      {
+        "episode": 23,
+        "split": "train",
+        "folder": "episode_023",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 241,
+        "actions": 240,
+        "episode_sha256": "cb24106e860fc161c6360fcd4a88611ac92c8053c5eaca0cc666ec606991f61b",
+        "summary_sha256": "eb14cdbf05b5c726e47f1a40bd6ee1b6aa4fcef22f9c841e7e074849cbb27a20"
+      },
+      {
+        "episode": 24,
+        "split": "train",
+        "folder": "episode_024",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 225,
+        "actions": 224,
+        "episode_sha256": "82437f09e51e5226c98bdd52a8d42ac2c4197654571187817af285ddd8c181b5",
+        "summary_sha256": "606552d984260a0401ed2bbabac0b9e4a62ddad70bd7710ce95ea495fea6ea7e"
+      },
+      {
+        "episode": 25,
+        "split": "train",
+        "folder": "episode_025",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 200,
+        "actions": 199,
+        "episode_sha256": "77c35ee946ad9db6117759d168ad7ae138bfc1016ca36cb84d7345fb36417b6a",
+        "summary_sha256": "4e21df098af2bf1d0b80e1d4ea20ad781496f72cfa1d8ed902d4ed47f2bfac33"
+      },
+      {
+        "episode": 26,
+        "split": "train",
+        "folder": "episode_026",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 233,
+        "actions": 232,
+        "episode_sha256": "66d5134ac334f7f5c9e341775df1bcd4e251abf2767ddf139b13b26cbc6c2430",
+        "summary_sha256": "eb3eb6bec3b8b3cd8258e814cae7e86190d07e61e55c32d3c6e8f8e6113ade0e"
+      },
+      {
+        "episode": 27,
+        "split": "train",
+        "folder": "episode_027",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 197,
+        "actions": 196,
+        "episode_sha256": "eae2e61552330fbc9be0d62f1805caff837310790413b829aa6960c8a464f158",
+        "summary_sha256": "ecd8575d71443be72015d0035ec1f582ca410dae3f057b64405c7ca58c629a3d"
+      },
+      {
+        "episode": 28,
+        "split": "train",
+        "folder": "episode_028",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 159,
+        "actions": 158,
+        "episode_sha256": "05dce7fdd686ef93e478ad778079a351705956532857392aea59943be584be8c",
+        "summary_sha256": "f328a453cbd030e706238f98c76e86cd9b50395c825d56aff5bb795c5149c9e4"
+      },
+      {
+        "episode": 29,
+        "split": "train",
+        "folder": "episode_029",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 231,
+        "actions": 230,
+        "episode_sha256": "0c855649c8a3f7f7c6bb32ee315d867f196a90127509a4b8cd5da61e2832c72e",
+        "summary_sha256": "b1302e05945b39ca51cfda14efdce905ff78ac36434c3e4e1cb14e7e637f116d"
+      },
+      {
+        "episode": 30,
+        "split": "train",
+        "folder": "episode_030",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 231,
+        "actions": 230,
+        "episode_sha256": "d37bcb1d2a9f24ad6d11e5e9c0a486beb39aa4f7d4671c6ad2033c3ec672b403",
+        "summary_sha256": "74ad4175b99bb0b5b9c2d3503d181e809fb014b2e5186648174bad7f6bfda3fa"
+      },
+      {
+        "episode": 31,
+        "split": "train",
+        "folder": "episode_031",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 233,
+        "actions": 232,
+        "episode_sha256": "9304a70d027aaf41434ebbad1a16cce3eef45cbb6d534dc686b3469cb1869254",
+        "summary_sha256": "4b7ec6fe990442c6b4652d80c809bcf38384b1a66d5ccc858079808e37bd40e5"
+      },
+      {
+        "episode": 32,
+        "split": "validation",
+        "folder": "episode_032",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 255,
+        "actions": 254,
+        "episode_sha256": "94b05460f5170cbeba267619c700b60ccba0e714a2625d57d0060ceee1d9ea84",
+        "summary_sha256": "a5d3cc29d9c558c8e09205f4cd94f51854609c3d3796cac59edbd2ee3641e97a"
+      },
+      {
+        "episode": 33,
+        "split": "train",
+        "folder": "episode_033",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 206,
+        "actions": 205,
+        "episode_sha256": "ae9b607c08c0a2b284c639353cc836c31aee874740812bbb69da74ffc02cdc09",
+        "summary_sha256": "11593db49fe85a8c403fb7f37e8edb5df8948411373b7b044d7294fab9587244"
+      },
+      {
+        "episode": 34,
+        "split": "train",
+        "folder": "episode_034",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 256,
+        "actions": 255,
+        "episode_sha256": "5fba4269ece7b2674d0f9185b4b5ede35d6d2a40fce91e0f63b433a714064824",
+        "summary_sha256": "e6871e2ee4cb952775b97747842c066e10e5443a5863b6011414ae8081a5a878"
+      },
+      {
+        "episode": 35,
+        "split": "train",
+        "folder": "episode_035",
+        "instruction": "Put the blue cube in the bin.",
+        "observations": 235,
+        "actions": 234,
+        "episode_sha256": "44cd58b74c124a81f1189f9e82e76d679b8a485add594484b551824dc7ec384f",
+        "summary_sha256": "a3c0c7d9be5c40c56a0a9af17ceccffd432416d590f2098aa84890b9f8aed308"
+      },
+      {
+        "episode": 36,
+        "split": "validation",
+        "folder": "episode_036",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 225,
+        "actions": 224,
+        "episode_sha256": "551214d738922ff78cf711948bed69cbb2ca794bca218533907d1d55e071fb44",
+        "summary_sha256": "f0181688dd325c6398ce2eebed25d12359f0b9cdb57474a10b73f2047099bf5f"
+      },
+      {
+        "episode": 37,
+        "split": "train",
+        "folder": "episode_037",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 205,
+        "actions": 204,
+        "episode_sha256": "1a3abefb79b5e3f72f7cfa6e5eb899a37897c99405ba1d08068e7026e20af70a",
+        "summary_sha256": "0d1c1e81477b46d26688427dfd8512d6b263da90e22ca1b3a14b694f2050d02d"
+      },
+      {
+        "episode": 38,
+        "split": "train",
+        "folder": "episode_038",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 242,
+        "actions": 241,
+        "episode_sha256": "a53b2ee235244264ea38e7eaf52646351a380521c9fb87fe629492e3d40f038f",
+        "summary_sha256": "8d8299f2779c4bad039dc5d64e7036b417ec072b46151488e2ac77d261172c82"
+      },
+      {
+        "episode": 39,
+        "split": "train",
+        "folder": "episode_039",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 253,
+        "actions": 252,
+        "episode_sha256": "5d21b474c82c1bf97da000c9eaa9f65af99c2335bb178b043fb6a939dde3ac50",
+        "summary_sha256": "44b4462c5e22b1526d550eb5d8a7eff64b4debfb3f6899ceb58e1be7821f80d3"
+      },
+      {
+        "episode": 40,
+        "split": "train",
+        "folder": "episode_040",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 203,
+        "actions": 202,
+        "episode_sha256": "0447f90b420fc4261e9e1b12340b6d03d404bd867c3ea9e726e4c4f98bd81ebd",
+        "summary_sha256": "0639ec2030b81ea2791a4d1dbdc1cb603cd27a53ed621679ad8f28e7d4c22d19"
+      },
+      {
+        "episode": 41,
+        "split": "train",
+        "folder": "episode_041",
+        "instruction": "Put the red cube in the bin.",
+        "observations": 158,
+        "actions": 157,
+        "episode_sha256": "d287c4d69bbf116cbc35d771224db3fd50d0d93fda8003b50078ef0132c57c4e",
+        "summary_sha256": "92cbda14460fd320d9f72966bc1ba046072156cf0f73cc85c548601703afa85e"
+      }
+    ],
+    "normalization_sha256": "a807eee599e50d11932fd015052ee2c95db1d8544f9e1f0ffd4ea0b13634adc0",
+    "images_reconstructed": true,
+    "contact_physics_certified": false,
+    "dagger_included": false,
+    "limitation": "XYZ labels are measured displacements, not original commands. No policy success rate is established by this conversion."
+  },
+  "normalization": {
+    "purpose": "Human corpus normalization; training transitions only",
+    "episode_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      33,
+      34,
+      35,
+      37,
+      38,
+      39,
+      40,
+      41
+    ],
+    "transitions": 9616,
+    "terminal_observations_excluded": true,
+    "minimum_std": 1e-06,
+    "stats": {
+      "observation.state": {
+        "mean": [
+          0.014761397554442803,
+          -1.324457353448957,
+          1.2266818806776985,
+          1.5987633034562112,
+          -0.015037148181625496,
+          0.49502979019173343,
+          -0.22516986217114227,
+          0.5056856141058409,
+          0.11693414533704508
+        ],
+        "std": [
+          0.4516888383882791,
+          0.25795190014195934,
+          0.3195930966356515,
+          0.1182460573933723,
+          0.44878394346204104,
+          0.19869228796800437,
+          0.007203683484216536,
+          0.10413798867113644,
+          0.029829955880946783
+        ]
+      },
+      "action": {
+        "mean": [
+          2.03404786334855e-05,
+          -6.981184721588097e-06,
+          0.00011690866865354052,
+          0.3665951431598987
+        ],
+        "std": [
+          0.0009409620474658735,
+          0.0031436732066532523,
+          0.0021483916064188205,
+          0.31428721180637326
+        ]
+      }
+    }
+  }
+}

@@ -21,7 +21,7 @@ Raw data is read from the external lab checkout. The source-store list in the or
 
 ## What the converter produces
 
-`scripts/convert_human_episode.py` has two parts. `read_episode` selects the original raw rows, checks shapes and constant colour/bin labels, and verifies the action labels against the processed lab store. `main` reconstructs every image, saves aligned arrays and creates a preview and report. Original Zarr stores are opened read-only.
+`scripts/convert_human_episode.py` has two parts. `read_episode` selects the original raw rows, checks shapes and constant colour/bin labels, and verifies the action labels against the processed lab store. `convert_episode` reconstructs every image, saves aligned arrays and creates a preview and report. The CLI retains single-episode mode and now offers `--all` for the separate corpus stage. Original Zarr stores are opened read-only.
 
 For each step, the candidate model inputs are:
 
@@ -70,14 +70,14 @@ Use a new output directory. Expect `339` observations, `338` actions and the red
 
 The path passed to `--lab` is explicit configuration. No personal filesystem path is embedded in the converter. The original processed store's source list and exact 42-episode count are checked, rather than silently accepting an altered dataset with different split numbering.
 
-## What remains before training
+## Subsequent corpus preparation
 
-The [source-aware human interface check](vla-human-batch.md) now passes for a normal batch and the final-action boundary, using temporary training-only statistics and no saved changed weights. Before adopting the corpus, check whether a declared controller can reproduce useful movement from the achieved-position action labels under physics. Reconstructed images do not establish this: original mocap position/orientation targets and velocities are missing. Four-value actions also do not represent intentional wrist rotation; the recorded orientations remain available for a later interface decision.
+The [source-aware human interface check](vla-human-batch.md) passes for a normal batch and the final-action boundary. The [full corpus stage](human-vla-dataset.md) now converts all 42 original episodes, preserves the 39/3 split and fits normalization on training transitions only. Those new training entries are explicitly accepted for an experimental supervised run with contact limitations retained. The original one-episode report above remains historical evidence with its original acceptance flag.
 
-Timestamps are inferred from the nominal 10 Hz setting; original wall-clock timestamps were not stored. The original wide camera makes cubes small, so framing still needs review before corpus conversion. Contact forces, penetration and placement quality are not certified by this pose reconstruction. The existing phone contact-quality checks are not bypassed or assigned fabricated pass flags.
+The [first physics replay](human-physics-replay.md) completed a transfer but failed contact depth. Subsequent placement and torque diagnostics are separate outputs; they are not substituted into the human corpus. Pose reconstruction and an offline-data acceptance decision do not certify physical replay or policy success.
 
-Once the interface and execution checks are satisfactory, freeze accepted training/validation IDs and fit normalization using training transitions only. Review the seven DAgger segments and their layout/source provenance separately before assigning or combining them. Do not concatenate human achieved-motion labels with the phone controller's target-motion labels without defining and checking a common action convention.
+Original hand-target commands, velocities and wall-clock timestamps are absent. Times are nominal 10 Hz; XYZ labels describe achieved displacement. Four-value actions do not encode intentional wrist rotation, and the original wide camera makes cubes small. These limitations remain part of the first experiment. The phone contact-quality checks are unchanged.
 
-Presentation explanation: “I recorded the robot by teleoperation. Because I saved robot and object poses, I can reconstruct synchronized simulator images and pair them with my actions and colour instruction. That creates candidate examples for fine-tuning a VLA; training and closed-loop evaluation are separate steps.”
+The seven DAgger segments remain separate pending source/split review. Human achieved-motion labels are not concatenated with the phone controller's target-motion labels. The next runnable stage is a small SmolVLA fine-tuning run; closed-loop simulation evaluation follows.
 
-The [first action replay under physics](human-physics-replay.md) has now been recorded: one red transfer completed, but maximum target penetration was 5.05 mm and the quality screen failed. The original candidate remains excluded from training. Diagnose the contact before adopting a corpus; the reconstructed-pose video and model-batch checks are separate evidence.
+Presentation explanation: “I recorded the robot by teleoperation. Because I saved robot and object poses, I can reconstruct synchronized simulator images and pair them with my actions and colour instruction. That creates examples for a VLA experiment; training and closed-loop evaluation are separate steps.”

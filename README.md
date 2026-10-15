@@ -133,8 +133,9 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
 | Inspect one synchronized multicube visual demonstration | Original placement failed; scripted placement correction passed the 2 mm check on one training layout; not yet added to training |
 | Generate and review balanced colour-conditioned demonstrations | Original layout: 12/18; smaller workspace: 18/18 scripted completions; zero training inclusions |
-| Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; one episode converted; nine-state/four-action SmolVLA batch checks pass; not yet adopted |
-| Convert the verified dataset and fine-tune a pretrained VLA | Corpus training planned; real 13-state/4-action batch and episode-end padding checks pass |
+| Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; nine-state/four-action SmolVLA batch checks pass |
+| Prepare the human visual dataset | Complete: 39 training / 3 validation episodes; 9,616 training action examples; training-only normalization |
+| Fine-tune a pretrained VLA | Next stage; no task-trained checkpoint or VLA success rate yet |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 
@@ -148,9 +149,11 @@ A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning
 
 The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. A [one-batch SmolVLA check](docs/vla-human-batch.md) now passes with nine measured state values and four action values, including final-action padding. These are independent temporary optimizer updates; no task-trained checkpoint or VLA task score is available.
 
-A [physics replay of the human labels](docs/human-physics-replay.md) completed one red transfer but failed the 2 mm contact-depth screen (5.05 mm measured); the example remains excluded from training. [Contact tracing](docs/human-contact-diagnosis.md) identifies a roughly 7 cm drop onto the bin floor, with high pickup force logged separately.
+A [physics replay of the human labels](docs/human-physics-replay.md) completed one red transfer but failed the 2 mm contact-depth screen (5.05 mm measured); the replay remains excluded from training. [Contact tracing](docs/human-contact-diagnosis.md) identifies a roughly 7 cm drop onto the bin floor, with high pickup force logged separately.
 
 A [separate lower-first variant](docs/human-lower-first.md) uses one instant opening request and passes the depth screen on that same training case (1.00 mm); it remains a scripted diagnostic with high contact forces and no VLA task score. A [three-setting jaw-torque check](docs/human-jaw-torque.md) found that lowering motor torque alone does not solve the contact problem: 1 Nm loses the cube, and 2 Nm increases the pickup peak. The default is unchanged.
+
+The [full human visual corpus](docs/human-vla-dataset.md) is now prepared for an experimental fine-tuning run: **39 training episodes / 9,616 actions** and **3 validation episodes / 784 actions**. It uses the original recordings with reconstructed images and training-only normalization. Contact physics remains unvalidated; scripted replay corrections and DAgger segments are not included.
 
 [Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
 

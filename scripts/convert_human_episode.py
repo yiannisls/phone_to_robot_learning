@@ -1,4 +1,4 @@
-"""Convert one human multicube episode into aligned visual examples."""
+"""Convert human multicube recordings into aligned visual examples."""
 
 import argparse
 import hashlib
@@ -114,17 +114,10 @@ def read_episode(lab, episode):
     return raw, actions, source
 
 
-def main():
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--lab", type=Path, required=True)
-    parser.add_argument("--episode", type=int, default=0)
-    parser.add_argument("--camera", choices=("angle", "top", "left_wrist"),
-                        default="angle")
-    parser.add_argument("--out", type=Path, required=True)
-    args = parser.parse_args()
-    lab = args.lab.expanduser().resolve()
-    raw, actions, source = read_episode(lab, args.episode)
-    split = "validation" if args.episode in VALIDATION_EPISODES else "train"
+def convert_episode(lab, episode, camera, out):
+    """Reconstruct one recording without stepping physics."""
+    raw, actions, source = read_episode(lab, episode)
+    split = "validation" if episode in VALIDATION_EPISODES else "train"
     color = COLORS[int(raw["state_goal"][0].argmax())]
     instruction = f"Put the {color} cube in the bin."
     count = len(raw["state_joints"])
@@ -136,7 +129,7 @@ def main():
     sys.path.insert(0, str(lab))
     from hw3.sim_env import SO100MulticubeSimEnv
 
-    args.out.mkdir(parents=True, exist_ok=False)
+    out.mkdir(parents=True, exist_ok=False)
     scene = lab / "so101_gym/assets/so100_multicube_ee.xml"
     env = SO100MulticubeSimEnv(
         scene, goal_cube=color, seed=0, cube_pos_std=0,
@@ -146,7 +139,7 @@ def main():
     frames, errors = [], []
     try:
         writer = cv2.VideoWriter(
-            str(args.out / "episode.avi"),
+            str(out / "episode.avi"),
             cv2.VideoWriter_fourcc(*"MJPG"),
             source["control_hz"], (320, 240),
         )
@@ -164,7 +157,7 @@ def main():
             errors.append(float(np.linalg.norm(
                 env.get_ee_pos() - raw["state_ee"][row, :3]
             )))
-            image = env.render_rgb(args.camera).copy()
+            image = env.render_rgb(camera).copy()
             frames.append(image)
             writer.write(cv2.cvtColor(image, cv2.COLOR_RGB2BGR))
         if max(errors) > 0.001:
@@ -176,16 +169,16 @@ def main():
 
     images = np.stack(frames)
     np.savez_compressed(
-        args.out / "episode.npz",
+        out / "episode.npz",
         images=images, robot_state=robot_state, actions=actions, time_s=time_s,
         instruction=np.array(instruction), split=np.array(split),
         source_kind=np.array("human_teleoperation"),
-        source_episode=np.array(args.episode), **raw,
+        source_episode=np.array(episode), **raw,
     )
     peak = int(raw[f"pos_cube_{color}"][:, 2].argmax())
     preview = np.hstack([images[0], images[peak], images[-1]])
     cv2.imwrite(
-        str(args.out / "preview.jpg"),
+        str(out / "preview.jpg"),
         cv2.cvtColor(preview, cv2.COLOR_RGB2BGR),
     )
     report = {
@@ -194,7 +187,7 @@ def main():
         "source_kind": "human_teleoperation",
         "accepted_for_training": False,
         "observations": count, "actions": len(actions),
-        "image_shape": list(images.shape), "camera": args.camera,
+        "image_shape": list(images.shape), "camera": camera,
         "robot_state_fields": ["6 measured joint angles, including jaw",
                                "3 measured hand coordinates"],
         "action_fields": ["3 next-minus-current measured hand coordinates",
@@ -211,11 +204,119 @@ def main():
         "scene_sha256": checksum(scene),
         "simulator_sha256": checksum(lab / "hw3/sim_env.py"),
         "converter_sha256": checksum(Path(__file__)),
-        "episode_sha256": checksum(args.out / "episode.npz"),
+        "episode_sha256": checksum(out / "episode.npz"),
         "limitation": "Original commands and velocities are absent; "
                       "this conversion is not a dynamic replay or policy score.",
     }
-    (args.out / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
+    (out / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
+def convert_dataset(lab, camera, out):
+    """Convert the original episodes and fit statistics on training rows."""
+    out.mkdir(parents=True, exist_ok=False)
+    entries = []
+    training_states = []
+    training_actions = []
+
+    for episode in range(42):
+        folder = out / f"episode_{episode:03d}"
+        report = convert_episode(lab, episode, camera, folder)
+        is_training = report["split"] == "train"
+
+        report["accepted_for_training"] = is_training
+        report["dataset_use"] = "Experimental supervised fine-tuning"
+        report["acceptance_basis"] = (
+            "Original human recording with checked alignment; "
+            "contact physics is not certified."
+        )
+        (folder / "summary.json").write_text(
+            json.dumps(report, indent=2) + "\n"
+        )
+
+        entries.append({
+            "episode": episode,
+            "split": report["split"],
+            "folder": folder.name,
+            "instruction": report["instruction"],
+            "observations": report["observations"],
+            "actions": report["actions"],
+            "episode_sha256": report["episode_sha256"],
+            "summary_sha256": checksum(folder / "summary.json"),
+        })
+
+        if is_training:
+            with np.load(folder / "episode.npz", allow_pickle=False) as data:
+                training_states.append(data["robot_state"][:-1].copy())
+                training_actions.append(data["actions"].copy())
+
+        print(f"Converted {episode + 1}/42: {report['split']}", flush=True)
+
+    stats = {}
+    for key, parts in [
+        ("observation.state", training_states),
+        ("action", training_actions),
+    ]:
+        values = np.concatenate(parts).astype(np.float64)
+        stats[key] = {
+            "mean": values.mean(axis=0).tolist(),
+            "std": np.maximum(values.std(axis=0), 1e-6).tolist(),
+        }
+
+    training_ids = [
+        entry["episode"] for entry in entries if entry["split"] == "train"
+    ]
+    normalization = {
+        "purpose": "Human corpus normalization; training transitions only",
+        "episode_ids": training_ids,
+        "transitions": sum(len(part) for part in training_actions),
+        "terminal_observations_excluded": True,
+        "minimum_std": 1e-6,
+        "stats": stats,
+    }
+    (out / "normalization.json").write_text(
+        json.dumps(normalization, indent=2) + "\n"
+    )
+
+    manifest = {
+        "schema": "human_visual_dataset_v1",
+        "source_kind": "human_teleoperation",
+        "camera": camera,
+        "training_episode_ids": training_ids,
+        "validation_episode_ids": sorted(VALIDATION_EPISODES),
+        "episodes": entries,
+        "normalization_sha256": checksum(out / "normalization.json"),
+        "images_reconstructed": True,
+        "contact_physics_certified": False,
+        "dagger_included": False,
+        "limitation": (
+            "XYZ labels are measured displacements, not original commands. "
+            "No policy success rate is established by this conversion."
+        ),
+    }
+    (out / "manifest.json").write_text(
+        json.dumps(manifest, indent=2) + "\n"
+    )
+    return manifest
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--lab", type=Path, required=True)
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--episode", type=int)
+    selection.add_argument("--all", action="store_true",
+                           help="Prepare all 42 episodes with the existing split.")
+    parser.add_argument("--camera", choices=("angle", "top", "left_wrist"),
+                        default="angle")
+    parser.add_argument("--out", type=Path, required=True)
+    args = parser.parse_args()
+    lab = args.lab.expanduser().resolve()
+    if args.all:
+        report = convert_dataset(lab, args.camera, args.out)
+    else:
+        episode = 0 if args.episode is None else args.episode
+        report = convert_episode(lab, episode, args.camera, args.out)
     print(json.dumps(report, indent=2))
 
 
