@@ -1,0 +1,87 @@
+{
+  "human_episode": 1,
+  "human_source": "Personally collected human teleoperation, original curated training episode 1",
+  "phone_source": "IMG_5539 training family; measured phone transport plus scripted robot phases",
+  "phone_sha256": "681d315a6ad40b21d9d535295d5b547bcdd831db6b1c0a096ddc25a899b6de8f",
+  "common_scene": {
+    "bin_body_xyz": [
+      -0.2,
+      0.7,
+      0.001
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacles_enabled": false,
+    "replay": "Recorded poses with mj_forward; no physics stepping or task score."
+  },
+  "demonstrations": {
+    "human": {
+      "states": 680,
+      "duration_s": 67.9,
+      "max_reconstructed_hand_error_m": 8.636603427732713e-05,
+      "initial_cube_xyz": [
+        -0.2411060631275177,
+        0.3951290249824524,
+        0.019999947398900986
+      ],
+      "final_cube_xyz": [
+        -0.1964128464460373,
+        0.6767967939376831,
+        0.02574656717479229
+      ],
+      "episode_array_sha256": "5b390fe10010f341144b3acfb0c60f2124ffe9c3eefa0b0f9d1df1113cf0000a",
+      "control_dt_s": 0.1,
+      "native_goal_xyz": [
+        -0.2,
+        0.7,
+        0.021
+      ],
+      "xyz_action_semantics": "Measured EE position differences",
+      "gripper_action_semantics": "Saved native actuator target; no explicit closing-rate limiter in recorder",
+      "gripper_command_range": [
+        8.206069651350845e-06,
+        0.70000821352005
+      ]
+    },
+    "phone": {
+      "states": 150,
+      "duration_s": 14.9,
+      "max_reconstructed_hand_error_m": 8.37782505199242e-05,
+      "initial_cube_xyz": [
+        -0.23000100255012512,
+        0.40000098943710327,
+        0.01999579928815365
+      ],
+      "final_cube_xyz": [
+        -0.23579929769039154,
+        0.5609264969825745,
+        0.02099994756281376
+      ],
+      "episode_array_sha256": "68b152b24f4fbbe6a17f1899150eb61ef134613db72fbf910db63c5e9c1671db",
+      "control_dt_s": 0.1,
+      "native_goal_xyz": [
+        -0.23000000417232513,
+        0.5699999928474426,
+        0.020999999716877937
+      ],
+      "xyz_action_semantics": "Commanded mocap target differences",
+      "gripper_action_semantics": "requested native actuator target",
+      "close_rate_rad_s": 1.0,
+      "gripper_command_range": [
+        -0.17399999499320984,
+        1.0
+      ],
+      "mean_norm_target_delta_minus_measured_delta_m": 0.000808065349701792
+    }
+  },
+  "checks": {
+    "human_actions_match_measured_deltas": true,
+    "phone_actions_match_target_deltas": true,
+    "source_families_training_only": true
+  },
+  "compatible_for_naive_concatenation": false,
+  "reason": "Different XYZ action labels, goals, obstacle profiles and gripper execution. Pose reconstruction is not dynamic replay."
+}

@@ -28,3 +28,7 @@ Phone recordings supply the transport curve. Calibration is approximate; start/e
 ## Supporting experiments
 
 Keep these for investigation rather than the first walkthrough: `inspect_videos.py`, `plot_marker.py`, `track_two_markers.py`, `evaluate_layouts.py`, `test_gripper_settings.py`, `probe_world_model.py`, `evaluate_world_model.py`, `collect_agent_grasps.py`, `replay_gripper.py`, and the older `evaluate_policy.py`. Historical reports and outputs retain their original names and provenance. No files need moving to understand the main workflow.
+
+## Combining sources
+
+See [the single-episode compatibility audit](data-compatibility.md) before mixing phone-derived demonstrations with human teleoperation. Their action labels, bin positions and execution profiles differ. `compare_demonstrations.py` checks one training episode from each and renders recorded poses without physics stepping.
