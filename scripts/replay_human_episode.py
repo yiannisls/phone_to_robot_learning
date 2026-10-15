@@ -69,7 +69,15 @@ def main():
         "--placement", choices=("replay", "lower-first"), default="replay"
     )
     parser.add_argument("--handoff-step", type=int)
+    parser.add_argument(
+        "--jaw-torque-limit", type=float,
+        help="Optional symmetric jaw motor torque limit in Nm.",
+    )
     args = parser.parse_args()
+    if args.jaw_torque_limit is not None and (
+        not np.isfinite(args.jaw_torque_limit) or args.jaw_torque_limit <= 0
+    ):
+        parser.error("--jaw-torque-limit must be finite and positive.")
     if args.episode in VALIDATION_EPISODES:
         parser.error("Use a training episode for this development check.")
     lab = args.lab.expanduser().resolve()
@@ -96,6 +104,24 @@ def main():
     )
     writer = None
     try:
+        jaw_actuator = int(env.act_ids[-1])
+        jaw_joint = env.model.joint("Jaw").id
+        jaw_qpos = int(env.model.jnt_qposadr[jaw_joint])
+        jaw_dof = int(env.model.jnt_dofadr[jaw_joint])
+        # Nm interpretation requires a unit-gear actuator on the jaw hinge.
+        if not (
+            env.model.jnt_type[jaw_joint] == mujoco.mjtJoint.mjJNT_HINGE
+            and env.model.actuator_trntype[jaw_actuator] == mujoco.mjtTrn.mjTRN_JOINT
+            and env.model.actuator_trnid[jaw_actuator, 0] == jaw_joint
+            and np.array_equal(env.model.actuator_gear[jaw_actuator], [1, 0, 0, 0, 0, 0])
+        ):
+            raise ValueError("Expected a unit-gear actuator on the Jaw hinge.")
+        original_jaw_torque_range = env.model.actuator_forcerange[jaw_actuator].copy()
+        if args.jaw_torque_limit is not None:
+            env.model.actuator_forcerange[jaw_actuator] = [
+                -args.jaw_torque_limit, args.jaw_torque_limit
+            ]
+            env.model.actuator_forcelimited[jaw_actuator] = True
         # Restore the starting configuration only.
         env.data.qpos[env.qpos_idx] = raw["state_joints"][0]
         for cube_color, indices in zip(COLORS, env.cube_qpos_slices):
@@ -120,6 +146,7 @@ def main():
         writer.write(cv2.cvtColor(env.render_rgb("angle"), cv2.COLOR_RGB2BGR))
         executed, physics = [], []
         contacts = []
+        jaw_trace = []
         peak_penetration_contact = None
         peak_force_contact = None
         terminated = None
@@ -141,7 +168,17 @@ def main():
             env.set_mocap_pos(target)
             env.set_gripper(float(action[3]))
             for _ in range(env.substeps):
+                jaw_angle = float(env.data.qpos[jaw_qpos])
+                jaw_speed = float(env.data.qvel[jaw_dof])
                 mujoco.mj_step(env.model, env.data)
+                if args.contact_trace:
+                    jaw_trace.append([
+                        env.data.time, len(executed),
+                        float(env.data.ctrl[jaw_actuator]),
+                        jaw_angle, jaw_speed,
+                        float(env.data.actuator_force[jaw_actuator]),
+                        float(env.data.qfrc_actuator[jaw_dof]),
+                    ])
                 target_depth, self_depth, normal_force = 0.0, 0.0, 0.0
                 for index, contact in enumerate(env.data.contact):
                     depth = max(0.0, -float(contact.dist))
@@ -308,6 +345,14 @@ def main():
         )
         if args.contact_trace:
             np.savez_compressed(
+                args.out / "jaw_trace.npz", samples=np.asarray(jaw_trace),
+                columns=np.array([
+                    "logged_after_step_time_s", "action_index", "command_rad",
+                    "pre_step_angle_rad", "pre_step_speed_rad_s",
+                    "actuator_torque_nm", "joint_actuator_torque_nm",
+                ]),
+            )
+            np.savez_compressed(
                 args.out / "contacts.npz",
                 samples=np.asarray(contacts).reshape(-1, 5),
                 columns=np.array([
@@ -367,7 +412,10 @@ def main():
             "orientation": "Initial measured quaternion held fixed; no later pose restoration",
             "extra_settling_steps": phases.count("settle"),
             "control_dt_s": env.dt_ctrl, "physics_dt_s": env.sim_dt,
-            "jaw_torque_range_nm": env.model.actuator_forcerange[env.act_ids[-1]].tolist(),
+            "jaw_torque_range_nm": env.model.actuator_forcerange[jaw_actuator].tolist(),
+            "original_jaw_torque_range_nm": original_jaw_torque_range.tolist(),
+            "requested_jaw_torque_limit_nm": args.jaw_torque_limit,
+            "jaw_trace_sha256": checksum(args.out / "jaw_trace.npz") if args.contact_trace else None,
             "mujoco_version": mujoco.__version__,
             "scene_sha256": checksum(scene),
             "simulator_sha256": checksum(lab / "hw3/sim_env.py"),

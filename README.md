@@ -150,7 +150,7 @@ The lab also contains **42 multicube teleoperation episodes and seven DAgger cor
 
 A [physics replay of the human labels](docs/human-physics-replay.md) completed one red transfer but failed the 2 mm contact-depth screen (5.05 mm measured); the example remains excluded from training. [Contact tracing](docs/human-contact-diagnosis.md) identifies a roughly 7 cm drop onto the bin floor, with high pickup force logged separately.
 
-A [separate lower-first variant](docs/human-lower-first.md) uses one instant opening request and passes the depth screen on that same training case (1.00 mm); it remains a scripted diagnostic with high contact forces and no VLA task score.
+A [separate lower-first variant](docs/human-lower-first.md) uses one instant opening request and passes the depth screen on that same training case (1.00 mm); it remains a scripted diagnostic with high contact forces and no VLA task score. A [three-setting jaw-torque check](docs/human-jaw-torque.md) found that lowering motor torque alone does not solve the contact problem: 1 Nm loses the cube, and 2 Nm increases the pickup peak. The default is unchanged.
 
 [Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
 

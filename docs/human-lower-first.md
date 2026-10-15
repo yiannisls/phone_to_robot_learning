@@ -73,6 +73,6 @@ The measured corrected run is `work/human-lower-first-20261015-01`, including ex
 
 ## What remains
 
-Review the high contact forces and check more training examples before adopting a corpus. The explicit handoff for episode 0 cannot simply be copied to the other 41 recordings. The seven DAgger correction segments remain separate pending source/split review. If this hybrid data is later converted for VLA learning, preserve its human/script phase provenance and define a consistent action-label convention rather than merging the current arrays directly.
+A [jaw-torque comparison](human-jaw-torque.md) now records the next check: 1 Nm loses the cube, while 2 Nm completes the transfer but increases the pickup contact peak. The default remains unchanged. Investigate pickup alignment/contact geometry and check more training examples before adopting a corpus. The explicit handoff for episode 0 cannot simply be copied to the other 41 recordings. The seven DAgger correction segments remain separate pending source/split review. If this hybrid data is later converted for VLA learning, preserve its human/script phase provenance and define a consistent action-label convention rather than merging the current arrays directly.
 
 Presentation explanation: “Lowering before release reduced the contact-depth failure in one recorded training case. The opening command stayed instant and matched the original demonstration. I kept the original result, labelled the scripted replacement, and reported the remaining force and timing limitations.”
