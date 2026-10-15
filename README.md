@@ -8,7 +8,7 @@ The internship challenge asks applicants to collect their own data and use it to
 
 *Left: one of my original recordings, with an ArUco marker attached to the object. Right: the learned policy moving a cube with the simulated SO-100/101 arm. These are separate examples, not synchronized frames.*
 
-**Current result:** the phone-derived policy completes 20/20 transfers in the saved development comparison. A learned world model also helps reject a deliberately early gripper-opening command. The next experiment will test how phone-derived motion can complement my robot teleoperation demonstrations.
+**Current result:** the phone-derived policy completes 20/20 transfers in the saved development comparison. A learned world model also helps reject a deliberately early gripper-opening command. The next experiment checks the frozen phone-derived controllers on additional starting positions.
 
 [See the result](#3-the-result--testing-the-robot) · [Understand the pipeline](#2-the-middle--turning-movement-into-robot-demonstrations) · [Run it](#run-the-project) · [Read the code](docs/project-map.md)
 
@@ -80,32 +80,31 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 - **Personal footage contributes to control.** Its transport paths become part of the demonstrations used to train the robot policy.
 - **Alternative-action examples help the world model.** In selected validation probes, its half-second cube prediction error after a changed gripper request fell from 10.32 mm to 1.15 mm. This is prediction error, not a task-success score.
-- **Grasp and release need robot-specific information.** The phone dataset currently relies on scripted examples for these phases, which motivates incorporating human teleoperation.
+- **Grasp and release need robot-specific information.** The phone dataset currently relies on scripted examples for these phases; the contribution of the footage is the transport movement.
 - **Physics and generalization remain limitations.** Large contact-force peaks, approximate camera calibration, a small real dataset and a narrow task prevent broader claims.
 
 [Prediction experiments](docs/world_model_v2_results.md) · [Gripper investigation](docs/gripper_experiments.md)
 
-## 4. The next step — bring in human robot demonstrations
+## 4. The next step — test the phone-derived system more broadly
 
-Alongside this project, I collected keyboard teleoperation demonstrations in the simulator and trained a BC policy with **DAgger**, where human takeovers provide corrective examples. That separate lab achieved **97/100 successes in its original distribution and 82/100 with shifted obstacles**. It provides a working robot-demonstration baseline; no further DAgger collection is currently planned.
-
-Those results come from a different task setup and cannot be compared directly with the phone project's 20-layout scores. The compatibility check found different bin positions, gripper execution and movement-label definitions. The datasets have not been combined.
-
-**The next question is: can phone-recorded movement reduce the amount of robot teleoperation needed to learn the task?**
+The active project uses the personally recorded phone footage, behavioral cloning and the state world model. The next check compares the frozen controllers on 20 additional, previously unused starting positions, using the same scene and separate ordinary/opening-error conditions. These are new simulated layouts, not new real recordings or different objects.
 
 | Stage | Status |
 |---|---|
 | Collect phone recordings and extract motion | Complete |
 | Generate demonstrations and train BC | Complete |
 | Learn a state world model and test gripper decisions | Complete for the reported experiment |
-| Check compatibility with human teleoperation | Initial comparison complete |
-| Adapt phone demonstrations to the lab's task and action conventions | First transfer pilot complete; contact quality still fails |
-| Compare teleoperation-only, phone-only and combined training | Planned |
+| Evaluate frozen controllers on additional starting positions | In progress |
+| Address remaining contact-physics limitations | Open |
 | Build visual action data and fine-tune a VLA | Optional later experiment |
 
-The combined-data comparison will keep the existing source splits and baselines. Its outcomes will be reported whether or not adding phone data helps.
+The source-family split and existing model checkpoints remain fixed. New outcomes are reported separately from the earlier development suite. These position tests do not establish robustness to different objects, friction or camera viewpoints.
 
-[First integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md) · [Separate BC lab](https://github.com/yiannisls/so101-behavioral-cloning)
+### Earlier work: teleoperation integration, deferred
+
+A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning) achieved 97/100 original and 82/100 shifted-obstacle successes. Those are a different task setup and are not results of this phone-data controller. An integration pilot combined one human approach with phone-derived transport and scripted release; it completed a transfer but failed the contact-depth check. This integration is deferred and has not entered policy training.
+
+[Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
 
 ## Run the project
 

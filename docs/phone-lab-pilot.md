@@ -1,5 +1,7 @@
 # Human approach plus phone transport: first integration pilot
 
+> Integration deferred: the active project has returned to phone-derived BC and world-model evaluation. These pilots remain historical evidence and were not added to policy training.
+
 ## What was tested
 
 This is demonstration generation under physics, not training or evaluation of a learned policy. The existing lab policy is unchanged. The experiment uses training data only: original human episode 1 and phone source IMG_5539. Both obstacles and the lab's original bin position are retained; randomization is disabled for this deterministic pilot.
@@ -49,3 +51,7 @@ The output includes video, contact records, summary JSON, and T actions with T+1
 ## Next check
 
 Improve the generated release's contact behavior without relaxing the 2 mm threshold, then test additional training-source paths. Keep failed examples as diagnostic evidence. Only reviewed task-and-quality passes may enter a new dataset version. The original 97%/82% lab policy remains frozen; no further DAgger collection is planned.
+
+## Last exploratory release test
+
+Before deferring integration, a two-second gradual opening test completed transfer with zero obstacle contacts but still exceeded the depth threshold (4.23 mm versus 4.29 mm for instant opening). It remains excluded from training. Its result and exact generator source are preserved locally in `work/phone-lab-release-20261015/IMG_5539-gradual`. The active source returns to the committed pilot; further integration development is paused by the project scope decision.
