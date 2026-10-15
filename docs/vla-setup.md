@@ -32,7 +32,7 @@ uv pip install --python .venv-vla/bin/python --no-cache --link-mode hardlink \
 uv pip check --python .venv-vla/bin/python
 ```
 
-`requirements-vla.txt` lists the direct requirements; `requirements-vla-lock.txt` records all 76 installed package versions for this Linux/CUDA setup. This is a version snapshot, not a wheel archive or a guarantee of compatibility with other operating systems or GPU drivers. The CUDA 13.0 packages require a compatible NVIDIA driver. Other platforms need their own dependency resolution.
+`requirements-vla.txt` lists the direct requirements; `requirements-vla-lock.txt` records the installed package versions for this Linux/CUDA setup, including MuJoCo 3.14.0 for the visual recorder. This is a version snapshot, not a wheel archive or a guarantee of compatibility with other operating systems or GPU drivers. The CUDA 13.0 packages require a compatible NVIDIA driver. Other platforms need their own dependency resolution.
 
 The install used temporary package caching and hard links to avoid retaining duplicate installed files. Free space fell from approximately 13 GB to 7.2 GB. Model weights, training data, and output checkpoints will require additional space.
 
@@ -80,4 +80,4 @@ Pretrained weights have now been downloaded and one synthetic optimizer step has
 
 The small CUDA training check used a 1024-to-1024 linear layer, batch size two and BF16 autocast. All losses and gradients were finite; losses were 1.3477, 1.2310 and 1.1212. Peak allocated GPU memory was 39.3 MiB. This checks software execution only and is not evidence that SmolVLA fits. No trained weights were saved.
 
-The next stage is one visually inspected, synchronized robot episode with camera images, robot states, actions and a language instruction. Confirm its coordinate system, units and timing before expanding the dataset or fine-tuning. The phone source-family split remains fixed; any new augmentation must keep all descendants of each recording in that recording's split.
+One synchronized multicube candidate has now been recorded and inspected. Its image/action alignment passed, but placement penetration exceeded the quality threshold; it remains excluded from training. See [the visual-episode report](visual-episode.md). Correct placement and review camera framing before expanding the dataset or fine-tuning. The phone source-family split remains fixed; any new augmentation must keep all descendants of each recording in that recording's split.

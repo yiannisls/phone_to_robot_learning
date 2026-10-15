@@ -67,3 +67,5 @@ After the nine removals, BC validation completed in 131 steps with task and cont
 ## Separate VLA experiment
 
 `test_vla_memory.py` checks whether pretrained SmolVLA can complete one LoRA training step on the local GPU. Inputs are synthetic: one RGB image, a robot-state vector, a tokenized instruction and action targets. Its output is a JSON report of memory use and numerical checks. It downloads pinned pretrained weights, requires `.venv-vla`, and does not train or evaluate the phone BC/world-model controllers. See [setup and measured results](vla-setup.md).
+
+`record_visual_episode.py` replays one successful phone-derived training demonstration in a fixed multicube arrangement and records aligned RGB images, robot inputs, actions, diagnostics and an instruction. It checks timing, command alignment, contact depth and distractor movement. It saves candidate data under a new output folder; it does not add episodes to a training dataset. See [the inspected episode and its placement failure](visual-episode.md).
