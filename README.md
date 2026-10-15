@@ -116,9 +116,9 @@ For each accepted robot demonstration, save synchronized images, robot measureme
 
 ### Which model?
 
-**LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator; neither has been tested here.
+**LeRobot is the training and dataset framework, not a separate VLA model.** The first practical candidate is [SmolVLA](https://huggingface.co/docs/lerobot/main/smolvla), a 450-million-parameter pretrained model. [π₀.₅](https://huggingface.co/docs/lerobot/main/pi05) is another candidate if compute and integration time allow. Both require adapting the data and action interface to this simulator. SmolVLA has passed a synthetic training-memory test here; neither has been evaluated on the multicube task.
 
-**Local hardware check:** the RTX 4060 Laptop GPU (8 GB) passes CUDA and a small BF16 training check. A separate compatible LeRobot environment is installed and passes SmolVLA/LoRA import and CUDA checks. A real SmolVLA training-memory test is still pending. [Setup findings](docs/vla-setup.md)
+**Local hardware check:** pretrained SmolVLA passes a synthetic forward/backward/optimizer step on the RTX 4060 Laptop GPU (8 GB), using one camera, batch size one and rank-four LoRA. Peak PyTorch allocation was 1.25 GiB (1.33 GiB reserved). This verifies a small training configuration, not robot performance. [Setup findings](docs/vla-setup.md)
 
 The immediate priority is a reliable dataset. First inspect one complete image–instruction–action episode, then choose the training configuration and GPU. A larger model alone does not establish better results on this task.
 
@@ -131,7 +131,7 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
 | Inspect one synchronized multicube visual demonstration | Next |
 | Generate and review balanced colour-conditioned demonstrations | Planned |
-| Convert the verified dataset and fine-tune a pretrained VLA | Planned; model and GPU not finalized |
+| Convert the verified dataset and fine-tune a pretrained VLA | Planned; SmolVLA LoRA passes a synthetic memory test on the local RTX 4060 |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 

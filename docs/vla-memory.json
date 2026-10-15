@@ -1,0 +1,54 @@
+{
+  "status": "passed",
+  "purpose": "Synthetic memory check; no task-performance measurement.",
+  "policy": "lerobot/smolvla_base",
+  "policy_revision": "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6",
+  "backbone_revision": "7b375e1b73b11138ff12fe22c8f2822d8fe03467",
+  "seed": 42,
+  "batch_size": 1,
+  "cameras": 1,
+  "lora_rank": 4,
+  "precision": "Pretrained parameter dtypes with BF16 autocast",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "lerobot": "0.6.1",
+    "transformers": "5.5.4",
+    "peft": "0.21.2"
+  },
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+  "total_vram_mib": 7807.5625,
+  "after_loading": {
+    "allocated_mib": 1156.89990234375,
+    "peak_allocated_mib": 1156.89990234375,
+    "peak_reserved_mib": 1178.0
+  },
+  "image_resize": [
+    512,
+    512
+  ],
+  "action_chunk": 50,
+  "trainable_parameters": 185664,
+  "total_parameters": 450231840,
+  "parameter_dtypes": {
+    "torch.float32": 148997520,
+    "torch.bfloat16": 301234320
+  },
+  "state_size": 6,
+  "action_size": 6,
+  "loss": 2.618818759918213,
+  "after_forward": {
+    "allocated_mib": 1274.95068359375,
+    "peak_allocated_mib": 1283.689453125,
+    "peak_reserved_mib": 1362.0
+  },
+  "after_backward": {
+    "allocated_mib": 1175.6337890625,
+    "peak_allocated_mib": 1283.689453125,
+    "peak_reserved_mib": 1362.0
+  },
+  "after_optimizer": {
+    "allocated_mib": 1177.064453125,
+    "peak_allocated_mib": 1283.689453125,
+    "peak_reserved_mib": 1362.0
+  }
+}

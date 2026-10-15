@@ -63,3 +63,7 @@ After the nine removals, BC validation completed in 131 steps with task and cont
 ## Current integration pilot
 
 `test_phone_in_lab.py` tests generated demonstrations in the lab scene. `--approach human` uses a recorded human training prefix followed by phone-derived transport and scripted placement. It performs no learning and keeps all outputs excluded from training. See [pilot results](phone-lab-pilot.md).
+
+## Separate VLA experiment
+
+`test_vla_memory.py` checks whether pretrained SmolVLA can complete one LoRA training step on the local GPU. Inputs are synthetic: one RGB image, a robot-state vector, a tokenized instruction and action targets. Its output is a JSON report of memory use and numerical checks. It downloads pinned pretrained weights, requires `.venv-vla`, and does not train or evaluate the phone BC/world-model controllers. See [setup and measured results](vla-setup.md).
