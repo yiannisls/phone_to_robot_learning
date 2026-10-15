@@ -12,6 +12,8 @@ import cv2
 import mujoco
 import numpy as np
 
+from record_visual_episode import place_with_feedback
+
 from convert_human_episode import (
     COLORS, VALIDATION_EPISODES, checksum, read_episode,
 )
@@ -63,11 +65,22 @@ def main():
         "--contact-trace", action="store_true",
         help="Save target-cube contacts and snapshots of peak events.",
     )
+    parser.add_argument(
+        "--placement", choices=("replay", "lower-first"), default="replay"
+    )
+    parser.add_argument("--handoff-step", type=int)
     args = parser.parse_args()
     if args.episode in VALIDATION_EPISODES:
         parser.error("Use a training episode for this development check.")
     lab = args.lab.expanduser().resolve()
     raw, actions, source = read_episode(lab, args.episode)
+    if args.placement == "replay" and args.handoff_step is not None:
+        parser.error("--handoff-step requires --placement lower-first.")
+    if args.placement == "lower-first":
+        if args.handoff_step is None or not 1 <= args.handoff_step < len(actions):
+            parser.error("Choose a handoff step within the recorded actions.")
+        if actions[args.handoff_step, 3] <= actions[args.handoff_step - 1, 3]:
+            parser.error("The handoff step must request a larger gripper opening.")
     color = COLORS[int(raw["state_goal"][0].argmax())]
     target_index = COLORS.index(color)
 
@@ -119,7 +132,10 @@ def main():
         ]
         initial_warnings = sum(int(env.data.warning[w].number) for w in bad_warnings)
 
-        for action in actions:
+        phases = []
+
+        def execute(action, phase):
+            nonlocal terminated, peak_penetration_contact, peak_force_contact
             # This matches the lab's XYZ-delta plus native gripper executor.
             target = env.data.mocap_pos[env.mocap_id] + action[:3]
             env.set_mocap_pos(target)
@@ -177,13 +193,14 @@ def main():
                     break
 
             executed.append(action.copy())
+            phases.append(phase)
             states.append(observe(env))
             finite = all(
                 np.isfinite(value).all() for value in states[-1].values()
             )
             if not finite:
                 terminated = "nonfinite_state"
-                break
+                return
             writer.write(cv2.cvtColor(
                 env.render_rgb("angle"), cv2.COLOR_RGB2BGR
             ))
@@ -193,8 +210,58 @@ def main():
                 or not 0.1 <= cube[1] <= 1.1
             ):
                 terminated = "cube_out_of_bounds"
+        prefix_limit = (
+            len(actions) if args.placement == "replay" else args.handoff_step
+        )
+        for action in actions[:prefix_limit]:
+            execute(action, "human_teleoperation")
             if terminated is not None:
                 break
+
+        human_prefix_actions = len(executed)
+        placement_completed = None
+        placement_details = None
+        if args.placement == "lower-first" and terminated is None:
+            opening = float(actions[args.handoff_step, 3])
+            cube = env.get_cube_state()[:3]
+            ready = (
+                cube[2] > 0.06
+                and np.max(np.abs(cube[:2] - env.get_goal_pos()[:2])) < 0.04
+                and np.linalg.norm(env.get_ee_pos() - cube) < 0.08
+            )
+            placement_details = {
+                "handoff_step": args.handoff_step,
+                "recorded_opening_command": opening,
+                "release_steps": 1,
+                "ready_at_handoff": bool(ready),
+                "release_clearance_m": None,
+            }
+
+            def execute_placement(target, gripper, phase):
+                if terminated is not None:
+                    raise StopIteration(terminated)
+                if phase == "placement_release":
+                    rotation = env.data.geom_xmat[target_geom].reshape(3, 3)
+                    bottom = (
+                        env.data.geom_xpos[target_geom, 2]
+                        - np.abs(rotation[2]) @ env.model.geom_size[target_geom]
+                    )
+                    floor = env.model.geom("bin_floor").id
+                    floor_top = (
+                        env.data.geom_xpos[floor, 2] + env.model.geom_size[floor, 2]
+                    )
+                    placement_details["release_clearance_m"] = float(bottom - floor_top)
+                delta = target - env.data.mocap_pos[env.mocap_id]
+                execute(np.r_[delta, gripper], phase)
+
+            placement_completed = False
+            if ready:
+                try:
+                    placement_completed = place_with_feedback(
+                        env, execute_placement, open_grip=opening, release_steps=1
+                    )
+                except StopIteration:
+                    pass
 
         arrays = {
             key: np.stack([state[key] for state in states])
@@ -217,6 +284,7 @@ def main():
         self_depth = float(physics[:, 3].max())
         task_success = bool(
             terminated is None
+            and (args.placement == "replay" or placement_completed)
             and peak_height > 0.06
             and np.max(np.abs(final_cube[:2] - goal[:2])) < 0.04
             and 0.015 < final_cube[2] < 0.05
@@ -224,10 +292,12 @@ def main():
             and arrays["gripper_command"][-1] > 0.4
         )
         hand_errors = np.linalg.norm(
-            arrays["hand"] - raw["state_ee"][:len(states), :3], axis=1
+            arrays["hand"][:human_prefix_actions + 1]
+            - raw["state_ee"][:human_prefix_actions + 1, :3], axis=1
         )
+        extra_arrays = {"phase": np.asarray(phases)} if args.placement == "lower-first" else {}
         np.savez_compressed(
-            args.out / "rollout.npz", **arrays, actions=np.asarray(executed)
+            args.out / "rollout.npz", **arrays, actions=np.asarray(executed), **extra_arrays
         )
         np.savez_compressed(
             args.out / "physics.npz", samples=physics,
@@ -260,7 +330,16 @@ def main():
                 json.dumps(contact_report, indent=2) + "\n"
             )
         report = {
-            "purpose": "One training-episode action replay; no policy evaluation.",
+            "purpose": "Human-prefix plus scripted placement diagnostic; no policy evaluation." if args.placement == "lower-first" else "One training-episode action replay; no policy evaluation.",
+            "origin": "human_plus_script" if args.placement == "lower-first" else "human_action_replay",
+            "placement_mode": args.placement,
+            "placement_completed": placement_completed,
+            "placement_details": placement_details,
+            "human_prefix_actions": human_prefix_actions,
+            "human_tail_actions_replaced": len(actions) - human_prefix_actions,
+            "scripted_actions": len(executed) - human_prefix_actions,
+            "hand_path_error_scope": "Preserved human prefix only",
+            "placement_helper_sha256": checksum(Path(__file__).with_name("record_visual_episode.py")) if args.placement == "lower-first" else None,
             "contact_trace_enabled": args.contact_trace,
             "contact_trace_sha256": checksum(args.out / "contacts.json") if args.contact_trace else None,
             "source": source, "split": "train",
@@ -286,7 +365,7 @@ def main():
             "initialization": "Recorded initial poses; all unknown velocities set to zero",
             "executor": "Accumulate measured XYZ deltas into hand target; native instantaneous gripper target",
             "orientation": "Initial measured quaternion held fixed; no later pose restoration",
-            "extra_settling_steps": 0,
+            "extra_settling_steps": phases.count("settle"),
             "control_dt_s": env.dt_ctrl, "physics_dt_s": env.sim_dt,
             "jaw_torque_range_nm": env.model.actuator_forcerange[env.act_ids[-1]].tolist(),
             "mujoco_version": mujoco.__version__,

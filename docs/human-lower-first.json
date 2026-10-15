@@ -1,0 +1,391 @@
+{
+  "purpose": "One human-prefix plus scripted lower-before-open diagnostic, using one instant release command.",
+  "original_replay": {
+    "purpose": "One training-episode action replay; no policy evaluation.",
+    "contact_trace_enabled": true,
+    "contact_trace_sha256": "9d44b81a1e4a97845a5e28e3962c771974e3f7429aeeae88744c498dd96e3d15",
+    "source": {
+      "store": "datasets/raw/multi_cube/teleop/2026-10-12_16-25-04/so100_multicube_teleop.zarr",
+      "local_episode": 0,
+      "global_episode": 0,
+      "raw_rows": [
+        0,
+        339
+      ],
+      "processed_rows": [
+        0,
+        338
+      ],
+      "control_hz": 10.0,
+      "array_sha256": {
+        "state_joints": "53fc8be6d7d056ee66dd7868080dd5df63f922f25ffe933ccdadcd74eb07c46d",
+        "state_ee": "fa7a1967d734a6b94552c6f6b502c5e1cc591b9866afb52d5bbeed1e86923c2f",
+        "state_gripper": "5141fcf852fc768b1c6635fa85ed91ed1115d31979ab10639441e968b7fdb51b",
+        "action_gripper": "82fa6be0fdadb043952b4160b12801f81f4dd671bdecfb5c3755b85189d65093",
+        "state_goal": "bd6a3ad53ffac6a01df56445b73068015befac7b4b9633bb52f015e34031d4de",
+        "goal_pos": "abc739880c47b9d2878b8db0f416e35d425c7843ddbb6e31b811ce3d6ec6b630",
+        "pos_cube_red": "03047f9465f4b1dc3f87a3e5d619186e650b4cfc41c5426fe96ec27f106b6bf0",
+        "pos_cube_green": "681f70d170ff0d2db24de74b888d45c0fa32679d58baccff66b3386c9613636f",
+        "pos_cube_blue": "2fd85173f483606e066663bbd003e4711186578dbfebd3658f69b2877751d625"
+      }
+    },
+    "split": "train",
+    "instruction": "Put the red cube in the bin.",
+    "planned_actions": 338,
+    "executed_actions": 338,
+    "termination": null,
+    "task_success": true,
+    "quality_pass": false,
+    "peak_target_height_m": 0.09254489166812785,
+    "final_target_xyz_m": [
+      -0.2135382574898932,
+      0.5486098575757257,
+      0.02099994724970685
+    ],
+    "goal_xyz_m": [
+      -0.21302945911884308,
+      0.5512638092041016,
+      0.020999999716877937
+    ],
+    "final_hand_cube_distance_m": 0.11111194470026792,
+    "final_gripper_command": 0.4000082015991211,
+    "stable_final_cube": true,
+    "max_target_penetration_m": 0.005048523982499099,
+    "max_robot_self_penetration_m": 0.0,
+    "max_distractor_displacement_m": 2.01348198530793e-10,
+    "peak_target_contact_normal_force_n": 90.5130203785418,
+    "mean_hand_path_error_m": 0.0041120264912820476,
+    "max_hand_path_error_m": 0.009969043588699622,
+    "initialization": "Recorded initial poses; all unknown velocities set to zero",
+    "executor": "Accumulate measured XYZ deltas into hand target; native instantaneous gripper target",
+    "orientation": "Initial measured quaternion held fixed; no later pose restoration",
+    "extra_settling_steps": 0,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "jaw_torque_range_nm": [
+      -3.5,
+      3.5
+    ],
+    "mujoco_version": "3.14.0",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "script_sha256": "30d162e3fcb5fd8945997aa663149bf1a3e6db93217b8af323c17808aac3d5a5",
+    "rollout_sha256": "26ddbfc55b1e080c44aeb7875563c4ffce575a6798016048f7cf1ce2ba2681eb",
+    "accepted_for_training": false,
+    "limitation": "Original commands and velocities are missing. Contact-force limits remain unvalidated. One replay is not a policy success rate."
+  },
+  "corrected_replay": {
+    "purpose": "Human-prefix plus scripted placement diagnostic; no policy evaluation.",
+    "origin": "human_plus_script",
+    "placement_mode": "lower-first",
+    "placement_completed": true,
+    "placement_details": {
+      "handoff_step": 322,
+      "recorded_opening_command": 0.4000082015991211,
+      "release_steps": 1,
+      "ready_at_handoff": true,
+      "release_clearance_m": 0.0029964652437084495
+    },
+    "human_prefix_actions": 322,
+    "human_tail_actions_replaced": 16,
+    "scripted_actions": 138,
+    "hand_path_error_scope": "Preserved human prefix only",
+    "placement_helper_sha256": "0ba19e7c7eb3703bacf9600565d3e38b4c662648d910f325693583daa358b7eb",
+    "contact_trace_enabled": true,
+    "contact_trace_sha256": "9f3d92f2856c8d4533c32bcc4190d8cc0c49dbaf4f6db9f8c080b76d58274b71",
+    "source": {
+      "store": "datasets/raw/multi_cube/teleop/2026-10-12_16-25-04/so100_multicube_teleop.zarr",
+      "local_episode": 0,
+      "global_episode": 0,
+      "raw_rows": [
+        0,
+        339
+      ],
+      "processed_rows": [
+        0,
+        338
+      ],
+      "control_hz": 10.0,
+      "array_sha256": {
+        "state_joints": "53fc8be6d7d056ee66dd7868080dd5df63f922f25ffe933ccdadcd74eb07c46d",
+        "state_ee": "fa7a1967d734a6b94552c6f6b502c5e1cc591b9866afb52d5bbeed1e86923c2f",
+        "state_gripper": "5141fcf852fc768b1c6635fa85ed91ed1115d31979ab10639441e968b7fdb51b",
+        "action_gripper": "82fa6be0fdadb043952b4160b12801f81f4dd671bdecfb5c3755b85189d65093",
+        "state_goal": "bd6a3ad53ffac6a01df56445b73068015befac7b4b9633bb52f015e34031d4de",
+        "goal_pos": "abc739880c47b9d2878b8db0f416e35d425c7843ddbb6e31b811ce3d6ec6b630",
+        "pos_cube_red": "03047f9465f4b1dc3f87a3e5d619186e650b4cfc41c5426fe96ec27f106b6bf0",
+        "pos_cube_green": "681f70d170ff0d2db24de74b888d45c0fa32679d58baccff66b3386c9613636f",
+        "pos_cube_blue": "2fd85173f483606e066663bbd003e4711186578dbfebd3658f69b2877751d625"
+      }
+    },
+    "split": "train",
+    "instruction": "Put the red cube in the bin.",
+    "planned_actions": 338,
+    "executed_actions": 460,
+    "termination": null,
+    "task_success": true,
+    "quality_pass": true,
+    "peak_target_height_m": 0.09414247249032867,
+    "final_target_xyz_m": [
+      -0.2124116604613576,
+      0.551129797976471,
+      0.02099994724970687
+    ],
+    "goal_xyz_m": [
+      -0.21302945911884308,
+      0.5512638092041016,
+      0.020999999716877937
+    ],
+    "final_hand_cube_distance_m": 0.14713187364671793,
+    "final_gripper_command": 0.4000082015991211,
+    "stable_final_cube": true,
+    "max_target_penetration_m": 0.0010048649773216176,
+    "max_robot_self_penetration_m": 0.0,
+    "max_distractor_displacement_m": 2.01348198530793e-10,
+    "peak_target_contact_normal_force_n": 97.91538190626257,
+    "mean_hand_path_error_m": 0.003993456801322332,
+    "max_hand_path_error_m": 0.009969043588699622,
+    "initialization": "Recorded initial poses; all unknown velocities set to zero",
+    "executor": "Accumulate measured XYZ deltas into hand target; native instantaneous gripper target",
+    "orientation": "Initial measured quaternion held fixed; no later pose restoration",
+    "extra_settling_steps": 15,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "jaw_torque_range_nm": [
+      -3.5,
+      3.5
+    ],
+    "mujoco_version": "3.14.0",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "script_sha256": "3a402f0be28184633caf55d6b594a85c35fdbbc2b6af4fb2838f80f2f7061298",
+    "rollout_sha256": "29b4ad1f884472e31a1733f608f5844259a6a842ac532ab5aedfd8e20f5f3bb7",
+    "accepted_for_training": false,
+    "limitation": "Original commands and velocities are missing. Contact-force limits remain unvalidated. One replay is not a policy success rate."
+  },
+  "corrected_peak_contacts": {
+    "peak_penetration": {
+      "logged_after_step_time_s": 42.442000000005905,
+      "action_index": 424,
+      "geometries": [
+        "red_box",
+        "bin_floor"
+      ],
+      "bodies": [
+        "box_red",
+        "bin"
+      ],
+      "penetration_m": 0.0010048649773216176,
+      "normal_force_n": 0.805589523127923,
+      "contact_position_m": [
+        -0.19316700239373666,
+        0.5711873796213186,
+        0.0004975672282171283
+      ],
+      "gripper_command": 0.4000082015991211,
+      "hand_target_xyz_m": [
+        -0.2260204269007129,
+        0.5695624777353506,
+        0.06070993341989858
+      ],
+      "post_step_cube_xyz_m": [
+        -0.21290744869134332,
+        0.5512326811988448,
+        0.020297895453529797
+      ],
+      "post_step_qpos": [
+        0.3325959550708409,
+        -1.331711138002218,
+        1.659018488939586,
+        1.266382389281869,
+        -0.3287076587536626,
+        0.3718474581627916,
+        -0.21290744869134332,
+        0.5512326811988448,
+        0.020297895453529797,
+        0.9999833273466487,
+        -0.003034640083598799,
+        0.004513631840730516,
+        0.0019398752262202805,
+        -0.20042122900485992,
+        0.6912368535995483,
+        0.019999947197552864,
+        1.0,
+        1.1459578000805783e-17,
+        4.627093724475978e-22,
+        5.361170251837638e-32,
+        -0.2036113440990448,
+        0.44206976890563965,
+        0.01999994719755285,
+        1.0,
+        1.0298648806304271e-17,
+        6.751379056695713e-22,
+        1.8413803438570342e-31
+      ],
+      "post_step_qvel": [
+        -0.000435228147280252,
+        0.0039643563943650316,
+        0.001313202553731719,
+        -0.006324448032179391,
+        0.00021269232897260922,
+        0.2909031962147055,
+        -0.0021769116777439392,
+        -0.002223311821855184,
+        -0.003348923145288958,
+        0.11157411116585349,
+        -0.11091032997237152,
+        0.0001563262612845249,
+        9.342782731664046e-23,
+        2.3568282814292703e-17,
+        -2.271200940917726e-15,
+        -1.1785163472537986e-15,
+        4.671464701278767e-21,
+        2.224944088268177e-32,
+        5.264369870463497e-22,
+        2.806129674427859e-17,
+        -2.4462819478917136e-15,
+        -1.4032028134809987e-15,
+        2.6326443207691085e-20,
+        2.3030125013498097e-32
+      ]
+    },
+    "peak_normal_force": {
+      "logged_after_step_time_s": 42.450000000005915,
+      "action_index": 424,
+      "geometries": [
+        "fixed_jaw_pad_1",
+        "red_box"
+      ],
+      "bodies": [
+        "Fixed_Jaw",
+        "box_red"
+      ],
+      "penetration_m": 1.6410991788348287e-06,
+      "normal_force_n": 97.91538190626257,
+      "contact_position_m": [
+        -0.2329175465588596,
+        0.5646296531252941,
+        0.027027394390300993
+      ],
+      "gripper_command": 0.4000082015991211,
+      "hand_target_xyz_m": [
+        -0.2260204269007129,
+        0.5695624777353506,
+        0.06070993341989858
+      ],
+      "post_step_cube_xyz_m": [
+        -0.21292381039874403,
+        0.5512166486646655,
+        0.020397664288531403
+      ],
+      "post_step_qpos": [
+        0.3326052947640614,
+        -1.3317150870045251,
+        1.6590335496942208,
+        1.2663869859099888,
+        -0.32871635633321217,
+        0.3741654717222,
+        -0.21292381039874403,
+        0.5512166486646655,
+        0.020397664288531403,
+        0.9999863386248176,
+        -0.00263284412030577,
+        0.004078134787496019,
+        0.0019389461631365496,
+        -0.20042122900485992,
+        0.6912368535995483,
+        0.019999947197552864,
+        1.0,
+        1.2835103625649841e-17,
+        4.65459895893267e-22,
+        5.362681965656956e-32,
+        -0.2036113440990448,
+        0.44206976890563965,
+        0.019999947197552836,
+        1.0,
+        7.228391767520893e-18,
+        7.40783858286689e-22,
+        1.8420532426675514e-31
+      ],
+      "post_step_qvel": [
+        0.005954709793054468,
+        -0.013761984660337925,
+        0.003500371549805844,
+        0.021245532003179857,
+        -0.004995961656279316,
+        0.28799192737224777,
+        -0.001242931421184657,
+        -0.0009658321442285508,
+        0.016598333337293124,
+        0.04637983746557055,
+        -0.08394117748844174,
+        -0.000888992406419568,
+        -6.02433977295151e-23,
+        1.3755915631459766e-17,
+        1.0482420543015988e-15,
+        -6.877628124181788e-16,
+        -3.0123003211595477e-21,
+        -6.277323330321753e-33,
+        -1.1676505534100614e-22,
+        1.5290841394499936e-17,
+        6.480579213934022e-17,
+        -7.645749376090093e-16,
+        -5.83778577041983e-21,
+        1.7503489587165256e-32
+      ],
+      "phase": "placement_release"
+    },
+    "contact_rows": 117275,
+    "snapshot_note": "Solver contact logged after mj_step; saved qpos/qvel are post-step values."
+  },
+  "verification": {
+    "preserved_human_actions": 322,
+    "replay_prefix_observations_exactly_match": 323,
+    "replaced_original_actions": 16,
+    "scripted_actions": 138,
+    "release_action_indices": [
+      424
+    ],
+    "instant_opening_uses_original_recorded_request": true,
+    "intermediate_opening_requests_added": false,
+    "holding_request_unchanged_until_release": true,
+    "states": 461,
+    "actions": 460,
+    "duration_s": 46.00000000001025,
+    "max_target_move_m": 0.009641936191160183,
+    "timing_and_command_alignment_verified": true,
+    "regressions": {
+      "human": {
+        "all_physical_arrays_actions_and_labels_exactly_match": true,
+        "image_channel_tolerance": null,
+        "max_target_penetration_difference_m": 0.0
+      },
+      "phone": {
+        "all_physical_arrays_actions_and_labels_exactly_match": true,
+        "image_channel_tolerance": 1,
+        "max_target_penetration_difference_m": 0.0
+      }
+    },
+    "argument_guards": [
+      {
+        "case": "missing_handoff",
+        "rejected_before_output_creation": true
+      },
+      {
+        "case": "handoff_not_opening",
+        "rejected_before_output_creation": true
+      },
+      {
+        "case": "handoff_in_replay",
+        "rejected_before_output_creation": true
+      },
+      {
+        "case": "zero_release_steps",
+        "rejected": true
+      }
+    ]
+  },
+  "physics_force_validated": false,
+  "adopted_into_training": false,
+  "time_limit_note": "46-second teacher diagnostic exceeds the proposed 40-second common evaluation allowance; no policy score is claimed."
+}

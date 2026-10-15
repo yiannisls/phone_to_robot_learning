@@ -55,10 +55,14 @@ Use a new output folder. The ordinary replay outputs remain available, with two 
 
 The measured trace is in `work/human-contact-trace-20261015-01`, with verification and an exact script snapshot. The original run remains in `work/human-physics-replay-20261015-01`. The second run repeated the same case solely to add logging and verify identical physics; it is not a second independent successful trial or a policy-performance score.
 
-## Next experiment
+## Correction and next checks
 
-Keep the original human demonstration unchanged. Generate a separately labelled human-plus-script candidate that retains the human motion prefix, lowers the held cube near the bin floor, then opens gradually and retreats. Record the handoff, replaced actions and simulator-state feedback explicitly. That proposed correction has not been implemented or tested in this stage, and it must not silently run during a rollout labelled VLA alone.
+The original human demonstration remains unchanged. A separately labelled [human-plus-script candidate](human-lower-first.md) now retains the human motion prefix, lowers the held cube near the bin floor, issues the original opening request once and retreats. The measured follow-up records the handoff, replaced actions and simulator-state feedback explicitly. This helper must not silently run during a rollout labelled VLA alone.
 
-Compare the corrected candidate against the retained original using the same depth threshold. Log pickup forces separately; a gentler landing would not establish that the 90.5 N pickup force is acceptable. Review those results before adopting examples or expanding to all 42 human episodes and the seven DAgger segments. No normalization, VLA training, held-out evaluation or data rewriting took place during this diagnosis.
+The corrected candidate passes the same depth threshold, but a gentler landing does not establish that contact forces are acceptable. The preserved pickup event reaches 90.5 N; the new overall peak is 97.9 N during release. Both need separate review. Review those results before adopting examples or expanding to all 42 human episodes and the seven DAgger segments. No normalization, VLA training, held-out evaluation or data rewriting took place during this diagnosis.
 
 Presentation explanation: “The robot completed the task, but detailed contact logging showed it dropped the cube from about 7 cm. I kept task success separate from contact quality, confirmed that the high release was present in the human recording, and identified pickup force as a separate limitation.”
+
+## Follow-up: instant opening after lowering
+
+The [separate lower-first test](human-lower-first.md) is now measured: it preserves the first 322 recorded actions, uses one instant original opening request, and reduces maximum target depth to 1.005 mm. The original failure remains unchanged. The corrected run takes 46 seconds and has an unvalidated peak single-contact force of 97.92 N; it is not accepted training data or a VLA score.

@@ -98,8 +98,10 @@ def create_environment(homework, source, color, slot_colors=None, layout="origin
 
 
 
-def place_with_feedback(env, execute):
+def place_with_feedback(env, execute, *, open_grip=1.0, release_steps=12):
     """Use simulator measurements to place a demonstration cube gently."""
+    if release_steps < 1:
+        raise ValueError("release_steps must be positive.")
     cube_geometry = env.model.geom(f"{env.goal_cube}_box").id
     floor_geometry = env.model.geom("bin_floor").id
     goal = env.get_goal_pos()
@@ -165,15 +167,15 @@ def place_with_feedback(env, execute):
     else:
         return False
 
-    # Release gradually while holding the hand target still.
+    # Hold the hand target still; one release step requests opening instantly.
     target = env.data.mocap_pos[env.mocap_id].copy()
-    for opening in np.linspace(closed, 1.0, 13)[1:]:
+    for opening in np.linspace(closed, open_grip, release_steps + 1)[1:]:
         execute(target, float(opening), "placement_release")
 
     for fraction in np.linspace(0, 1, 21)[1:]:
-        execute(target + [0, 0, 0.14 * fraction], 1.0, "retreat")
+        execute(target + [0, 0, 0.14 * fraction], open_grip, "retreat")
     for _ in range(15):
-        execute(target + [0, 0, 0.14], 1.0, "settle")
+        execute(target + [0, 0, 0.14], open_grip, "settle")
     return True
 
 
