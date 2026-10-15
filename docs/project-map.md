@@ -59,3 +59,7 @@ See [the single-episode compatibility audit](data-compatibility.md) before mixin
 ## Cleanup verification
 
 After the nine removals, BC validation completed in 131 steps with task and contact-depth passes. Model-assisted validation under the artificial opening request also completed in 131 steps, with exactly one override. All 1,418 preserved artifact checksums passed. These checks use the existing MuJoCo 3.14 profile and validation source; they are not new generalization results.
+
+## Current integration pilot
+
+`test_phone_in_lab.py` tests generated demonstrations in the lab scene. `--approach human` uses a recorded human training prefix followed by phone-derived transport and scripted placement. It performs no learning and keeps all outputs excluded from training. See [pilot results](phone-lab-pilot.md).

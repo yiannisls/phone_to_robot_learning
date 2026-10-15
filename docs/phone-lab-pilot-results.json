@@ -1,0 +1,284 @@
+{
+  "original_315_on": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "obstacles_enabled": true,
+    "states": 131,
+    "actions": 130,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.15.0",
+    "native_lab_position_success": false,
+    "placement_gate_reached": false,
+    "released_and_settled": false,
+    "task_success": false,
+    "peak_cube_height_m": 0.019999947197552964,
+    "final_cube_xyz": [
+      -0.230001,
+      0.400001,
+      0.01999994719755286
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 21180,
+    "max_obstacle_penetration_m": 0.010388435887810021,
+    "max_cube_penetration_m": 4.199664723932017e-06,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.0
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "e0ea9359c6fd9fd6598e856eba612f640b0013cdf4d93c50145e8da07e5c6db5",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": true,
+    "obstacle_clearance_pass": false,
+    "accepted_for_training": false
+  },
+  "original_314_on": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "obstacles_enabled": true,
+    "states": 131,
+    "actions": 130,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.14.0",
+    "native_lab_position_success": false,
+    "placement_gate_reached": false,
+    "released_and_settled": false,
+    "task_success": false,
+    "peak_cube_height_m": 0.019999947197552995,
+    "final_cube_xyz": [
+      -0.230001,
+      0.400001,
+      0.019999947197552867
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 24077,
+    "max_obstacle_penetration_m": 0.010096010888975174,
+    "max_cube_penetration_m": 4.199664723932017e-06,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.0
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "e0ea9359c6fd9fd6598e856eba612f640b0013cdf4d93c50145e8da07e5c6db5",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": true,
+    "obstacle_clearance_pass": false,
+    "accepted_for_training": false
+  },
+  "original_314_off": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "obstacles_enabled": false,
+    "states": 131,
+    "actions": 130,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.14.0",
+    "native_lab_position_success": false,
+    "placement_gate_reached": false,
+    "released_and_settled": false,
+    "task_success": false,
+    "peak_cube_height_m": 0.10290212813771374,
+    "final_cube_xyz": [
+      -0.20541609082493825,
+      0.6658201492812643,
+      0.05548827754724531
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 0,
+    "max_obstacle_penetration_m": 0.0,
+    "max_cube_penetration_m": 0.0007648941049315748,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.0
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "e0ea9359c6fd9fd6598e856eba612f640b0013cdf4d93c50145e8da07e5c6db5",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": true,
+    "obstacle_clearance_pass": true,
+    "accepted_for_training": false
+  },
+  "human_low_placement": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "approach": "human",
+    "human_source_episode": 1,
+    "human_episode_array_sha256": "a6a37fc8dceff98913ff3e36817fd8df476850360a12ef9d7363b50c01061654",
+    "human_handoff_index": 461,
+    "actual_handoff_cube_xyz": [
+      -0.29179033339565813,
+      0.5409743625919534,
+      0.08104242469479672
+    ],
+    "secure_handoff": true,
+    "obstacles_enabled": true,
+    "states": 568,
+    "actions": 567,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.14.0",
+    "native_lab_position_success": false,
+    "placement_gate_reached": false,
+    "released_and_settled": false,
+    "task_success": false,
+    "peak_cube_height_m": 0.09158322565402618,
+    "final_cube_xyz": [
+      -0.2034124345473505,
+      0.6287077015027559,
+      0.08003145016921533
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 0,
+    "max_obstacle_penetration_m": 0.0,
+    "max_cube_penetration_m": 0.0004459499264883069,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.20000821352005005
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "95553b741d7a6e9530d19b4dd5d69aeac9e714248d85cd4a64e6ccd8645be8ec",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": true,
+    "obstacle_clearance_pass": true,
+    "accepted_for_training": false
+  },
+  "human_release_v1": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "approach": "human",
+    "human_source_episode": 1,
+    "human_episode_array_sha256": "a6a37fc8dceff98913ff3e36817fd8df476850360a12ef9d7363b50c01061654",
+    "human_handoff_index": 461,
+    "actual_handoff_cube_xyz": [
+      -0.29179033339565813,
+      0.5409743625919534,
+      0.08104242469479672
+    ],
+    "secure_handoff": true,
+    "obstacles_enabled": true,
+    "states": 568,
+    "actions": 567,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.14.0",
+    "native_lab_position_success": false,
+    "placement_gate_reached": false,
+    "released_and_settled": false,
+    "task_success": false,
+    "peak_cube_height_m": 0.0971471710162689,
+    "final_cube_xyz": [
+      -0.22299793515593216,
+      0.6650817543912748,
+      0.066070543616787
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 0,
+    "max_obstacle_penetration_m": 0.0,
+    "max_cube_penetration_m": 0.0004459499264883069,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.20000821352005005
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "28825a5d237938e2e4de86be4aaa50c3382e47575a74ed9b8f6fddcec1bb85f6",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": true,
+    "obstacle_clearance_pass": true,
+    "accepted_for_training": false
+  },
+  "human_aligned_release": {
+    "source": "IMG_5539",
+    "split": "train",
+    "scripted_demonstration": true,
+    "approach": "human",
+    "human_source_episode": 1,
+    "human_episode_array_sha256": "a6a37fc8dceff98913ff3e36817fd8df476850360a12ef9d7363b50c01061654",
+    "human_handoff_index": 461,
+    "actual_handoff_cube_xyz": [
+      -0.29179033339565813,
+      0.5409743625919534,
+      0.08104242469479672
+    ],
+    "secure_handoff": true,
+    "obstacles_enabled": true,
+    "states": 561,
+    "actions": 560,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "mujoco_version": "3.14.0",
+    "native_lab_position_success": true,
+    "placement_gate_reached": true,
+    "released_and_settled": true,
+    "task_success": true,
+    "peak_cube_height_m": 0.0971471710162689,
+    "final_cube_xyz": [
+      -0.198250068235371,
+      0.6853503776755135,
+      0.026591548756082932
+    ],
+    "goal_xyz": [
+      -0.2,
+      0.7,
+      0.021
+    ],
+    "obstacle_contact_samples": 0,
+    "max_obstacle_penetration_m": 0.0,
+    "max_cube_penetration_m": 0.004293839945536566,
+    "gripper_target_open_closed_rad": [
+      0.7,
+      0.20000821352005005
+    ],
+    "transport_sha256": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "code_sha256": "275baacf56cc064a352c35fe2245e39b6268b31f7fb41443831d171dcfb8df85",
+    "lab_simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "action_semantics": "Measured EE XYZ differences plus requested native gripper target",
+    "command_semantics": "Mocap target XYZ increments plus requested native gripper target",
+    "limitations": "One deterministic training-source pilot; scripted approach/grasp/release; no policy training or success-rate estimate.",
+    "contact_depth_pass": false,
+    "obstacle_clearance_pass": true,
+    "accepted_for_training": false
+  }
+}

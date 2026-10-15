@@ -99,13 +99,13 @@ Those results come from a different task setup and cannot be compared directly w
 | Generate demonstrations and train BC | Complete |
 | Learn a state world model and test gripper decisions | Complete for the reported experiment |
 | Check compatibility with human teleoperation | Initial comparison complete |
-| Adapt phone demonstrations to the lab's task and action conventions | Next |
+| Adapt phone demonstrations to the lab's task and action conventions | First transfer pilot complete; contact quality still fails |
 | Compare teleoperation-only, phone-only and combined training | Planned |
 | Build visual action data and fine-tune a VLA | Optional later experiment |
 
 The combined-data comparison will keep the existing source splits and baselines. Its outcomes will be reported whether or not adding phone data helps.
 
-[Data compatibility findings](docs/data-compatibility.md) · [Separate BC lab](https://github.com/yiannisls/so101-behavioral-cloning)
+[First integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md) · [Separate BC lab](https://github.com/yiannisls/so101-behavioral-cloning)
 
 ## Run the project
 
