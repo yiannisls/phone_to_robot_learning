@@ -78,3 +78,7 @@ The raw measured run is retained in `work/human-physics-replay-20261015-01`, inc
 A completed transfer in one replay does not validate all 42 human demonstrations or the seven DAgger segments. Original target commands/velocities are missing, and the four-action interface cannot reproduce intentional wrist rotation. Diagnose the contact failure and inspect broader training coverage before adopting a corpus for task fine-tuning. SmolVLA's earlier batch check remains an interface result, not a robot-control result.
 
 Presentation explanation: “The first video reconstructed my recorded poses. This second test lets physics execute action labels from the same demonstration. It completed the transfer, but exposed a contact-depth failure that I report separately from task completion.”
+
+## Follow-up: exact contact diagnosis
+
+The [optional contact trace](human-contact-diagnosis.md) now identifies the peak as cube/bin-floor contact following a release about 6.9 cm above the floor. The original recording also shows that high release. The instrumented replay exactly matches the first run's physical arrays; the 90.51 N pickup force is at a moving jaw pad and is a separate event. The original result and quality failure above remain unchanged.

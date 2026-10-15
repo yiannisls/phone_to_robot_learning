@@ -29,11 +29,40 @@ def observe(env):
     }
 
 
+def describe_contact(env, contact, action_index, normal_force):
+    """Describe a solver contact without modifying the simulation."""
+    geometries = [int(contact.geom1), int(contact.geom2)]
+    return {
+        "logged_after_step_time_s": float(env.data.time),
+        "action_index": action_index,
+        "geometries": [
+            env.model.geom(index).name or f"geometry_{index}"
+            for index in geometries
+        ],
+        "bodies": [
+            env.model.body(int(env.model.geom_bodyid[index])).name
+            for index in geometries
+        ],
+        "penetration_m": max(0.0, -float(contact.dist)),
+        "normal_force_n": normal_force,
+        "contact_position_m": contact.pos.tolist(),
+        "gripper_command": float(env.data.ctrl[env.act_ids[-1]]),
+        "hand_target_xyz_m": env.data.mocap_pos[env.mocap_id].tolist(),
+        "post_step_cube_xyz_m": env.get_cube_state()[:3].tolist(),
+        "post_step_qpos": env.data.qpos.tolist(),
+        "post_step_qvel": env.data.qvel.tolist(),
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lab", type=Path, required=True)
     parser.add_argument("--episode", type=int, default=0)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument(
+        "--contact-trace", action="store_true",
+        help="Save target-cube contacts and snapshots of peak events.",
+    )
     args = parser.parse_args()
     if args.episode in VALIDATION_EPISODES:
         parser.error("Use a training episode for this development check.")
@@ -77,6 +106,9 @@ def main():
         states = [observe(env)]
         writer.write(cv2.cvtColor(env.render_rgb("angle"), cv2.COLOR_RGB2BGR))
         executed, physics = [], []
+        contacts = []
+        peak_penetration_contact = None
+        peak_force_contact = None
         terminated = None
         target_geom = env.model.geom(f"{color}_box").id
         robot_root = int(env.model.body_rootid[env.model.body("Fixed_Jaw").id])
@@ -101,7 +133,30 @@ def main():
                         target_depth = max(target_depth, depth)
                         force = np.zeros(6)
                         mujoco.mj_contactForce(env.model, env.data, index, force)
-                        normal_force = max(normal_force, abs(float(force[0])))
+                        contact_force = abs(float(force[0]))
+                        normal_force = max(normal_force, contact_force)
+                        if args.contact_trace:
+                            other = (
+                                int(contact.geom2) if contact.geom1 == target_geom
+                                else int(contact.geom1)
+                            )
+                            contacts.append([
+                                env.data.time, len(executed), other, depth, contact_force,
+                            ])
+                            if (
+                                peak_penetration_contact is None
+                                or depth > peak_penetration_contact["penetration_m"]
+                            ):
+                                peak_penetration_contact = describe_contact(
+                                    env, contact, len(executed), contact_force
+                                )
+                            if (
+                                peak_force_contact is None
+                                or contact_force > peak_force_contact["normal_force_n"]
+                            ):
+                                peak_force_contact = describe_contact(
+                                    env, contact, len(executed), contact_force
+                                )
                     body1 = int(env.model.geom_bodyid[contact.geom1])
                     body2 = int(env.model.geom_bodyid[contact.geom2])
                     if (
@@ -181,8 +236,33 @@ def main():
                 "robot_self_penetration_m", "max_target_contact_normal_force_n",
             ]),
         )
+        if args.contact_trace:
+            np.savez_compressed(
+                args.out / "contacts.npz",
+                samples=np.asarray(contacts).reshape(-1, 5),
+                columns=np.array([
+                    "logged_after_step_time_s", "action_index",
+                    "other_geometry_id", "penetration_m", "normal_force_n",
+                ]),
+                geometry_names=np.array([
+                    env.model.geom(index).name or f"geometry_{index}"
+                    for index in range(env.model.ngeom)
+                ]),
+            )
+            contact_report = {
+                "peak_penetration": peak_penetration_contact,
+                "peak_normal_force": peak_force_contact,
+                "contact_rows": len(contacts),
+                "snapshot_note": "Solver contact logged after mj_step; saved "
+                                 "qpos/qvel are post-step values.",
+            }
+            (args.out / "contacts.json").write_text(
+                json.dumps(contact_report, indent=2) + "\n"
+            )
         report = {
             "purpose": "One training-episode action replay; no policy evaluation.",
+            "contact_trace_enabled": args.contact_trace,
+            "contact_trace_sha256": checksum(args.out / "contacts.json") if args.contact_trace else None,
             "source": source, "split": "train",
             "instruction": f"Put the {color} cube in the bin.",
             "planned_actions": len(actions), "executed_actions": len(executed),
