@@ -1,0 +1,5638 @@
+{
+  "protocol": {
+    "purpose": "Frozen paired simulated-layout comparison and separate artificial opening stress test",
+    "seed": 20261015,
+    "range_xy_m": [
+      [
+        -0.04,
+        -0.03
+      ],
+      [
+        0.04,
+        0.04
+      ]
+    ],
+    "cases": [
+      {
+        "name": "layout_00",
+        "offset_xy_m": [
+          -0.017528828218608475,
+          0.011126423626651422
+        ]
+      },
+      {
+        "name": "layout_01",
+        "offset_xy_m": [
+          -0.002008086486279634,
+          -0.001105436886616247
+        ]
+      },
+      {
+        "name": "layout_02",
+        "offset_xy_m": [
+          -0.03963781778328418,
+          0.02355621469417262
+        ]
+      },
+      {
+        "name": "layout_03",
+        "offset_xy_m": [
+          -0.03825519806125171,
+          0.03194071723563477
+        ]
+      },
+      {
+        "name": "layout_04",
+        "offset_xy_m": [
+          0.0238158686729869,
+          0.03120918431166811
+        ]
+      },
+      {
+        "name": "layout_05",
+        "offset_xy_m": [
+          0.03336393378668614,
+          0.010818343490669076
+        ]
+      },
+      {
+        "name": "layout_06",
+        "offset_xy_m": [
+          0.032423258909292686,
+          0.0015635695645070738
+        ]
+      },
+      {
+        "name": "layout_07",
+        "offset_xy_m": [
+          0.013057117882906873,
+          -0.013557354441195591
+        ]
+      },
+      {
+        "name": "layout_08",
+        "offset_xy_m": [
+          -0.011570500654095168,
+          0.00533331684914868
+        ]
+      },
+      {
+        "name": "layout_09",
+        "offset_xy_m": [
+          0.02392167735481448,
+          -0.027129687558602966
+        ]
+      },
+      {
+        "name": "layout_10",
+        "offset_xy_m": [
+          0.0007336722996280354,
+          -0.02749150513414199
+        ]
+      },
+      {
+        "name": "layout_11",
+        "offset_xy_m": [
+          0.029229165751631113,
+          0.029725194689289275
+        ]
+      },
+      {
+        "name": "layout_12",
+        "offset_xy_m": [
+          -0.006129558106131937,
+          -0.011410882005865895
+        ]
+      },
+      {
+        "name": "layout_13",
+        "offset_xy_m": [
+          0.005372510034264748,
+          0.03232687097730127
+        ]
+      },
+      {
+        "name": "layout_14",
+        "offset_xy_m": [
+          0.013728451610619613,
+          0.03143187028274572
+        ]
+      },
+      {
+        "name": "layout_15",
+        "offset_xy_m": [
+          0.0394663920512438,
+          0.0035288387845162084
+        ]
+      },
+      {
+        "name": "layout_16",
+        "offset_xy_m": [
+          -0.012264065654510058,
+          0.019064187461685436
+        ]
+      },
+      {
+        "name": "layout_17",
+        "offset_xy_m": [
+          -0.018601104582457353,
+          0.006540810988995914
+        ]
+      },
+      {
+        "name": "layout_18",
+        "offset_xy_m": [
+          -0.018708287172960098,
+          0.03299143975572234
+        ]
+      },
+      {
+        "name": "layout_19",
+        "offset_xy_m": [
+          0.004380947312666944,
+          0.007461333450251663
+        ]
+      },
+      {
+        "name": "layout_20",
+        "offset_xy_m": [
+          -0.005667463111201532,
+          0.03207364938404291
+        ]
+      },
+      {
+        "name": "layout_21",
+        "offset_xy_m": [
+          -0.010357299457457475,
+          -0.022339471327200357
+        ]
+      },
+      {
+        "name": "layout_22",
+        "offset_xy_m": [
+          0.02559093420008702,
+          0.02046548771803508
+        ]
+      },
+      {
+        "name": "layout_23",
+        "offset_xy_m": [
+          0.03847049417183027,
+          0.007724798978986695
+        ]
+      },
+      {
+        "name": "layout_24",
+        "offset_xy_m": [
+          -0.007249679545162646,
+          0.03218744767401796
+        ]
+      },
+      {
+        "name": "layout_25",
+        "offset_xy_m": [
+          -0.0391023430268999,
+          0.03819561467004812
+        ]
+      },
+      {
+        "name": "layout_26",
+        "offset_xy_m": [
+          -0.031277553461644673,
+          0.024540468773526163
+        ]
+      },
+      {
+        "name": "layout_27",
+        "offset_xy_m": [
+          0.00036396371247817555,
+          -0.016740768933445137
+        ]
+      },
+      {
+        "name": "layout_28",
+        "offset_xy_m": [
+          -0.03618270369275378,
+          0.035501178306804757
+        ]
+      },
+      {
+        "name": "layout_29",
+        "offset_xy_m": [
+          0.00486225952029689,
+          0.009980291276789184
+        ]
+      },
+      {
+        "name": "layout_30",
+        "offset_xy_m": [
+          0.02117692525249939,
+          -0.004914348514754949
+        ]
+      },
+      {
+        "name": "layout_31",
+        "offset_xy_m": [
+          -0.03848100165494716,
+          -0.013914077408103433
+        ]
+      },
+      {
+        "name": "layout_32",
+        "offset_xy_m": [
+          0.03765683615005153,
+          0.027147926271738856
+        ]
+      },
+      {
+        "name": "layout_33",
+        "offset_xy_m": [
+          -0.017941821885673254,
+          0.027265994074751616
+        ]
+      },
+      {
+        "name": "layout_34",
+        "offset_xy_m": [
+          0.03436645063877005,
+          -0.001176264845798438
+        ]
+      },
+      {
+        "name": "layout_35",
+        "offset_xy_m": [
+          -0.020009571313771995,
+          0.018849403455194293
+        ]
+      },
+      {
+        "name": "layout_36",
+        "offset_xy_m": [
+          0.03948516704430332,
+          -0.0170796031371294
+        ]
+      },
+      {
+        "name": "layout_37",
+        "offset_xy_m": [
+          0.0381957202985368,
+          -0.0015436957244741832
+        ]
+      },
+      {
+        "name": "layout_38",
+        "offset_xy_m": [
+          -0.024422259323021216,
+          0.032928239496381975
+        ]
+      },
+      {
+        "name": "layout_39",
+        "offset_xy_m": [
+          -0.014045771896185614,
+          0.007231661307152741
+        ]
+      },
+      {
+        "name": "layout_40",
+        "offset_xy_m": [
+          -0.02915624798111276,
+          0.006723519541866861
+        ]
+      },
+      {
+        "name": "layout_41",
+        "offset_xy_m": [
+          0.010548595600109671,
+          -0.01675477403549524
+        ]
+      },
+      {
+        "name": "layout_42",
+        "offset_xy_m": [
+          -0.0038890902497932603,
+          -0.02474435112114179
+        ]
+      },
+      {
+        "name": "layout_43",
+        "offset_xy_m": [
+          -0.007540472352927159,
+          -0.02750177235194509
+        ]
+      },
+      {
+        "name": "layout_44",
+        "offset_xy_m": [
+          0.01394038544597237,
+          -0.0011234177848003166
+        ]
+      },
+      {
+        "name": "layout_45",
+        "offset_xy_m": [
+          0.027523079862422438,
+          -0.01635485460467692
+        ]
+      },
+      {
+        "name": "layout_46",
+        "offset_xy_m": [
+          0.025802439245360555,
+          0.01606983464133791
+        ]
+      },
+      {
+        "name": "layout_47",
+        "offset_xy_m": [
+          -0.018239467174060983,
+          -0.0094107714874887
+        ]
+      },
+      {
+        "name": "layout_48",
+        "offset_xy_m": [
+          -0.022121960449997653,
+          0.017357872632619627
+        ]
+      },
+      {
+        "name": "layout_49",
+        "offset_xy_m": [
+          0.014386793358393074,
+          -0.026871514055609946
+        ]
+      },
+      {
+        "name": "layout_50",
+        "offset_xy_m": [
+          -0.02700121357339545,
+          -0.02962456296292644
+        ]
+      },
+      {
+        "name": "layout_51",
+        "offset_xy_m": [
+          0.010917901406594523,
+          0.01809790172417341
+        ]
+      },
+      {
+        "name": "layout_52",
+        "offset_xy_m": [
+          0.02153679320599635,
+          0.003985335392988183
+        ]
+      },
+      {
+        "name": "layout_53",
+        "offset_xy_m": [
+          -0.01918535239904644,
+          0.029139286589659787
+        ]
+      },
+      {
+        "name": "layout_54",
+        "offset_xy_m": [
+          0.014440647583210599,
+          -0.008565037427179126
+        ]
+      },
+      {
+        "name": "layout_55",
+        "offset_xy_m": [
+          0.015374067723868831,
+          0.03847771333523113
+        ]
+      },
+      {
+        "name": "layout_56",
+        "offset_xy_m": [
+          0.019193550189459223,
+          0.011446470572345414
+        ]
+      },
+      {
+        "name": "layout_57",
+        "offset_xy_m": [
+          0.00937308979494983,
+          -0.02002767340056047
+        ]
+      },
+      {
+        "name": "layout_58",
+        "offset_xy_m": [
+          -0.029151672203576267,
+          -0.02519652214339842
+        ]
+      },
+      {
+        "name": "layout_59",
+        "offset_xy_m": [
+          -0.03235774303637105,
+          0.0036011146311188125
+        ]
+      },
+      {
+        "name": "layout_60",
+        "offset_xy_m": [
+          0.015378576942215637,
+          -0.007101051907858754
+        ]
+      },
+      {
+        "name": "layout_61",
+        "offset_xy_m": [
+          -0.02466563994842752,
+          0.026598506978316373
+        ]
+      },
+      {
+        "name": "layout_62",
+        "offset_xy_m": [
+          -0.03798273346998008,
+          -0.017679479189738972
+        ]
+      },
+      {
+        "name": "layout_63",
+        "offset_xy_m": [
+          -0.021609712143196635,
+          0.034174439523115954
+        ]
+      },
+      {
+        "name": "layout_64",
+        "offset_xy_m": [
+          0.015162010333243867,
+          0.008357608750153345
+        ]
+      },
+      {
+        "name": "layout_65",
+        "offset_xy_m": [
+          0.023172055040722735,
+          -0.008459422569536572
+        ]
+      },
+      {
+        "name": "layout_66",
+        "offset_xy_m": [
+          0.025924106290291522,
+          -0.020016690594724697
+        ]
+      },
+      {
+        "name": "layout_67",
+        "offset_xy_m": [
+          -0.03240828551627775,
+          -0.007289807565915806
+        ]
+      },
+      {
+        "name": "layout_68",
+        "offset_xy_m": [
+          -0.03084745258781277,
+          0.021904073296247356
+        ]
+      },
+      {
+        "name": "layout_69",
+        "offset_xy_m": [
+          -0.004858613637261609,
+          0.0005268346051382454
+        ]
+      },
+      {
+        "name": "layout_70",
+        "offset_xy_m": [
+          0.022978178319620506,
+          0.008132522758620211
+        ]
+      },
+      {
+        "name": "layout_71",
+        "offset_xy_m": [
+          0.009183574120138156,
+          -0.017773198093845838
+        ]
+      },
+      {
+        "name": "layout_72",
+        "offset_xy_m": [
+          -0.034177498516916906,
+          0.03710318460819577
+        ]
+      },
+      {
+        "name": "layout_73",
+        "offset_xy_m": [
+          0.027951325294975037,
+          0.005031331852168364
+        ]
+      },
+      {
+        "name": "layout_74",
+        "offset_xy_m": [
+          0.007022994483933891,
+          -0.0017496929324976526
+        ]
+      },
+      {
+        "name": "layout_75",
+        "offset_xy_m": [
+          0.017417846631820888,
+          -0.019247026720471523
+        ]
+      },
+      {
+        "name": "layout_76",
+        "offset_xy_m": [
+          -0.020365453700453492,
+          0.03311533908211292
+        ]
+      },
+      {
+        "name": "layout_77",
+        "offset_xy_m": [
+          -0.029350825254659485,
+          -0.008852766135798763
+        ]
+      },
+      {
+        "name": "layout_78",
+        "offset_xy_m": [
+          -0.03854332342373667,
+          0.03172604311573148
+        ]
+      },
+      {
+        "name": "layout_79",
+        "offset_xy_m": [
+          0.029527275385961733,
+          -0.02130264052021889
+        ]
+      },
+      {
+        "name": "layout_80",
+        "offset_xy_m": [
+          -0.03842739469687892,
+          0.024861791599160597
+        ]
+      },
+      {
+        "name": "layout_81",
+        "offset_xy_m": [
+          -0.03372257557361717,
+          0.037543553109347746
+        ]
+      },
+      {
+        "name": "layout_82",
+        "offset_xy_m": [
+          0.008516991040240895,
+          -0.0008075491395667864
+        ]
+      },
+      {
+        "name": "layout_83",
+        "offset_xy_m": [
+          -0.012049371692348636,
+          -0.00872703272648337
+        ]
+      },
+      {
+        "name": "layout_84",
+        "offset_xy_m": [
+          -0.033095607665636094,
+          0.02674767129141091
+        ]
+      },
+      {
+        "name": "layout_85",
+        "offset_xy_m": [
+          -0.012656790588213288,
+          -0.029116399646553586
+        ]
+      },
+      {
+        "name": "layout_86",
+        "offset_xy_m": [
+          -0.010922982124681697,
+          0.036808499657210975
+        ]
+      },
+      {
+        "name": "layout_87",
+        "offset_xy_m": [
+          0.00935786947308026,
+          -0.024065462468245265
+        ]
+      },
+      {
+        "name": "layout_88",
+        "offset_xy_m": [
+          0.008258175446416958,
+          -0.028796286913550774
+        ]
+      },
+      {
+        "name": "layout_89",
+        "offset_xy_m": [
+          0.0072592887852896415,
+          0.03046711822217691
+        ]
+      },
+      {
+        "name": "layout_90",
+        "offset_xy_m": [
+          -0.03032337765010432,
+          -0.0054665020258186925
+        ]
+      },
+      {
+        "name": "layout_91",
+        "offset_xy_m": [
+          0.0016507772898668102,
+          -0.01808138071954989
+        ]
+      },
+      {
+        "name": "layout_92",
+        "offset_xy_m": [
+          -0.03672163868735088,
+          0.014130691265838151
+        ]
+      },
+      {
+        "name": "layout_93",
+        "offset_xy_m": [
+          -0.016194426519133626,
+          0.008305082087107805
+        ]
+      },
+      {
+        "name": "layout_94",
+        "offset_xy_m": [
+          -0.03106578411449789,
+          0.033297376663712755
+        ]
+      },
+      {
+        "name": "layout_95",
+        "offset_xy_m": [
+          -0.0337951351924714,
+          0.0170513242126678
+        ]
+      },
+      {
+        "name": "layout_96",
+        "offset_xy_m": [
+          0.03857227896939298,
+          0.007649647369005148
+        ]
+      },
+      {
+        "name": "layout_97",
+        "offset_xy_m": [
+          -0.0030329446120619455,
+          0.021482438150826476
+        ]
+      },
+      {
+        "name": "layout_98",
+        "offset_xy_m": [
+          -0.038085447977491346,
+          0.013208108157608915
+        ]
+      },
+      {
+        "name": "layout_99",
+        "offset_xy_m": [
+          0.008861895093476277,
+          -0.011702113836017426
+        ]
+      }
+    ],
+    "controllers": [
+      "bc",
+      "wm"
+    ],
+    "conditions": [
+      "normal",
+      "opening_pulse"
+    ],
+    "policy_sha256": "10d3046713eeb65a0440fc06ed49581a1f29a6cddebf4f132fa55331addbdd8c",
+    "world_model_sha256": "ac81ef84cc2e46fb1f7fde310ff77feb0a58e2eeee80170f5adfc1cf665051aa",
+    "settings": {
+      "horizon_steps": 5,
+      "override_steps": 3,
+      "improvement_margin_m": 0.005,
+      "choices": [
+        "bc_sequence",
+        "open_three_steps",
+        "close_three_steps"
+      ],
+      "carry_height_m": 0.045,
+      "placement_height_m": 0.035,
+      "bin_xy_tolerance_m": 0.04,
+      "score": "mean predicted cube distance to carry/placement reference, metres",
+      "carry_reference": "initial cube-hand offset plus nominal predicted hand position",
+      "placement_reference": "initial cube xy and bin height plus 20 mm cube half-size",
+      "execution": "execute only first chosen gripper request; observe and compare again",
+      "force_prediction": false,
+      "controller_revision": 2,
+      "placement_open_gate": "Keep BC when the cube is in the bin, low, and the applied gripper command is open"
+    },
+    "test_source_used": false,
+    "stress_rule": "One opening request after cube z >= 70 mm, outside bin xy tolerance, with applied and requested gripper closed; subsequent BC requests resume.",
+    "code_sha256": {
+      "compare_model_control.py": "e250847d2783667ca753611d54491942a53d06eb7832fc1415058ba88b7eeb0f",
+      "evaluate_model_control.py": "bc6ffa06331abd70eaf55ce34ce0bd70d626e0183a82bc58c404cb11280d2c83",
+      "gripper_planner.py": "0d9822cf1759abff22f95e31a883aaec0c4278ba13370af4930448a2a8bd576b",
+      "record_gripper.py": "7737094eb28bb696b5bb5ce0bddecb84c31a330a41ca1f7a8b07de9bc133ae93",
+      "policy.py": "5fc80fde9d1d459aa58e6463d45fcc08e152979a50c7478b63d4f9c554c28169",
+      "world_model.py": "2a081413bf270a84d623b529c45f96972a00102332acdf6fb03a22d7325882ec"
+    }
+  },
+  "summary": {
+    "normal": {
+      "bc": {
+        "episodes": 100,
+        "task_successes": 99,
+        "task_and_contact_depth_passes": 99,
+        "worst_jaw_peak_n": 933.0283394274879,
+        "max_cube_penetration_m": 0.001793702499488258,
+        "total_gripper_overrides": 0,
+        "pulse_triggered_episodes": 0,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 0,
+        "median_control_steps": 130.0,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm": {
+        "episodes": 100,
+        "task_successes": 99,
+        "task_and_contact_depth_passes": 99,
+        "worst_jaw_peak_n": 933.0283394274879,
+        "max_cube_penetration_m": 0.001793702499488258,
+        "total_gripper_overrides": 0,
+        "pulse_triggered_episodes": 0,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 0,
+        "median_control_steps": 130.0,
+        "median_episode_planner_p95_ms": 1.5817553497640802
+      },
+      "paired_task_outcomes": {
+        "both_pass": 99,
+        "only_bc_pass": 0,
+        "only_wm_pass": 0,
+        "both_fail": 1
+      }
+    },
+    "opening_pulse": {
+      "bc": {
+        "episodes": 100,
+        "task_successes": 49,
+        "task_and_contact_depth_passes": 0,
+        "worst_jaw_peak_n": 933.0283394274879,
+        "max_cube_penetration_m": 0.005753882346689796,
+        "total_gripper_overrides": 0,
+        "pulse_triggered_episodes": 99,
+        "pulse_overridden_episodes": 0,
+        "triggered_episode_task_successes": 49,
+        "median_control_steps": 240.0,
+        "median_episode_planner_p95_ms": null
+      },
+      "wm": {
+        "episodes": 100,
+        "task_successes": 99,
+        "task_and_contact_depth_passes": 99,
+        "worst_jaw_peak_n": 933.0283394274879,
+        "max_cube_penetration_m": 0.001793702499488258,
+        "total_gripper_overrides": 99,
+        "pulse_triggered_episodes": 99,
+        "pulse_overridden_episodes": 99,
+        "triggered_episode_task_successes": 99,
+        "median_control_steps": 130.0,
+        "median_episode_planner_p95_ms": 0.8189191000155915
+      },
+      "paired_task_outcomes": {
+        "both_pass": 49,
+        "only_bc_pass": 0,
+        "only_wm_pass": 50,
+        "both_fail": 1
+      }
+    }
+  },
+  "reuse": {
+    "previously_completed_layouts": 20,
+    "reused_runs": 80,
+    "new_runs": 320,
+    "counted_once": true
+  },
+  "episodes": [
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_00",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10305047779195092,
+      "max_cube_penetration_m": 0.0011043902456461356
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_00",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10305047779195092,
+      "max_cube_penetration_m": 0.0011043902456461356
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_01",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10470813603296321,
+      "max_cube_penetration_m": 0.001354767124409799
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_01",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10470813603296321,
+      "max_cube_penetration_m": 0.001354767124409799
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_02",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10105820377602627,
+      "max_cube_penetration_m": 0.0012040944545019987
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_02",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10105820377602627,
+      "max_cube_penetration_m": 0.0012040944545019987
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_03",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10114145293511273,
+      "max_cube_penetration_m": 0.001261139982265649
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_03",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10114145293511273,
+      "max_cube_penetration_m": 0.001261139982265649
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_04",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1025134947957239,
+      "max_cube_penetration_m": 0.0013559622060313123
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_04",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1025134947957239,
+      "max_cube_penetration_m": 0.0013559622060313123
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_05",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10316902033021301,
+      "max_cube_penetration_m": 0.0011534998321227796
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_05",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10316902033021301,
+      "max_cube_penetration_m": 0.0011534998321227796
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_06",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10395653093419714,
+      "max_cube_penetration_m": 0.001049089234184016
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_06",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10395653093419714,
+      "max_cube_penetration_m": 0.001049089234184016
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_07",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10532627076469968,
+      "max_cube_penetration_m": 0.001725636427463098
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_07",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10532627076469968,
+      "max_cube_penetration_m": 0.001725636427463098
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_08",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1038930610256437,
+      "max_cube_penetration_m": 0.0012234651233060136
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_08",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1038930610256437,
+      "max_cube_penetration_m": 0.0012234651233060136
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_09",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10501252660398211,
+      "max_cube_penetration_m": 0.0010582527035683362
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_09",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10501252660398211,
+      "max_cube_penetration_m": 0.0010582527035683362
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_10",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10449043068717553,
+      "max_cube_penetration_m": 0.0012897149605229975
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_10",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10449043068717553,
+      "max_cube_penetration_m": 0.0012897149605229975
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_11",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10517018632325162,
+      "max_cube_penetration_m": 0.0011257504110913806
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_11",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10517018632325162,
+      "max_cube_penetration_m": 0.0011257504110913806
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_12",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1054638030709052,
+      "max_cube_penetration_m": 0.001545024309437323
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_12",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1054638030709052,
+      "max_cube_penetration_m": 0.001545024309437323
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_13",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10433164340342597,
+      "max_cube_penetration_m": 0.0010975773471976489
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_13",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10433164340342597,
+      "max_cube_penetration_m": 0.0010975773471976489
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_14",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10515100698875753,
+      "max_cube_penetration_m": 0.0011087940171457347
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_14",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10515100698875753,
+      "max_cube_penetration_m": 0.0011087940171457347
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_15",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09997738497144305,
+      "max_cube_penetration_m": 0.0007422274733025312
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_15",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09997738497144305,
+      "max_cube_penetration_m": 0.0007422274733025312
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_16",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10089634587554815,
+      "max_cube_penetration_m": 0.001168251908565277
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_16",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10089634587554815,
+      "max_cube_penetration_m": 0.001168251908565277
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_17",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10394359383415346,
+      "max_cube_penetration_m": 0.0010607605322937835
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_17",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10394359383415346,
+      "max_cube_penetration_m": 0.0010607605322937835
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_18",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10355760566362934,
+      "max_cube_penetration_m": 0.0011574280467018443
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_18",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10355760566362934,
+      "max_cube_penetration_m": 0.0011574280467018443
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_19",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1044729922507061,
+      "max_cube_penetration_m": 0.0011581816496709333
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_19",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1044729922507061,
+      "max_cube_penetration_m": 0.0011581816496709333
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_20",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1034576718092745,
+      "max_cube_penetration_m": 0.0009610392800420173
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_20",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1034576718092745,
+      "max_cube_penetration_m": 0.0009610392800420173
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_21",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10261341408372197,
+      "max_cube_penetration_m": 0.001242470142742822
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_21",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10261341408372197,
+      "max_cube_penetration_m": 0.001242470142742822
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_22",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10447156371074041,
+      "max_cube_penetration_m": 0.0016074151789384759
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_22",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10447156371074041,
+      "max_cube_penetration_m": 0.0016074151789384759
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_23",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10100396166030558,
+      "max_cube_penetration_m": 0.0010939949064814143
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_23",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10100396166030558,
+      "max_cube_penetration_m": 0.0010939949064814143
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_24",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1030986885916279,
+      "max_cube_penetration_m": 0.0011874484858612705
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_24",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1030986885916279,
+      "max_cube_penetration_m": 0.0011874484858612705
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_25",
+      "task_success": false,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.019999947197552888,
+      "max_cube_penetration_m": 4.199664723932017e-06
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_25",
+      "task_success": false,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.019999947197552888,
+      "max_cube_penetration_m": 4.199664723932017e-06
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_26",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10357822139926554,
+      "max_cube_penetration_m": 0.0013268423572531064
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_26",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10357822139926554,
+      "max_cube_penetration_m": 0.0013268423572531064
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_27",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1034241464030926,
+      "max_cube_penetration_m": 0.0010084823410297934
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_27",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1034241464030926,
+      "max_cube_penetration_m": 0.0010084823410297934
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_28",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1025757998782732,
+      "max_cube_penetration_m": 0.0010376506275075756
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_28",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1025757998782732,
+      "max_cube_penetration_m": 0.0010376506275075756
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_29",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10471754898073082,
+      "max_cube_penetration_m": 0.0011460628072904584
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_29",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10471754898073082,
+      "max_cube_penetration_m": 0.0011460628072904584
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_30",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10466887477012912,
+      "max_cube_penetration_m": 0.0012661593611420874
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_30",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10466887477012912,
+      "max_cube_penetration_m": 0.0012661593611420874
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_31",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09648619854716987,
+      "max_cube_penetration_m": 0.00020944270636236346
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_31",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09648619854716987,
+      "max_cube_penetration_m": 0.00020944270636236346
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_32",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10369974631805197,
+      "max_cube_penetration_m": 0.0012604539685985852
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_32",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10369974631805197,
+      "max_cube_penetration_m": 0.0012604539685985852
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_33",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10206182388341817,
+      "max_cube_penetration_m": 0.0010021750141284563
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_33",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10206182388341817,
+      "max_cube_penetration_m": 0.0010021750141284563
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_34",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10383066322286326,
+      "max_cube_penetration_m": 0.0013626941389071469
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_34",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10383066322286326,
+      "max_cube_penetration_m": 0.0013626941389071469
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_35",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10361254645903026,
+      "max_cube_penetration_m": 0.0009994937327111836
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_35",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10361254645903026,
+      "max_cube_penetration_m": 0.0009994937327111836
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_36",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10176555969423547,
+      "max_cube_penetration_m": 0.0008243866973929689
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_36",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10176555969423547,
+      "max_cube_penetration_m": 0.0008243866973929689
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_37",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10263434328900227,
+      "max_cube_penetration_m": 0.0012109423412490195
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_37",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10263434328900227,
+      "max_cube_penetration_m": 0.0012109423412490195
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_38",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10008356151171616,
+      "max_cube_penetration_m": 0.0010515417661259466
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_38",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10008356151171616,
+      "max_cube_penetration_m": 0.0010515417661259466
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_39",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10505171389283374,
+      "max_cube_penetration_m": 0.0013574754188704205
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_39",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10505171389283374,
+      "max_cube_penetration_m": 0.0013574754188704205
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_40",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10239295939171014,
+      "max_cube_penetration_m": 0.0011480393903059312
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_40",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10239295939171014,
+      "max_cube_penetration_m": 0.0011480393903059312
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_41",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10319040328298962,
+      "max_cube_penetration_m": 0.001286983004404165
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_41",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10319040328298962,
+      "max_cube_penetration_m": 0.001286983004404165
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_42",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10423114392848075,
+      "max_cube_penetration_m": 0.0012288955281071696
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_42",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10423114392848075,
+      "max_cube_penetration_m": 0.0012288955281071696
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_43",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10306869789950364,
+      "max_cube_penetration_m": 0.0010924065261162233
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_43",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10306869789950364,
+      "max_cube_penetration_m": 0.0010924065261162233
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_44",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10412672064673192,
+      "max_cube_penetration_m": 0.0014904999059046778
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_44",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10412672064673192,
+      "max_cube_penetration_m": 0.0014904999059046778
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_45",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10293403101973035,
+      "max_cube_penetration_m": 0.0014897402441909667
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_45",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10293403101973035,
+      "max_cube_penetration_m": 0.0014897402441909667
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_46",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10549221521338593,
+      "max_cube_penetration_m": 0.001793702499488258
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_46",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10549221521338593,
+      "max_cube_penetration_m": 0.001793702499488258
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_47",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10436335497481554,
+      "max_cube_penetration_m": 0.0008874305610666085
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_47",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10436335497481554,
+      "max_cube_penetration_m": 0.0008874305610666085
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_48",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10325494626752878,
+      "max_cube_penetration_m": 0.0013255854631386373
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_48",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10325494626752878,
+      "max_cube_penetration_m": 0.0013255854631386373
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_49",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10533763695598478,
+      "max_cube_penetration_m": 0.0012932957257843043
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_49",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10533763695598478,
+      "max_cube_penetration_m": 0.0012932957257843043
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_50",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09856825922735528,
+      "max_cube_penetration_m": 0.00038970477531294974
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_50",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09856825922735528,
+      "max_cube_penetration_m": 0.00038970477531294974
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_51",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1042634693062632,
+      "max_cube_penetration_m": 0.001635579858726945
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_51",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1042634693062632,
+      "max_cube_penetration_m": 0.001635579858726945
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_52",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10376679396626672,
+      "max_cube_penetration_m": 0.0012639131749612737
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_52",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10376679396626672,
+      "max_cube_penetration_m": 0.0012639131749612737
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_53",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10182782905296806,
+      "max_cube_penetration_m": 0.0011050844506364794
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_53",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10182782905296806,
+      "max_cube_penetration_m": 0.0011050844506364794
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_54",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10473938680005333,
+      "max_cube_penetration_m": 0.0011595055693498547
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_54",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10473938680005333,
+      "max_cube_penetration_m": 0.0011595055693498547
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_55",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09472102078545197,
+      "max_cube_penetration_m": 0.0006486210769443479
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_55",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09472102078545197,
+      "max_cube_penetration_m": 0.0006486210769443479
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_56",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10520522801519532,
+      "max_cube_penetration_m": 0.0012208628240047946
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_56",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10520522801519532,
+      "max_cube_penetration_m": 0.0012208628240047946
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_57",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10362766938438035,
+      "max_cube_penetration_m": 0.001621340085210288
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_57",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10362766938438035,
+      "max_cube_penetration_m": 0.001621340085210288
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_58",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09806322794192254,
+      "max_cube_penetration_m": 0.0005721329415129249
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_58",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09806322794192254,
+      "max_cube_penetration_m": 0.0005721329415129249
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_59",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10017916129759492,
+      "max_cube_penetration_m": 0.0010399183329006963
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_59",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10017916129759492,
+      "max_cube_penetration_m": 0.0010399183329006963
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_60",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10404255156416937,
+      "max_cube_penetration_m": 0.0013600487756222337
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_60",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10404255156416937,
+      "max_cube_penetration_m": 0.0013600487756222337
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_61",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10002923104019638,
+      "max_cube_penetration_m": 0.001202485186576583
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_61",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10002923104019638,
+      "max_cube_penetration_m": 0.001202485186576583
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_62",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0959851923221583,
+      "max_cube_penetration_m": 0.00020786529985260352
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_62",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0959851923221583,
+      "max_cube_penetration_m": 0.00020786529985260352
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_63",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09855139832925741,
+      "max_cube_penetration_m": 0.0010278190831119163
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_63",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09855139832925741,
+      "max_cube_penetration_m": 0.0010278190831119163
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_64",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10433669871046326,
+      "max_cube_penetration_m": 0.0015395814887342119
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_64",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10433669871046326,
+      "max_cube_penetration_m": 0.0015395814887342119
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_65",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10406463196424567,
+      "max_cube_penetration_m": 0.0015091630568318216
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_65",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10406463196424567,
+      "max_cube_penetration_m": 0.0015091630568318216
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_66",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10304704511140518,
+      "max_cube_penetration_m": 0.0013011653529823408
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_66",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10304704511140518,
+      "max_cube_penetration_m": 0.0013011653529823408
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_67",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10270693497028288,
+      "max_cube_penetration_m": 0.0008037705908589412
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_67",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10270693497028288,
+      "max_cube_penetration_m": 0.0008037705908589412
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_68",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10108779193801844,
+      "max_cube_penetration_m": 0.0008769683292244125
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_68",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10108779193801844,
+      "max_cube_penetration_m": 0.0008769683292244125
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_69",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10487099602084322,
+      "max_cube_penetration_m": 0.0013808292425435335
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_69",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10487099602084322,
+      "max_cube_penetration_m": 0.0013808292425435335
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_70",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1038558898034138,
+      "max_cube_penetration_m": 0.00108955335702961
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_70",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1038558898034138,
+      "max_cube_penetration_m": 0.00108955335702961
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_71",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10358678483490323,
+      "max_cube_penetration_m": 0.001371684220331115
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_71",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10358678483490323,
+      "max_cube_penetration_m": 0.001371684220331115
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_72",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10387912426062548,
+      "max_cube_penetration_m": 0.0010342393187709013
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_72",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10387912426062548,
+      "max_cube_penetration_m": 0.0010342393187709013
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_73",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10465196273415646,
+      "max_cube_penetration_m": 0.0012154726604897371
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_73",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10465196273415646,
+      "max_cube_penetration_m": 0.0012154726604897371
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_74",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10398865599315209,
+      "max_cube_penetration_m": 0.001554994267613262
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_74",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10398865599315209,
+      "max_cube_penetration_m": 0.001554994267613262
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_75",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10459884122816132,
+      "max_cube_penetration_m": 0.0011526129958020406
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_75",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10459884122816132,
+      "max_cube_penetration_m": 0.0011526129958020406
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_76",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10022379847542988,
+      "max_cube_penetration_m": 0.0010975714976371497
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_76",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10022379847542988,
+      "max_cube_penetration_m": 0.0010975714976371497
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_77",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10274689285711855,
+      "max_cube_penetration_m": 0.001215575922044004
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_77",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10274689285711855,
+      "max_cube_penetration_m": 0.001215575922044004
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_78",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10119205412269072,
+      "max_cube_penetration_m": 0.0009801160828983757
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_78",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10119205412269072,
+      "max_cube_penetration_m": 0.0009801160828983757
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_79",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10332102925401741,
+      "max_cube_penetration_m": 0.0011922570805372637
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_79",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10332102925401741,
+      "max_cube_penetration_m": 0.0011922570805372637
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_80",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10144179672266422,
+      "max_cube_penetration_m": 0.0010268625228132227
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_80",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10144179672266422,
+      "max_cube_penetration_m": 0.0010268625228132227
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_81",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10400709763376234,
+      "max_cube_penetration_m": 0.0012809045465866126
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_81",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10400709763376234,
+      "max_cube_penetration_m": 0.0012809045465866126
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_82",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10476823113441382,
+      "max_cube_penetration_m": 0.0015572470930067816
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_82",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10476823113441382,
+      "max_cube_penetration_m": 0.0015572470930067816
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_83",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1049071999093421,
+      "max_cube_penetration_m": 0.0012526123334832236
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_83",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1049071999093421,
+      "max_cube_penetration_m": 0.0012526123334832236
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_84",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10401832038033904,
+      "max_cube_penetration_m": 0.001238580250447195
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_84",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10401832038033904,
+      "max_cube_penetration_m": 0.001238580250447195
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_85",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10419264772313346,
+      "max_cube_penetration_m": 0.0013162243357192308
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_85",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10419264772313346,
+      "max_cube_penetration_m": 0.0013162243357192308
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_86",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10618526645215237,
+      "max_cube_penetration_m": 0.0011812129299670284
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_86",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10618526645215237,
+      "max_cube_penetration_m": 0.0011812129299670284
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_87",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10291913797215631,
+      "max_cube_penetration_m": 0.0009109369802853882
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_87",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10291913797215631,
+      "max_cube_penetration_m": 0.0009109369802853882
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_88",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10301328940915624,
+      "max_cube_penetration_m": 0.0012702682543050407
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_88",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10301328940915624,
+      "max_cube_penetration_m": 0.0012702682543050407
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_89",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1059231299557918,
+      "max_cube_penetration_m": 0.0009905201216618923
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_89",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1059231299557918,
+      "max_cube_penetration_m": 0.0009905201216618923
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_90",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1020585538520004,
+      "max_cube_penetration_m": 0.0012032399002087377
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_90",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1020585538520004,
+      "max_cube_penetration_m": 0.0012032399002087377
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_91",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10251320486333385,
+      "max_cube_penetration_m": 0.0011388522694693807
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_91",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10251320486333385,
+      "max_cube_penetration_m": 0.0011388522694693807
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_92",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1032953891698287,
+      "max_cube_penetration_m": 0.0014223512121539668
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_92",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1032953891698287,
+      "max_cube_penetration_m": 0.0014223512121539668
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_93",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10441474203391683,
+      "max_cube_penetration_m": 0.0013030581196213972
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_93",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10441474203391683,
+      "max_cube_penetration_m": 0.0013030581196213972
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_94",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10196903171867056,
+      "max_cube_penetration_m": 0.001226972527057082
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_94",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10196903171867056,
+      "max_cube_penetration_m": 0.001226972527057082
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_95",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10416688310824561,
+      "max_cube_penetration_m": 0.00107756429923934
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_95",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10416688310824561,
+      "max_cube_penetration_m": 0.00107756429923934
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_96",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10171493837975601,
+      "max_cube_penetration_m": 0.0011322750453257448
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_96",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10171493837975601,
+      "max_cube_penetration_m": 0.0011322750453257448
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_97",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10486041110894379,
+      "max_cube_penetration_m": 0.0013922321435514279
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_97",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10486041110894379,
+      "max_cube_penetration_m": 0.0013922321435514279
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_98",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10167206771385862,
+      "max_cube_penetration_m": 0.0013112119361971515
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_98",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10167206771385862,
+      "max_cube_penetration_m": 0.0013112119361971515
+    },
+    {
+      "condition": "normal",
+      "controller": "bc",
+      "label": "layout_99",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10308010037049699,
+      "max_cube_penetration_m": 0.0009818870370585588
+    },
+    {
+      "condition": "normal",
+      "controller": "wm",
+      "label": "layout_99",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10308010037049699,
+      "max_cube_penetration_m": 0.0009818870370585588
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_00",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09516511003119617,
+      "max_cube_penetration_m": 0.004798923007500324
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_00",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10305047779195092,
+      "max_cube_penetration_m": 0.0011043902456461356
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_01",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0901933608921371,
+      "max_cube_penetration_m": 0.004564972318213954
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_01",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10470813603296321,
+      "max_cube_penetration_m": 0.001354767124409799
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_02",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 81,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07677121819262143,
+      "max_cube_penetration_m": 0.004911692496702449
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_02",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 81,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10105820377602627,
+      "max_cube_penetration_m": 0.0012040944545019987
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_03",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 84,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07744868557085118,
+      "max_cube_penetration_m": 0.00443341909555901
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_03",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 84,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10114145293511273,
+      "max_cube_penetration_m": 0.001261139982265649
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_04",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07389836920980895,
+      "max_cube_penetration_m": 0.004057997146348799
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_04",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1025134947957239,
+      "max_cube_penetration_m": 0.0013559622060313123
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_05",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07365399087639986,
+      "max_cube_penetration_m": 0.004682536459044204
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_05",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10316902033021301,
+      "max_cube_penetration_m": 0.0011534998321227796
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_06",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07362489052911811,
+      "max_cube_penetration_m": 0.00485694045061611
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_06",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10395653093419714,
+      "max_cube_penetration_m": 0.001049089234184016
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_07",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09680054621687907,
+      "max_cube_penetration_m": 0.004112363765033976
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_07",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10532627076469968,
+      "max_cube_penetration_m": 0.001725636427463098
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_08",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10039698987762226,
+      "max_cube_penetration_m": 0.004793755711912426
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_08",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1038930610256437,
+      "max_cube_penetration_m": 0.0012234651233060136
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_09",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09678931765005622,
+      "max_cube_penetration_m": 0.004939496932217594
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_09",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10501252660398211,
+      "max_cube_penetration_m": 0.0010582527035683362
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_10",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0958151387631474,
+      "max_cube_penetration_m": 0.005232201654126598
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_10",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10449043068717553,
+      "max_cube_penetration_m": 0.0012897149605229975
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_11",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0934276308002071,
+      "max_cube_penetration_m": 0.005536256989237823
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_11",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10517018632325162,
+      "max_cube_penetration_m": 0.0011257504110913806
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_12",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10046610481826351,
+      "max_cube_penetration_m": 0.005753882346689796
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_12",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1054638030709052,
+      "max_cube_penetration_m": 0.001545024309437323
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_13",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09627113804857805,
+      "max_cube_penetration_m": 0.004973107072972416
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_13",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10433164340342597,
+      "max_cube_penetration_m": 0.0010975773471976489
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_14",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 79,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10434982283025716,
+      "max_cube_penetration_m": 0.00553604528929424
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_14",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 79,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10515100698875753,
+      "max_cube_penetration_m": 0.0011087940171457347
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_15",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07040802498956758,
+      "max_cube_penetration_m": 0.004857709505434257
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_15",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09997738497144305,
+      "max_cube_penetration_m": 0.0007422274733025312
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_16",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09335331218155053,
+      "max_cube_penetration_m": 0.0045539687865451045
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_16",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10089634587554815,
+      "max_cube_penetration_m": 0.001168251908565277
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_17",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 70,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09965822474097442,
+      "max_cube_penetration_m": 0.005583945819782837
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_17",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 70,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10394359383415346,
+      "max_cube_penetration_m": 0.0010607605322937835
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_18",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09826488929194405,
+      "max_cube_penetration_m": 0.004292162012834839
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_18",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10355760566362934,
+      "max_cube_penetration_m": 0.0011574280467018443
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_19",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07184521883042735,
+      "max_cube_penetration_m": 0.0050403100821701866
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_19",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1044729922507061,
+      "max_cube_penetration_m": 0.0011581816496709333
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_20",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09308633268389173,
+      "max_cube_penetration_m": 0.004417777401741083
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_20",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1034576718092745,
+      "max_cube_penetration_m": 0.0009610392800420173
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_21",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09541135048088474,
+      "max_cube_penetration_m": 0.004778438073521446
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_21",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10261341408372197,
+      "max_cube_penetration_m": 0.001242470142742822
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_22",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 78,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07805060866576968,
+      "max_cube_penetration_m": 0.005575254973670375
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_22",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 78,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10447156371074041,
+      "max_cube_penetration_m": 0.0016074151789384759
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_23",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07669637900264169,
+      "max_cube_penetration_m": 0.004360700104173472
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_23",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10100396166030558,
+      "max_cube_penetration_m": 0.0010939949064814143
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_24",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07143666027755596,
+      "max_cube_penetration_m": 0.004013868592998969
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_24",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1030986885916279,
+      "max_cube_penetration_m": 0.0011874484858612705
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_25",
+      "task_success": false,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.019999947197552888,
+      "max_cube_penetration_m": 4.199664723932017e-06
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_25",
+      "task_success": false,
+      "quality_pass": true,
+      "injected_step": null,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.019999947197552888,
+      "max_cube_penetration_m": 4.199664723932017e-06
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_26",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07891243841040982,
+      "max_cube_penetration_m": 0.0052999567586436355
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_26",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10357822139926554,
+      "max_cube_penetration_m": 0.0013268423572531064
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_27",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10398805556478702,
+      "max_cube_penetration_m": 0.005253639618668603
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_27",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1034241464030926,
+      "max_cube_penetration_m": 0.0010084823410297934
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_28",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 88,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07775051775544523,
+      "max_cube_penetration_m": 0.005718864390323468
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_28",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 88,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1025757998782732,
+      "max_cube_penetration_m": 0.0010376506275075756
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_29",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07343657772810885,
+      "max_cube_penetration_m": 0.005168430179656578
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_29",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10471754898073082,
+      "max_cube_penetration_m": 0.0011460628072904584
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_30",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07643862099382923,
+      "max_cube_penetration_m": 0.005173728666803718
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_30",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10466887477012912,
+      "max_cube_penetration_m": 0.0012661593611420874
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_31",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10111351074818176,
+      "max_cube_penetration_m": 0.004074782233561273
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_31",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09648619854716987,
+      "max_cube_penetration_m": 0.00020944270636236346
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_32",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07590455350416847,
+      "max_cube_penetration_m": 0.004201253131526441
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_32",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10369974631805197,
+      "max_cube_penetration_m": 0.0012604539685985852
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_33",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.074802282324325,
+      "max_cube_penetration_m": 0.004395930616598655
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_33",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10206182388341817,
+      "max_cube_penetration_m": 0.0010021750141284563
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_34",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07674040030840233,
+      "max_cube_penetration_m": 0.0052202164462242726
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_34",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10383066322286326,
+      "max_cube_penetration_m": 0.0013626941389071469
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_35",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10237644538392932,
+      "max_cube_penetration_m": 0.005204735145004978
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_35",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10361254645903026,
+      "max_cube_penetration_m": 0.0009994937327111836
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_36",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 87,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09360919733925908,
+      "max_cube_penetration_m": 0.0038734106840670173
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_36",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 87,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10176555969423547,
+      "max_cube_penetration_m": 0.0008243866973929689
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_37",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07280090154885033,
+      "max_cube_penetration_m": 0.0039176000657246005
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_37",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10263434328900227,
+      "max_cube_penetration_m": 0.0012109423412490195
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_38",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07468494894652312,
+      "max_cube_penetration_m": 0.004513124093884778
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_38",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10008356151171616,
+      "max_cube_penetration_m": 0.0010515417661259466
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_39",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09174708005388048,
+      "max_cube_penetration_m": 0.005018744319274271
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_39",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10505171389283374,
+      "max_cube_penetration_m": 0.0013574754188704205
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_40",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10256453546633137,
+      "max_cube_penetration_m": 0.004509978514723618
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_40",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10239295939171014,
+      "max_cube_penetration_m": 0.0011480393903059312
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_41",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10422858200220074,
+      "max_cube_penetration_m": 0.005697180184008569
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_41",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10319040328298962,
+      "max_cube_penetration_m": 0.001286983004404165
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_42",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09461858566152194,
+      "max_cube_penetration_m": 0.005426410315603965
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_42",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10423114392848075,
+      "max_cube_penetration_m": 0.0012288955281071696
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_43",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09654196755295046,
+      "max_cube_penetration_m": 0.004592063616696428
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_43",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10306869789950364,
+      "max_cube_penetration_m": 0.0010924065261162233
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_44",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07316959324469209,
+      "max_cube_penetration_m": 0.0056496124217724495
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_44",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10412672064673192,
+      "max_cube_penetration_m": 0.0014904999059046778
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_45",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09545097337298263,
+      "max_cube_penetration_m": 0.005128640855281516
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_45",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10293403101973035,
+      "max_cube_penetration_m": 0.0014897402441909667
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_46",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 81,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09600408648630826,
+      "max_cube_penetration_m": 0.004559119577180816
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_46",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 81,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10549221521338593,
+      "max_cube_penetration_m": 0.001793702499488258
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_47",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09746014975507951,
+      "max_cube_penetration_m": 0.004812486901126692
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_47",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10436335497481554,
+      "max_cube_penetration_m": 0.0008874305610666085
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_48",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07205134626904616,
+      "max_cube_penetration_m": 0.004705148963983433
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_48",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10325494626752878,
+      "max_cube_penetration_m": 0.0013255854631386373
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_49",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09552495465550605,
+      "max_cube_penetration_m": 0.0045276125374388515
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_49",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10533763695598478,
+      "max_cube_penetration_m": 0.0012932957257843043
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_50",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10096329198813749,
+      "max_cube_penetration_m": 0.004516886207767573
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_50",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09856825922735528,
+      "max_cube_penetration_m": 0.00038970477531294974
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_51",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07256605793144974,
+      "max_cube_penetration_m": 0.004564394142411017
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_51",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1042634693062632,
+      "max_cube_penetration_m": 0.001635579858726945
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_52",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07555970356739769,
+      "max_cube_penetration_m": 0.0053739295267840985
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_52",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10376679396626672,
+      "max_cube_penetration_m": 0.0012639131749612737
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_53",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07638421937468139,
+      "max_cube_penetration_m": 0.005081198185992854
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_53",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10182782905296806,
+      "max_cube_penetration_m": 0.0011050844506364794
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_54",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0954088519916478,
+      "max_cube_penetration_m": 0.004882983607875589
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_54",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10473938680005333,
+      "max_cube_penetration_m": 0.0011595055693498547
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_55",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 104,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07216214017817293,
+      "max_cube_penetration_m": 0.004009237714044107
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_55",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 104,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09472102078545197,
+      "max_cube_penetration_m": 0.0006486210769443479
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_56",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10329943889147022,
+      "max_cube_penetration_m": 0.005269932138509103
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_56",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10520522801519532,
+      "max_cube_penetration_m": 0.0012208628240047946
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_57",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10159689953397656,
+      "max_cube_penetration_m": 0.0040717117737769015
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_57",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10362766938438035,
+      "max_cube_penetration_m": 0.001621340085210288
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_58",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10057233145047278,
+      "max_cube_penetration_m": 0.005046182856902316
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_58",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09806322794192254,
+      "max_cube_penetration_m": 0.0005721329415129249
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_59",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0744575185628849,
+      "max_cube_penetration_m": 0.005012000032302048
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_59",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10017916129759492,
+      "max_cube_penetration_m": 0.0010399183329006963
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_60",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09378414753630973,
+      "max_cube_penetration_m": 0.004144323802179794
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_60",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10404255156416937,
+      "max_cube_penetration_m": 0.0013600487756222337
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_61",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07312214703298933,
+      "max_cube_penetration_m": 0.004054962866185671
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_61",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10002923104019638,
+      "max_cube_penetration_m": 0.001202485186576583
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_62",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07170736283357666,
+      "max_cube_penetration_m": 0.00404408063564161
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_62",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.0959851923221583,
+      "max_cube_penetration_m": 0.00020786529985260352
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_63",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07378907277882142,
+      "max_cube_penetration_m": 0.005507485040556524
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_63",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.09855139832925741,
+      "max_cube_penetration_m": 0.0010278190831119163
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_64",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0726760022513194,
+      "max_cube_penetration_m": 0.004626913918837177
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_64",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10433669871046326,
+      "max_cube_penetration_m": 0.0015395814887342119
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_65",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0757012519623356,
+      "max_cube_penetration_m": 0.005147438665384059
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_65",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10406463196424567,
+      "max_cube_penetration_m": 0.0015091630568318216
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_66",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09442546826630786,
+      "max_cube_penetration_m": 0.004475129910904446
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_66",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10304704511140518,
+      "max_cube_penetration_m": 0.0013011653529823408
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_67",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10290386884519315,
+      "max_cube_penetration_m": 0.0046217710983290205
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_67",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10270693497028288,
+      "max_cube_penetration_m": 0.0008037705908589412
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_68",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07192356965087235,
+      "max_cube_penetration_m": 0.005108711855563018
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_68",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10108779193801844,
+      "max_cube_penetration_m": 0.0008769683292244125
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_69",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09453359810135596,
+      "max_cube_penetration_m": 0.005146652667186579
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_69",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10487099602084322,
+      "max_cube_penetration_m": 0.0013808292425435335
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_70",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07329341557973292,
+      "max_cube_penetration_m": 0.0047026733012533305
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_70",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1038558898034138,
+      "max_cube_penetration_m": 0.00108955335702961
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_71",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10094817018032183,
+      "max_cube_penetration_m": 0.004354681851161808
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_71",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10358678483490323,
+      "max_cube_penetration_m": 0.001371684220331115
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_72",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 87,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07556928860869468,
+      "max_cube_penetration_m": 0.004400252373500455
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_72",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 87,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10387912426062548,
+      "max_cube_penetration_m": 0.0010342393187709013
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_73",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09301801030365357,
+      "max_cube_penetration_m": 0.005647730835522128
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_73",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10465196273415646,
+      "max_cube_penetration_m": 0.0012154726604897371
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_74",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07320271205929478,
+      "max_cube_penetration_m": 0.004096737076971157
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_74",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10398865599315209,
+      "max_cube_penetration_m": 0.001554994267613262
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_75",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09509650360599727,
+      "max_cube_penetration_m": 0.005502374496062034
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_75",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10459884122816132,
+      "max_cube_penetration_m": 0.0011526129958020406
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_76",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07282079232774287,
+      "max_cube_penetration_m": 0.0042490804079988245
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_76",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10022379847542988,
+      "max_cube_penetration_m": 0.0010975714976371497
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_77",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 72,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10276663050733431,
+      "max_cube_penetration_m": 0.005407177059007181
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_77",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 72,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10274689285711855,
+      "max_cube_penetration_m": 0.001215575922044004
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_78",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 84,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07779885529086007,
+      "max_cube_penetration_m": 0.004496018113182477
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_78",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 84,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10119205412269072,
+      "max_cube_penetration_m": 0.0009801160828983757
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_79",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10096352031668175,
+      "max_cube_penetration_m": 0.005614373920351786
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_79",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10332102925401741,
+      "max_cube_penetration_m": 0.0011922570805372637
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_80",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 80,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07441117801894812,
+      "max_cube_penetration_m": 0.0054226405606249235
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_80",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 80,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10144179672266422,
+      "max_cube_penetration_m": 0.0010268625228132227
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_81",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 87,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07580822733265875,
+      "max_cube_penetration_m": 0.004231626430590223
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_81",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 87,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10400709763376234,
+      "max_cube_penetration_m": 0.0012809045465866126
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_82",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 77,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07620771297593383,
+      "max_cube_penetration_m": 0.005479641162043557
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_82",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 77,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10476823113441382,
+      "max_cube_penetration_m": 0.0015572470930067816
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_83",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10127304190652073,
+      "max_cube_penetration_m": 0.004264407181134147
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_83",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1049071999093421,
+      "max_cube_penetration_m": 0.0012526123334832236
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_84",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 79,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07904330761893338,
+      "max_cube_penetration_m": 0.005090264324109398
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_84",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 79,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10401832038033904,
+      "max_cube_penetration_m": 0.001238580250447195
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_85",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.10064448854147082,
+      "max_cube_penetration_m": 0.00570529728952296
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_85",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10419264772313346,
+      "max_cube_penetration_m": 0.0013162243357192308
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_86",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 81,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09230202705335114,
+      "max_cube_penetration_m": 0.0056859589048910385
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_86",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 81,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10618526645215237,
+      "max_cube_penetration_m": 0.0011812129299670284
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_87",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 70,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09321157249100545,
+      "max_cube_penetration_m": 0.004240644583613878
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_87",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 70,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10291913797215631,
+      "max_cube_penetration_m": 0.0009109369802853882
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_88",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09539784588313124,
+      "max_cube_penetration_m": 0.005530460862213552
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_88",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10301328940915624,
+      "max_cube_penetration_m": 0.0012702682543050407
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_89",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1003065088042174,
+      "max_cube_penetration_m": 0.004066727743413741
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_89",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1059231299557918,
+      "max_cube_penetration_m": 0.0009905201216618923
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_90",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 70,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.1033809075896989,
+      "max_cube_penetration_m": 0.004269778729926967
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_90",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 70,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1020585538520004,
+      "max_cube_penetration_m": 0.0012032399002087377
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_91",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09412034926251858,
+      "max_cube_penetration_m": 0.004962140446384655
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_91",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10251320486333385,
+      "max_cube_penetration_m": 0.0011388522694693807
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_92",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 76,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.0788841576800184,
+      "max_cube_penetration_m": 0.004944432482446053
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_92",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 76,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.1032953891698287,
+      "max_cube_penetration_m": 0.0014223512121539668
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_93",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 73,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.08827795846395088,
+      "max_cube_penetration_m": 0.004800855348602138
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_93",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 73,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10441474203391683,
+      "max_cube_penetration_m": 0.0013030581196213972
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_94",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 80,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07708072660867409,
+      "max_cube_penetration_m": 0.005117766944445749
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_94",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 80,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10196903171867056,
+      "max_cube_penetration_m": 0.001226972527057082
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_95",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07137237592512365,
+      "max_cube_penetration_m": 0.004551165301406067
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_95",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10416688310824561,
+      "max_cube_penetration_m": 0.00107756429923934
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_96",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 71,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07163018099849312,
+      "max_cube_penetration_m": 0.004202916726967299
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_96",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 71,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10171493837975601,
+      "max_cube_penetration_m": 0.0011322750453257448
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_97",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 75,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07495452897994552,
+      "max_cube_penetration_m": 0.005581831223789717
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_97",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 75,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10486041110894379,
+      "max_cube_penetration_m": 0.0013922321435514279
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_98",
+      "task_success": false,
+      "quality_pass": false,
+      "injected_step": 74,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.07232650242819946,
+      "max_cube_penetration_m": 0.004759210688364464
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_98",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 74,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10167206771385862,
+      "max_cube_penetration_m": 0.0013112119361971515
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "bc",
+      "label": "layout_99",
+      "task_success": true,
+      "quality_pass": false,
+      "injected_step": 78,
+      "injected_opening_overridden": false,
+      "gripper_overrides": 0,
+      "peak_cube_height_m": 0.09124548509167231,
+      "max_cube_penetration_m": 0.004404317008212272
+    },
+    {
+      "condition": "opening_pulse",
+      "controller": "wm",
+      "label": "layout_99",
+      "task_success": true,
+      "quality_pass": true,
+      "injected_step": 78,
+      "injected_opening_overridden": true,
+      "gripper_overrides": 1,
+      "peak_cube_height_m": 0.10308010037049699,
+      "max_cube_penetration_m": 0.0009818870370585588
+    }
+  ],
+  "verification": "400 unique condition/controller/layout outcomes; both ordinary and stress WM state/action traces exactly equal their unperturbed BC references on all 100 positions.",
+  "limitations": "Same scene and object; positions only. First 20 layouts inspected before expansion, with no model/controller changes. One no-lift layout prevented fault injection. Force peaks remain unrealistic. No parameter selection from these outcomes."
+}

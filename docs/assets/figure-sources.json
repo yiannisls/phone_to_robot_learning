@@ -3,6 +3,7 @@
     "gripper-comparison.gif": "results/world_model_control_comparison.mp4; ffmpeg fps=5, width=800, 96-colour palette; saved-state replay.",
     "phone-to-robot.png": "IMG_5539 at 4.5s; results/bc_v2_validation/validation.avi at 8.5s; frames are separate demonstrations, not synchronized.",
     "phone-transport.png": "Saved IMG_5539_transport.csv; smoothed, retargeted and retimed lift, not unmodified physical reconstruction.",
-    "control-results.png": "docs/reproduction-results.json; 80 reruns on saved development layouts."
+    "control-results.png": "docs/reproduction-results.json; 80 reruns on saved development layouts.",
+    "control-results-100.png": "docs/phone-only-confirmation.json; frozen 100-layout expanded evaluation, seed 20261015; first 20 counted once."
   }
 }

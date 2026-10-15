@@ -8,7 +8,7 @@ The internship challenge asks applicants to collect their own data and use it to
 
 *Left: one of my original recordings, with an ArUco marker attached to the object. Right: the learned policy moving a cube with the simulated SO-100/101 arm. These are separate examples, not synchronized frames.*
 
-**Current result:** the phone-derived policy completes 20/20 transfers in the saved development comparison. A learned world model also helps reject a deliberately early gripper-opening command. The next experiment checks the frozen phone-derived controllers on additional starting positions.
+**Current result:** both frozen phone-derived controllers complete **99/100 transfers** in the expanded position evaluation. A learned world model also helps reject a deliberately early gripper-opening command. Under an artificial early-opening request, BC completes **49/100** and BC + world model **99/100**.
 
 [See the result](#3-the-result--testing-the-robot) · [Understand the pipeline](#2-the-middle--turning-movement-into-robot-demonstrations) · [Run it](#run-the-project) · [Read the code](docs/project-map.md)
 
@@ -63,14 +63,16 @@ To test whether looking ahead changes behavior, one experiment deliberately requ
 
 *Left: BC receives the opening request and drops the cube. Right: the model-assisted controller rejects the request and completes the transfer. The animation replays saved simulator states from one paired example.*
 
-![Success counts for ordinary execution and the artificial early-opening experiment](docs/assets/control-results.png)
+![Success counts for ordinary execution and the artificial early-opening experiment](docs/assets/control-results-100.png)
 
-| Phone-project experiment | BC | BC + world model |
+| Phone-project experiment, 100 layouts | BC | BC + world model |
 |---|---:|---:|
-| Ordinary execution | 20/20 | 20/20 |
-| One artificial early-opening request | 9/20 | 20/20 |
+| Ordinary execution | 99/100 | 99/100 |
+| One artificial early-opening request | 49/100 | 99/100 |
 
-These are **80 controller runs across 20 saved development layouts and two conditions**. The revised selector was checked on previously inspected layouts. It made no changes during ordinary execution and rejected one injected request in each protected stress trial. The counts were reproduced with the saved checkpoints.
+These are **400 controller runs across 100 layouts and two conditions**, with frozen checkpoints and controller settings. The suite was expanded from 20 to 100 positions; the first 20 are retained and counted once. Both controllers miss the initial grasp on one layout. In the 99 lifted stress trials, the model-assisted controller rejects every injected opening request. No ordinary interventions occur.
+
+[100-layout protocol and outcomes](docs/phone-only-confirmation.md). Earlier development results remain available in the historical reports.
 
 This establishes a useful result for one specific disturbance. It does not establish general robustness: the same cube and scene were used, a simple rule could also address this opening error, and simulated grip forces remain unrealistically high. The ordinary experiment shows no success-rate improvement from adding the world model.
 
@@ -87,14 +89,14 @@ This establishes a useful result for one specific disturbance. It does not estab
 
 ## 4. The next step — test the phone-derived system more broadly
 
-The active project uses the personally recorded phone footage, behavioral cloning and the state world model. The next check compares the frozen controllers on 20 additional, previously unused starting positions, using the same scene and separate ordinary/opening-error conditions. These are new simulated layouts, not new real recordings or different objects.
+The active project uses the personally recorded phone footage, behavioral cloning and the state world model. The expanded evaluation now covers 100 starting positions in the same scene, with separate ordinary/opening-error conditions. It includes eighty further positions after the initial twenty-position confirmation. These are simulated layout variations, not new real recordings or different objects.
 
 | Stage | Status |
 |---|---|
 | Collect phone recordings and extract motion | Complete |
 | Generate demonstrations and train BC | Complete |
 | Learn a state world model and test gripper decisions | Complete for the reported experiment |
-| Evaluate frozen controllers on additional starting positions | In progress |
+| Evaluate frozen controllers on 100 starting positions | Complete: 99/100 ordinary for both controllers |
 | Address remaining contact-physics limitations | Open |
 | Build visual action data and fine-tune a VLA | Optional later experiment |
 
