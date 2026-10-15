@@ -10,7 +10,7 @@ Behavioural cloning is a training method: learning actions from demonstrations. 
 |---|---|---|
 | Existing BC | 28 state features including exact selected-cube and bin positions | Target identity supplied by the simulator/task |
 | Existing BC + world model | BC inputs plus 35-value dynamics state with exact robot/cube state | Learned short forecasts; hand-coded gripper candidates, task score and gates |
-| Planned SmolVLA | Camera image, instruction and 13 robot-state/command values | External pretrained weights, then task imitation training |
+| Planned SmolVLA | Camera image and instruction; 9 measured robot values in the human interface, 13 state/command values in the phone prototype | External pretrained weights, then task imitation training |
 
 The VLA must infer the requested object from appearance and language. The state controller is given the requested object's exact state; it is a privileged-state reference, not a test of visual recognition or language grounding. A lower VLA task score would not by itself mean that adding vision/language is useless. A higher score would not isolate the architecture as the cause when inputs, pretraining and demonstrations differ.
 

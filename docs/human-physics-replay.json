@@ -1,0 +1,195 @@
+{
+  "purpose": "First fixed-executor replay of human training episode 0, retaining quality failure.",
+  "replay": {
+    "purpose": "One training-episode action replay; no policy evaluation.",
+    "source": {
+      "store": "datasets/raw/multi_cube/teleop/2026-10-12_16-25-04/so100_multicube_teleop.zarr",
+      "local_episode": 0,
+      "global_episode": 0,
+      "raw_rows": [
+        0,
+        339
+      ],
+      "processed_rows": [
+        0,
+        338
+      ],
+      "control_hz": 10.0,
+      "array_sha256": {
+        "state_joints": "53fc8be6d7d056ee66dd7868080dd5df63f922f25ffe933ccdadcd74eb07c46d",
+        "state_ee": "fa7a1967d734a6b94552c6f6b502c5e1cc591b9866afb52d5bbeed1e86923c2f",
+        "state_gripper": "5141fcf852fc768b1c6635fa85ed91ed1115d31979ab10639441e968b7fdb51b",
+        "action_gripper": "82fa6be0fdadb043952b4160b12801f81f4dd671bdecfb5c3755b85189d65093",
+        "state_goal": "bd6a3ad53ffac6a01df56445b73068015befac7b4b9633bb52f015e34031d4de",
+        "goal_pos": "abc739880c47b9d2878b8db0f416e35d425c7843ddbb6e31b811ce3d6ec6b630",
+        "pos_cube_red": "03047f9465f4b1dc3f87a3e5d619186e650b4cfc41c5426fe96ec27f106b6bf0",
+        "pos_cube_green": "681f70d170ff0d2db24de74b888d45c0fa32679d58baccff66b3386c9613636f",
+        "pos_cube_blue": "2fd85173f483606e066663bbd003e4711186578dbfebd3658f69b2877751d625"
+      }
+    },
+    "split": "train",
+    "instruction": "Put the red cube in the bin.",
+    "planned_actions": 338,
+    "executed_actions": 338,
+    "termination": null,
+    "task_success": true,
+    "quality_pass": false,
+    "peak_target_height_m": 0.09254489166812785,
+    "final_target_xyz_m": [
+      -0.2135382574898932,
+      0.5486098575757257,
+      0.02099994724970685
+    ],
+    "goal_xyz_m": [
+      -0.21302945911884308,
+      0.5512638092041016,
+      0.020999999716877937
+    ],
+    "final_hand_cube_distance_m": 0.11111194470026792,
+    "final_gripper_command": 0.4000082015991211,
+    "stable_final_cube": true,
+    "max_target_penetration_m": 0.005048523982499099,
+    "max_robot_self_penetration_m": 0.0,
+    "max_distractor_displacement_m": 2.01348198530793e-10,
+    "peak_target_contact_normal_force_n": 90.5130203785418,
+    "mean_hand_path_error_m": 0.0041120264912820476,
+    "max_hand_path_error_m": 0.009969043588699622,
+    "initialization": "Recorded initial poses; all unknown velocities set to zero",
+    "executor": "Accumulate measured XYZ deltas into hand target; native instantaneous gripper target",
+    "orientation": "Initial measured quaternion held fixed; no later pose restoration",
+    "extra_settling_steps": 0,
+    "control_dt_s": 0.1,
+    "physics_dt_s": 0.002,
+    "jaw_torque_range_nm": [
+      -3.5,
+      3.5
+    ],
+    "mujoco_version": "3.14.0",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "script_sha256": "abe5f18febdad05247b3ef038483ce5e5c41901a5dd6cbf4d712d8d858c72d1d",
+    "rollout_sha256": "26ddbfc55b1e080c44aeb7875563c4ffce575a6798016048f7cf1ce2ba2681eb",
+    "accepted_for_training": false,
+    "limitation": "Original commands and velocities are missing. Contact-force limits remain unvalidated. One replay is not a policy success rate."
+  },
+  "verification": {
+    "actions": 338,
+    "control_observations": 339,
+    "physics_samples": 16900,
+    "timing_and_delta_alignment_passed": true,
+    "all_values_finite": true,
+    "penetration_peak_time_s": 32.33999999999356,
+    "normal_force_peak_time_s": 15.376000000001804,
+    "nearby_saved_contact_snapshots": [
+      {
+        "control_observation": 0,
+        "time_s": 0.0,
+        "target_contacts": [
+          {
+            "geometries": [
+              "red_box",
+              "table"
+            ],
+            "depth_m": 5.226582294737266e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "table"
+            ],
+            "depth_m": 5.22658229473727e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "table"
+            ],
+            "depth_m": 5.2265822948188225e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "table"
+            ],
+            "depth_m": 5.2265822948188185e-08
+          }
+        ]
+      },
+      {
+        "control_observation": 324,
+        "time_s": 32.39999999999363,
+        "target_contacts": [
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 0.0003201792566658646
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 0.0003353671592962151
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 0.00036215680452329025
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 0.00034696890189293974
+          }
+        ]
+      },
+      {
+        "control_observation": 338,
+        "time_s": 33.79999999999534,
+        "target_contacts": [
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 5.246717107431304e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 5.2467171097798034e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 5.246717109779802e-08
+          },
+          {
+            "geometries": [
+              "red_box",
+              "bin_floor"
+            ],
+            "depth_m": 5.246717107431303e-08
+          }
+        ]
+      }
+    ],
+    "snapshot_limitation": "Recomputed contacts at control observations; these do not identify the exact physics-step peak geometry.",
+    "executed_actions_exactly_match_converted_example": true,
+    "hand_motion_differs_from_pose_reconstruction": true,
+    "video_frames": 339,
+    "video_fps": 10.0,
+    "held_out_episode_rejected_before_data_read": true,
+    "existing_output_protected": true
+  }
+}
