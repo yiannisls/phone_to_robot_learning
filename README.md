@@ -1,240 +1,123 @@
-# Phone recordings to robot learning
+# Phone to Robot Learning
 
-Start with [the project map](docs/project-map.md) and [the runnable walkthrough](docs/walkthrough.md). Clean-environment validation passed; see [verification evidence](docs/reproduction.md). The checkpoint/data archive is prepared locally; GitHub publication is pending authentication.
+**Teaching a simulated robot to move an object using personally recorded phone videos.**
 
-This project uses five personally recorded manipulation videos to teach a
-simulated SO-100 arm to move a cube into a bin. An ArUco marker on the object
-provides the recorded transport motion. Approach, grasp, placement, release and
-retreat are scripted when generating demonstrations. A neural network then
-learns to imitate the resulting robot state/action sequences.
+The internship challenge asks applicants to collect their own data and use it to drive a robot in simulation. I started with five phone videos of a simple manipulation task: pick up a marked object, carry it, and place it in a container. The aim is to transfer useful information from that human movement to a robot, then test what the robot actually learns.
 
-The current policy is **state-based behavioral cloning**, not a VLA. It does not
-take camera images or language as input. A small action-conditioned state world model is now trained
-on dataset v2; it now also compares gripper choices inside the control loop.
+![A real phone recording beside a learned robot rollout](docs/assets/phone-to-robot.png)
 
-## World model in the control loop
+*Left: one of my original recordings, with an ArUco marker attached to the object. Right: the learned policy moving a cube with the simulated SO-100/101 arm. These are separate examples, not synchronized frames.*
 
-BC v2 supplies movement while the learned world model compares gripper choices
-half a second ahead. On 20 paired positions, both controllers complete 20/20
-ordinary tasks. With one deliberately early opening request, BC completes 9/20;
-BC plus the world model completes 20/20 and rejects every pulse.
+**Current result:** the phone-derived policy completes 20/20 transfers in the saved development comparison. A learned world model also helps reject a deliberately early gripper-opening command. The next experiment will test how phone-derived motion can complement my robot teleoperation demonstrations.
 
-The revised selector makes no ordinary interventions and exactly restores the
-unperturbed BC trajectories under this specific artificial fault. Grip forces
-remain high and unchanged. A simple rule could also address these pulses;
-superiority over such a rule has not been established. The revised results are
-a development retest on the same positions, following a post-release gate fix.
+[See the result](#3-the-result--testing-the-robot) · [Understand the pipeline](#2-the-middle--turning-movement-into-robot-demonstrations) · [Run it](#run-the-project) · [Read the code](docs/project-map.md)
 
-See [methods, failures and checks](docs/world_model_control.md), the
-[comparison video](results/world_model_control_comparison.mp4), and
-[aggregate measurements](results/world_model_control.json). To try the revised
-selector with your homework environment active:
+## 1. The start — collect a small, personal dataset
 
-```bash
-python scripts/evaluate_model_control.py --mode wm --video --out work/wm-validation
+The starting point is an ordinary phone recording, rather than a robot demonstration. A black-and-white **ArUco marker** makes the object's movement easier to track: its four corners can be detected in each usable frame.
+
+For each video, I select the interval covering the manipulation. The code tracks the marker, estimates its pose, smooths the motion, and adapts the path to the simulator's scale and direction.
+
+![The adapted lift extracted from one phone recording](docs/assets/phone-transport.png)
+
+*Example from IMG_5539. This is the path after smoothing, scaling and retiming for the robot. It is an approximation based on provisional camera calibration.*
+
+The five recordings stay separated by source: three for training, one for validation and one reserved for testing. Starting-position variations are generated only from the three training recordings. **More simulated variations do not mean more independent real recordings.**
+
+## 2. The middle — turning movement into robot demonstrations
+
+A phone video shows how the object travels. It does not provide the robot commands needed to approach, grasp, or release it. To create the first robot dataset, the recorded transport path is combined with scripted approach, grasp, placement, release and retreat phases.
+
+```mermaid
+flowchart LR
+    A[My phone recordings] --> B[Track the marked object]
+    B --> C[Adapt its transport path]
+    C --> D[Generate robot demonstrations]
+    S[Scripted grasp and release phases] --> D
+    D --> E[Learn actions with BC]
+    D --> F[Learn state changes with a world model]
+    E --> G[Move the simulated robot]
+    F --> H[Compare possible gripper outcomes]
+    H --> G
 ```
 
-## Latest policy and recording experiment
+### Learning the actions: behavioral cloning
 
-BC v2, trained on the preserved phone-derived dataset at 1 rad/s, completes
-20/20 original development positions and 19/20 wider positions. BC v1 completes
-18/20 of those same wider positions. Force peaks remain a limitation: BC v2 has
-larger peaks on the original suite, so both checkpoints are retained.
+**Behavioral cloning (BC)** learns by example. Given the current robot and object measurements, a small neural network predicts upcoming movement and gripper commands. During execution, the robot follows a few commands, receives updated measurements, and predicts again.
 
-Thirteen agent-operated recordings are saved as NPZ and lab-compatible Zarr under
-`data/teleoperation/agent_v1/`. They contain 2,025 actions and 101,250 force samples,
-remain unassigned to splits, and have not entered training. They are separate
-from future human keyboard recordings. See [the experiment and reproduction
-commands](docs/agent_gripper_policy.md) for outcomes, checks and remaining failures.
+The demonstrated trajectories teach the policy; the policy then chooses its own actions during evaluation. The current controller uses simulator state measurements. Camera and language inputs are planned as a possible later extension.
 
-## Original BC v1 results
+### Looking ahead: the world model
 
-| Check | Result |
-| --- | --- |
-| Scripted dataset generation | 65/65 task and contact-depth passes |
-| Training data | 63 episodes, 9,532 state/action transitions |
-| Validation data | 1 episode, 149 state/action transitions |
-| Test data | 1 episode; excluded from policy training and checkpoint selection |
-| Selected checkpoint | Epoch 100 of 300 |
-| Validation imitation position error | 1.17 mm mean absolute error across predicted targets |
-| Validation imitation gripper accuracy | 99.3% across predicted commands |
-| Learned-policy validation rollout | Success, 166 steps at 10 Hz |
-| New starting-position development evaluation | 20/20 task and contact-depth passes; seed 20261007 |
-| Development evaluation maximum cube penetration | 1.492 mm |
-| Development evaluation worst jaw force peak | 889.5 N |
-| Validation rollout maximum cube penetration | 0.644 mm |
-| Validation rollout peak normal forces | Fixed jaw 777 N; moving jaw 740 N |
+The **world model** learns to answer: “Given this state and this action, what state comes next?” It is trained on recorded simulator transitions, including training-only branches that try alternative actions.
 
-The 20 development layouts use new starting positions inside the training
-augmentation range. They vary cube position only, and do not establish performance
-with different objects, friction, cameras or obstacles. The held-out recording
-has not yet been evaluated by the learned policy. Contact-depth checks do not
-establish realistic gripper forces; large force peaks remain a limitation.
-Earlier project results are not results of this rebuild.
+During control, BC proposes the movement. The world model predicts what might happen under three gripper choices: follow BC, open, or close. A task-specific scoring rule compares those predictions over half a second, and the robot executes the first selected command before observing again.
 
-## Run with the existing homework environment
+The transition predictions are learned. The candidate choices, scoring rule and activation conditions are hand-written design decisions. This controller currently assists the gripper; BC supplies the arm movement.
 
-The simulator currently depends on an independent HW3 checkout containing
-`hw3/sim_env.py` and `so101_gym/assets/so100_transfer_cube_obstacle_ee.xml`.
-This rebuild is not yet self-contained. The measured run used MuJoCo 3.14.0,
-PyTorch 2.14.1+cu130, NumPy 2.5.3 and OpenCV 5.0.0; training ran on CPU.
+## 3. The result — testing the robot
 
-Set these variables to your existing homework checkout and Python environment:
+To test whether looking ahead changes behavior, one experiment deliberately requests opening while the cube is being carried. This is a controlled error injection, rather than a naturally occurring failure in every rollout.
 
-```bash
-export ROBOT_LEARNING_HW3=/path/to/hw3_imitation_learning
-export ROBOT_PYTHON="$ROBOT_LEARNING_HW3/.venv/bin/python"
-```
+![Saved simulation replay: early opening with BC versus BC plus the world model](docs/assets/gripper-comparison.gif)
 
-Place `IMG_5539.mp4` through `IMG_5543.mp4` in `data/raw/`, then run from
-this project's root directory:
+*Left: BC receives the opening request and drops the cube. Right: the model-assisted controller rejects the request and completes the transfer. The animation replays saved simulator states from one paired example.*
 
-```bash
-"$ROBOT_PYTHON" scripts/prepare_recordings.py
-"$ROBOT_PYTHON" scripts/generate_dataset.py
-"$ROBOT_PYTHON" scripts/train_policy.py --epochs 300
-"$ROBOT_PYTHON" scripts/evaluate_policy.py --video
-```
+![Success counts for ordinary execution and the artificial early-opening experiment](docs/assets/control-results.png)
 
-Preparation uses the manually supplied times in `prepare_recordings.py`; it does
-not detect movement boundaries automatically. It skips already prepared transport
-curves. Generation resumes missing episodes, but refuses to replace an existing
-dataset report. Training and evaluation refuse to overwrite their output folders.
+| Phone-project experiment | BC | BC + world model |
+|---|---:|---:|
+| Ordinary execution | 20/20 | 20/20 |
+| One artificial early-opening request | 9/20 | 20/20 |
 
-To repeat evaluation with an existing checkpoint, choose a new output folder:
+These are **80 controller runs across 20 saved development layouts and two conditions**. The revised selector was checked on previously inspected layouts. It made no changes during ordinary execution and rejected one injected request in each protected stress trial. The counts were reproduced with the saved checkpoints.
 
-```bash
-"$ROBOT_PYTHON" scripts/evaluate_policy.py --video --out results/my-validation-run
-```
+This establishes a useful result for one specific disturbance. It does not establish general robustness: the same cube and scene were used, a simple rule could also address this opening error, and simulated grip forces remain unrealistically high. The ordinary experiment shows no success-rate improvement from adding the world model.
 
-To repeat training, select a new checkpoint folder with `--out`, and pass its
-`policy.pt` to evaluation with `--checkpoint`.
+[Control method and limitations](docs/world_model_control.md) · [Reproduction evidence](docs/reproduction.md)
 
-Run the saved-seed development evaluation in a new output folder:
+## What worked, and what still needs work
+
+- **Personal footage contributes to control.** Its transport paths become part of the demonstrations used to train the robot policy.
+- **Alternative-action examples help the world model.** In selected validation probes, its half-second cube prediction error after a changed gripper request fell from 10.32 mm to 1.15 mm. This is prediction error, not a task-success score.
+- **Grasp and release need robot-specific information.** The phone dataset currently relies on scripted examples for these phases, which motivates incorporating human teleoperation.
+- **Physics and generalization remain limitations.** Large contact-force peaks, approximate camera calibration, a small real dataset and a narrow task prevent broader claims.
+
+[Prediction experiments](docs/world_model_v2_results.md) · [Gripper investigation](docs/gripper_experiments.md)
+
+## 4. The next step — bring in human robot demonstrations
+
+Alongside this project, I collected keyboard teleoperation demonstrations in the simulator and trained a BC policy with **DAgger**, where human takeovers provide corrective examples. That separate lab achieved **97/100 successes in its original distribution and 82/100 with shifted obstacles**. It provides a working robot-demonstration baseline; no further DAgger collection is currently planned.
+
+Those results come from a different task setup and cannot be compared directly with the phone project's 20-layout scores. The compatibility check found different bin positions, gripper execution and movement-label definitions. The datasets have not been combined.
+
+**The next question is: can phone-recorded movement reduce the amount of robot teleoperation needed to learn the task?**
+
+| Stage | Status |
+|---|---|
+| Collect phone recordings and extract motion | Complete |
+| Generate demonstrations and train BC | Complete |
+| Learn a state world model and test gripper decisions | Complete for the reported experiment |
+| Check compatibility with human teleoperation | Initial comparison complete |
+| Adapt phone demonstrations to the lab's task and action conventions | Next |
+| Compare teleoperation-only, phone-only and combined training | Planned |
+| Build visual action data and fine-tune a VLA | Optional later experiment |
+
+The combined-data comparison will keep the existing source splits and baselines. Its outcomes will be reported whether or not adding phone data helps.
+
+[Data compatibility findings](docs/data-compatibility.md) · [Separate BC lab](https://github.com/yiannisls/so101-behavioral-cloning)
+
+## Run the project
+
+Start with the [guided walkthrough](docs/walkthrough.md). It covers installation, the separately obtained HW3 simulator, artifact verification, evaluation and training in that order. The saved-model archive is prepared locally; its public GitHub Release upload is pending. [Artifact publication instructions](docs/publishing.md)
+
+Once the environment, simulator and saved artifacts are available, run from the repository root:
 
 ```bash
-"$ROBOT_PYTHON" scripts/evaluate_layouts.py --layouts 20 --seed 20261007 --video --out results/my-layout-evaluation
+python scripts/evaluate_model_control.py --mode bc --video --out work/first-bc
+python scripts/evaluate_model_control.py --mode wm --stress-open --video --out work/first-wm-opening
 ```
 
-If interrupted, repeat that command with `--resume`. Completed cases are reused
-only when their positions, checkpoint and evaluation code match. The positions
-are saved in `layouts.json` before execution; results are in `summary.json`.
+Each new output folder contains measurements and a rollout video. Choose new folder names when repeating an experiment; existing runs are protected from overwriting.
 
-## Follow the code
-
-- `prepare_recordings.py`: run marker tracking, time selection, pose estimation
-  and transport conversion for all five videos.
-- `generate_demo.py`: execute one adapted path and save robot states/actions.
-- `generate_dataset.py`: generate base episodes and 20 starting-position
-  variations for each of the three training sources.
-- `policy.py`: define the 28 measured-state features and the neural network.
-- `train_policy.py`: learn eight future target offsets and gripper decisions;
-  select a checkpoint using validation imitation loss.
-- `evaluate_policy.py`: execute four learned targets, measure again, and repeat.
-  The controller limits each target movement to 12 mm and gripper closing to
-  2 rad/s. It records the rollout, video and physics contact diagnostics.
-
-- `evaluate_layouts.py`: run the fixed checkpoint on reproducible starting
-  positions and collect task, contact-depth and force measurements.
-
-Source families stay separate: IMG_5539/5540/5541 are training, IMG_5542 is
-validation, and IMG_5543 is test. Normalization uses training data only. The policy
-does not receive trajectory time, phase labels or future measurements as inputs.
-
-Design assumptions and historical context are recorded in `docs/design_notes.md`.
-Dataset provenance is in `results/dataset_v1.json`; checkpoint provenance is in
-`checkpoints/bc_v1/training_summary.json`. The learned validation output is in
-`results/bc_v1_validation/`. Code was developed with AI assistance in a guided
-rebuild; it should not be presented as entirely unaided work.
-
-The development evaluation is saved in `results/bc_v1_layouts/`. See
-`docs/baseline_results.md` for its scope and the gripper-force diagnosis.
-
-## Gripper experiments
-
-Closing at 1.0 rad/s retained 20/20 successes on the same development layouts
-and reduced the worst force peak from 889.5 N to 499.3 N (43.9%). Closing at
-0.5 rad/s achieved 17/20; lowering the actuator torque also caused failures
-with this checkpoint. Full results, including failed trials, are documented in
-[gripper_experiments.md](docs/gripper_experiments.md).
-
-Use `--gripper-close-rate 1.0` with either evaluation script to reproduce the
-selected candidate. Defaults and the existing dataset remain at 2.0 rad/s for
-baseline reproduction. Dataset v2 now uses the selected rate, and the first world model
-has been trained and evaluated on that execution profile. High sustained grip forces remain a limitation.
-
-## World model
-
-Dataset v2 contains 65 new demonstrations at 1.0 rad/s, with the same source
-split. An 8,540-parameter network learns physical state changes from current
-state and action. Its checkpoint was selected at epoch 108 using validation.
-On the test source, cube coordinate MAE is 0.160 mm at 0.1 seconds, 0.908 mm
-at 0.5 seconds and 2.456 mm at 1 second. The unchanged-state baseline gives
-0.806, 4.125 and 8.449 mm respectively. These preserve the first model's prediction results; the separate gripper-control
-experiment is documented in [world_model_control.md](docs/world_model_control.md).
-
-```bash
-"$ROBOT_PYTHON" scripts/generate_dataset.py --version v2 --gripper-close-rate 1.0
-"$ROBOT_PYTHON" scripts/train_world_model.py --epochs 150
-"$ROBOT_PYTHON" scripts/evaluate_world_model.py --split validation
-"$ROBOT_PYTHON" scripts/evaluate_world_model.py --split test
-```
-
-Use new output folders when repeating training or evaluation. Full methods,
-plots and limitations are in [world_model_results.md](docs/world_model_results.md).
-Alternative-action validation is now complete: the first model struggles with
-small movement changes and unexpected gripper requests. At six selected validation
-moments, 0.5-second cube MAE is 1.441 mm for recorded commands and 10.323 mm
-when the first gripper request is flipped. Its predicted effect of changing an
-action is worse than ignoring that change at this horizon. See
-[world_model_action_probes.md](docs/world_model_action_probes.md) for the experiment
-and its limitations. This motivated the second-model experiment below.
-
-```bash
-"$ROBOT_PYTHON" scripts/probe_world_model.py
-```
-
-## World model after action variations
-
-A second checkpoint uses 18,900 additional simulator transitions from the three
-training source families. In the same validation action probes, 0.5-second cube
-MAE for a gripper change fell from 10.323 mm to 1.147 mm. Ordinary recorded-motion
-MAE increased from 0.856 mm to 1.153 mm at this horizon. Predicting small position
-changes still needs work. Gripper-control results are now documented separately
-in [world_model_control.md](docs/world_model_control.md).
-
-See [world_model_v2_results.md](docs/world_model_v2_results.md) for reproduction,
-comparison plots and limitations. The subsequent control experiment is described
-in [world_model_control.md](docs/world_model_control.md). The first model,
-its results and both original demonstration datasets are preserved. The second
-model has not been evaluated on the test source.
-
-## Additional recordings and two-marker tracking
-
-Ten additional phone recordings are imported under `data/raw/new_batch_20261007/`.
-Four passed the sampled-marker review; six are retained for further review. The
-four accepted clips now have separate object and table tracks in all 311 sampled
-frames, despite both markers decoding as ID 0. Initial table positions were
-manually identified, and tracking rejects ambiguous assignments.
-
-See [two_marker_tracking.md](docs/two_marker_tracking.md) for the command, results
-and limitations, and [new_recordings_review.md](docs/new_recordings_review.md)
-for the import decisions. These clips remain unassigned to splits and have not
-entered training. Relative pixel tracks need further processing before they can
-provide simulated robot demonstrations.
-
-## Gripper teleoperation recorder
-
-A keyboard recorder now saves 10 Hz robot states/actions and 500 Hz jaw contact
-loads, motor torque and object motion. With the homework environment active:
-
-```bash
-python scripts/record_gripper.py --out data/teleoperation/grasp-001 --zarr --video
-```
-
-The window starts paused; click it and press Space. Escape saves and exits.
-Controls, file formats and replay instructions are in
-[gripper_recording.md](docs/gripper_recording.md). New recordings keep an unassigned
-split and are not automatically added to training. The recorder was checked using
-scripted training-demonstration actions and an exact replay; manual grasps still
-need to be collected. Large simulated force peaks remain a limitation.
+For the implementation, follow the [project map](docs/project-map.md). Detailed assumptions, source-family boundaries and historical experiments remain in the [design notes](docs/design_notes.md) and linked experiment reports. Simulator provenance and redistribution details are recorded in [THIRD_PARTY.md](THIRD_PARTY.md).
