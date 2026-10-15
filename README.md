@@ -133,6 +133,7 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
 | Inspect one synchronized multicube visual demonstration | Original placement failed; scripted placement correction passed the 2 mm check on one training layout; not yet added to training |
 | Generate and review balanced colour-conditioned demonstrations | Original layout: 12/18; smaller workspace: 18/18 scripted completions; zero training inclusions |
+| Inspect existing human multicube demonstrations | 42 teleoperation episodes + 7 DAgger segments verified; one training episode converted to 339 reconstructed images and 338 actions; not yet adopted |
 | Convert the verified dataset and fine-tune a pretrained VLA | Corpus training planned; real 13-state/4-action batch and episode-end padding checks pass |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
@@ -141,9 +142,11 @@ The [first visual recording](docs/visual-episode.md) exposed a placement contact
 
 The existing BC/world-model checkpoints and results remain the completed baseline. The current world model is not yet integrated with a VLA.
 
-### Earlier work: teleoperation integration, deferred
+### Human teleoperation and earlier integration
 
 A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning) achieved 97/100 original and 82/100 shifted-obstacle successes. Those are a different task setup and are not results of this phone-data controller. An integration pilot combined one human approach with phone-derived transport and scripted release; it completed a transfer but failed the contact-depth check. This integration is deferred and has not entered policy training.
+
+The lab also contains **42 multicube teleoperation episodes and seven DAgger correction segments**. A [single-episode converter](docs/human-visual-episode.md) now reconstructs synchronized images from the saved robot/object poses and preserves the original action labels. Its nine-value measured robot input differs from the earlier phone interface. This is data preparation; no human episode has entered VLA training, and no VLA task score is available.
 
 [Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
 

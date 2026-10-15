@@ -1,0 +1,116 @@
+{
+  "purpose": "One complete human training episode converted for visual inspection, not adopted for training.",
+  "dataset_inventory": {
+    "teleop": {
+      "episodes_or_segments": 42,
+      "observations": 10442,
+      "available_transitions": 10400,
+      "target_counts": {
+        "red": 11,
+        "green": 15,
+        "blue": 16
+      }
+    },
+    "dagger": {
+      "episodes_or_segments": 7,
+      "observations": 1208,
+      "available_transitions": 1201,
+      "target_counts": {
+        "red": 2,
+        "green": 3,
+        "blue": 2
+      }
+    }
+  },
+  "conversion": {
+    "schema": "human_visual_v1",
+    "source": {
+      "store": "datasets/raw/multi_cube/teleop/2026-10-12_16-25-04/so100_multicube_teleop.zarr",
+      "local_episode": 0,
+      "global_episode": 0,
+      "raw_rows": [
+        0,
+        339
+      ],
+      "processed_rows": [
+        0,
+        338
+      ],
+      "control_hz": 10.0,
+      "array_sha256": {
+        "state_joints": "53fc8be6d7d056ee66dd7868080dd5df63f922f25ffe933ccdadcd74eb07c46d",
+        "state_ee": "fa7a1967d734a6b94552c6f6b502c5e1cc591b9866afb52d5bbeed1e86923c2f",
+        "state_gripper": "5141fcf852fc768b1c6635fa85ed91ed1115d31979ab10639441e968b7fdb51b",
+        "action_gripper": "82fa6be0fdadb043952b4160b12801f81f4dd671bdecfb5c3755b85189d65093",
+        "state_goal": "bd6a3ad53ffac6a01df56445b73068015befac7b4b9633bb52f015e34031d4de",
+        "goal_pos": "abc739880c47b9d2878b8db0f416e35d425c7843ddbb6e31b811ce3d6ec6b630",
+        "pos_cube_red": "03047f9465f4b1dc3f87a3e5d619186e650b4cfc41c5426fe96ec27f106b6bf0",
+        "pos_cube_green": "681f70d170ff0d2db24de74b888d45c0fa32679d58baccff66b3386c9613636f",
+        "pos_cube_blue": "2fd85173f483606e066663bbd003e4711186578dbfebd3658f69b2877751d625"
+      }
+    },
+    "split": "train",
+    "instruction": "Put the red cube in the bin.",
+    "source_kind": "human_teleoperation",
+    "accepted_for_training": false,
+    "observations": 339,
+    "actions": 338,
+    "image_shape": [
+      339,
+      240,
+      320,
+      3
+    ],
+    "camera": "angle",
+    "robot_state_fields": [
+      "6 measured joint angles, including jaw",
+      "3 measured hand coordinates"
+    ],
+    "action_fields": [
+      "3 next-minus-current measured hand coordinates",
+      "1 recorded native gripper command"
+    ],
+    "alignment": "image/state[t], action[t], image/state[t+1]",
+    "time_source": "Nominal row index / control_hz; no original timestamps",
+    "images_reconstructed": true,
+    "physics_rollout_performed": false,
+    "contact_quality_evaluated": false,
+    "max_reconstructed_hand_error_m": 5.7217582150772254e-05,
+    "actions_match_processed_lab_labels": true,
+    "validation_episode_ids_zero_based": [
+      36,
+      9,
+      32
+    ],
+    "normalization_fitted": false,
+    "mujoco_version": "3.14.0",
+    "scene_sha256": "35fd3c834daf82c8d3e93aa19741f69c4143f2b8a7ad48af5a36cea32636ef7d",
+    "simulator_sha256": "661c861a23b9c23595916cf4ebe31afed1a696507a28a189e9a12968edd89174",
+    "converter_sha256": "86b77096c29b9034b4150feada6ed514df928352a1f0b087eb2883ce56031706",
+    "episode_sha256": "c7302a0b3f528af14caf46e4cba517a377a197983c61f11898e5c7f6125435f6",
+    "limitation": "Original commands and velocities are absent; this conversion is not a dynamic replay or policy score."
+  },
+  "verification": {
+    "images": 339,
+    "states": 339,
+    "actions": 338,
+    "state_dimensions": 9,
+    "action_dimensions": 4,
+    "video_frames": 339,
+    "video_fps": 10.0,
+    "terminal_observation_retained": true,
+    "max_measured_move_m": 0.009641936980187893,
+    "raw_arrays_and_episode_boundaries_unchanged_across_human_recordings": 49,
+    "invalid_episode_ids_rejected": [
+      -1,
+      42
+    ],
+    "validation_ids_preserved": [
+      36,
+      9,
+      32
+    ],
+    "normalization_fitted": false,
+    "models_trained": false
+  }
+}
