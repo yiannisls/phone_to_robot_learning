@@ -1,5 +1,6 @@
 """Run a frozen, paired BC/world-model experiment on saved fresh positions."""
 import argparse
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 from pathlib import Path
@@ -23,9 +24,10 @@ def main():
     parser.add_argument('--layouts', type=int, default=20)
     parser.add_argument('--seed', type=int, default=20261009)
     parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--workers', type=int, default=1, help='Independent simulation processes')
     args = parser.parse_args()
-    if args.layouts < 1 or args.seed < 0:
-        parser.error('Use a positive layout count and nonnegative seed')
+    if args.layouts < 1 or args.seed < 0 or args.workers < 1:
+        parser.error('Use positive layout/worker counts and a nonnegative seed')
     args.out.mkdir(parents=True, exist_ok=args.resume)
     rng = np.random.default_rng(args.seed)
     cases = [{'name': f'layout_{i:02d}',
@@ -49,42 +51,50 @@ def main():
             raise SystemExit('Saved protocol differs; use a new output folder')
     else:
         manifest_path.write_text(json.dumps(manifest, indent=2))
+    jobs = [(condition, case, controller)
+            for condition in manifest['conditions']
+            for case in cases for controller in manifest['controllers']]
+
+    def run_case(job):
+        condition, case, controller = job
+        folder = args.out/f'{condition}_{controller}'/case['name']
+        command = [sys.executable,str(Path(__file__).with_name('evaluate_model_control.py')),
+                   '--mode',controller,'--out',str(folder.resolve()), '--label',case['name'],
+                   '--offset-xy',*[np.format_float_positional(v, unique=True, trim='-') for v in case['offset_xy_m']]]
+        if condition == 'opening_pulse':
+            command.append('--stress-open')
+        if not (args.resume and (folder/'result.json').exists()):
+            result = subprocess.run(command, capture_output=True, text=True)
+            if result.returncode:
+                (args.out/f'failed_process_{condition}_{controller}_{case["name"]}.json').write_text(json.dumps({
+                    'condition': condition, 'controller': controller, 'case': case,
+                    'stdout': result.stdout, 'stderr': result.stderr}, indent=2))
+                raise SystemExit(result.stdout+result.stderr)
+        result = json.loads((folder/'result.json').read_text())
+        assert result['checkpoint_sha256'] == manifest['policy_sha256']
+        assert result['offset_xy_m'] == case['offset_xy_m']
+        assert result['controller'] == controller
+        assert result['stress_open'] == (condition == 'opening_pulse')
+        assert not result['test_used']
+        if controller == 'wm':
+            assert result['world_model_sha256'] == manifest['world_model_sha256']
+            assert result['planner_settings'] == manifest['settings']
+        for name,value in result['code_sha256'].items():
+            assert value == manifest['code_sha256'][name]
+        assert (folder/'rollout.npz').exists() and (folder/'physics.npz').exists()
+        result['condition'] = condition
+        result['folder'] = str(folder.relative_to(args.out))
+        return result
+
     completed = []
-    for condition in manifest['conditions']:
-        for case in cases:
-            for controller in manifest['controllers']:
-                folder = args.out/f'{condition}_{controller}'/case['name']
-                command = [sys.executable,str(Path(__file__).with_name('evaluate_model_control.py')),
-                           '--mode',controller,'--out',str(folder.resolve()), '--label',case['name'],
-                           '--offset-xy',*[str(v) for v in case['offset_xy_m']]]
-                if condition == 'opening_pulse':
-                    command.append('--stress-open')
-                if not (args.resume and (folder/'result.json').exists()):
-                    result = subprocess.run(command, capture_output=True, text=True)
-                    if result.returncode:
-                        (args.out/'failed_process.json').write_text(json.dumps({
-                            'condition': condition, 'controller': controller, 'case': case,
-                            'stdout': result.stdout, 'stderr': result.stderr}, indent=2))
-                        raise SystemExit(result.stdout+result.stderr)
-                result = json.loads((folder/'result.json').read_text())
-                assert result['checkpoint_sha256'] == manifest['policy_sha256']
-                assert result['offset_xy_m'] == case['offset_xy_m']
-                assert result['controller'] == controller
-                assert result['stress_open'] == (condition == 'opening_pulse')
-                assert not result['test_used']
-                if controller == 'wm':
-                    assert result['world_model_sha256'] == manifest['world_model_sha256']
-                    assert result['planner_settings'] == manifest['settings']
-                for name,value in result['code_sha256'].items():
-                    assert value == manifest['code_sha256'][name]
-                assert (folder/'rollout.npz').exists() and (folder/'physics.npz').exists()
-                result['condition'] = condition
-                result['folder'] = str(folder.relative_to(args.out))
-                completed.append(result)
-                (args.out/'completed.json').write_text(json.dumps(completed, indent=2))
-                print(f"{condition} {controller} {case['name']}: task={result['task_success']}, "
-                      f"depth={result['quality_pass']}, grip_overrides={result['gripper_overrides']}, "
-                      f"pulse={result['injected_step']}", flush=True)
+    # Only this thread writes aggregate files; each worker has a separate output folder.
+    with ThreadPoolExecutor(max_workers=args.workers) as pool:
+        for result in pool.map(run_case, jobs):
+            completed.append(result)
+            (args.out/'completed.json').write_text(json.dumps(completed, indent=2))
+            print(f"{result['condition']} {result['controller']} {result['label']}: "
+                  f"task={result['task_success']}, depth={result['quality_pass']}, "
+                  f"grip_overrides={result['gripper_overrides']}", flush=True)
     grouped = {}
     for condition in manifest['conditions']:
         grouped[condition] = {}
