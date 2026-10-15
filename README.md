@@ -129,13 +129,13 @@ Use held-out layouts with balanced red, green and blue targets. Test the same la
 | Stage | Status |
 |---|---|
 | Phone-derived BC + world model, 100-position evaluation | Complete: 99/100 ordinary transfers for both |
-| Inspect one synchronized multicube visual demonstration | Recorded and inspected; timing passed, placement contact check failed; excluded from training |
+| Inspect one synchronized multicube visual demonstration | Original placement failed; scripted placement correction passed the 2 mm check on one training layout; not yet added to training |
 | Generate and review balanced colour-conditioned demonstrations | Planned |
 | Convert the verified dataset and fine-tune a pretrained VLA | Planned; SmolVLA LoRA passes a synthetic memory test on the local RTX 4060 |
 | Evaluate language selection and manipulation on held-out layouts | Planned |
 | Resolve contact-physics limitations | Open |
 
-The [first visual recording](docs/visual-episode.md) contains synchronized images, states, actions and an instruction. The green cube reaches the bin, but placement penetration exceeds the quality limit. It is a candidate for diagnosis, not training data or a VLA result.
+The [first visual recording](docs/visual-episode.md) exposed a placement contact problem. A [scripted correction](docs/visual-placement.md) reduced maximum target penetration from 3.69 mm to 0.97 mm on that same training layout. It preserves a phone-transport prefix, then uses simulator feedback for placement. The candidate is not yet added to training, and this is not a VLA performance result.
 
 The existing BC/world-model checkpoints and results remain the completed baseline. The current world model is not yet integrated with a VLA.
 

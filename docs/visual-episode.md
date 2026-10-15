@@ -58,3 +58,7 @@ MUJOCO_GL=egl .venv-vla/bin/python scripts/record_visual_episode.py \
 Choose a new output folder. Expected output is `episode.npz`, `episode.avi`, `summary.json`, and first/last frame images. The measured run reports 149 actions, 150 observations, `task_success: true`, `quality_pass: false`, and `accepted_for_training: false`. Physics and rendering can vary by version/platform, so inspect your own measurements.
 
 The recorder refuses unsuccessful or held-out source demonstrations, verifies the raw-video and transport-path checksums, and protects existing output directories. `--color` changes which coloured cube is placed at the demonstration target location. That option alone does not provide layout diversity or balanced language grounding; those require a separate reviewed collection protocol.
+
+## Placement follow-up
+
+[The subsequent placement investigation](visual-placement.md) inspected every physics step and identified `bin_wall2` as the original largest contact, before the observed floor overlap. A separately labelled scripted teacher with an earlier handoff passed the unchanged depth check on this same training case. The original failed recording and measurements above are preserved.

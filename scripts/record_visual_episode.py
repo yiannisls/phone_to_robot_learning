@@ -81,12 +81,93 @@ def create_environment(homework, source, color):
     return env
 
 
+
+def place_with_feedback(env, execute):
+    """Use simulator measurements to place a demonstration cube gently."""
+    cube_geometry = env.model.geom(f"{env.goal_cube}_box").id
+    floor_geometry = env.model.geom("bin_floor").id
+    goal = env.get_goal_pos()
+    closed = float(env.data.ctrl[env.act_ids[-1]])
+
+    def bottom_height():
+        rotation = env.data.geom_xmat[cube_geometry].reshape(3, 3)
+        half_height = np.abs(rotation[2]) @ env.model.geom_size[cube_geometry]
+        return float(env.data.geom_xpos[cube_geometry, 2] - half_height)
+
+    floor_top = (
+        env.data.geom_xpos[floor_geometry, 2]
+        + env.model.geom_size[floor_geometry, 2]
+    )
+
+    # Clear the rim while correcting the horizontal position.
+    rim_top = max(
+        env.data.geom_xpos[env.model.geom(name).id, 2] + env.model.geom(name).size[2]
+        for name in ("bin_wall", "bin_wall2", "bin_wall3", "bin_wall4")
+    )
+    lift_distance = max(0.0, rim_top + 0.015 - bottom_height())
+    start = env.data.mocap_pos[env.mocap_id].copy()
+    for fraction in np.linspace(0, 1, 21)[1:]:
+        target = start + [0, 0, lift_distance * fraction]
+        error = goal[:2] - env.get_cube_state()[:2]
+        target[:2] = (
+            env.data.mocap_pos[env.mocap_id, :2]
+            + np.clip(error, -0.002, 0.002)
+        )
+        execute(target, closed, "placement_lift")
+
+    for _ in range(60):
+        error = goal[:2] - env.get_cube_state()[:2]
+        if np.max(np.abs(error)) < 0.002:
+            break
+        target = env.data.mocap_pos[env.mocap_id].copy()
+        target[:2] += np.clip(error, -0.002, 0.002)
+        execute(target, closed, "placement_center")
+    else:
+        return False
+
+    # Stop a few millimetres above the floor.
+    # If the cube stops descending, stop the routine instead of pushing on.
+    lowest_bottom = bottom_height()
+    stalled_steps = 0
+    for _ in range(120):
+        clearance = bottom_height() - floor_top
+        if clearance <= 0.003:
+            break
+        target = env.data.mocap_pos[env.mocap_id].copy()
+        target[2] -= min(0.001, clearance - 0.003)
+        error = goal[:2] - env.get_cube_state()[:2]
+        target[:2] += np.clip(error, -0.001, 0.001)
+        execute(target, closed, "placement_lower")
+        current_bottom = bottom_height()
+        if current_bottom < lowest_bottom - 0.0002:
+            lowest_bottom = current_bottom
+            stalled_steps = 0
+        else:
+            stalled_steps += 1
+        if stalled_steps >= 15:
+            return False
+    else:
+        return False
+
+    # Release gradually while holding the hand target still.
+    target = env.data.mocap_pos[env.mocap_id].copy()
+    for opening in np.linspace(closed, 1.0, 13)[1:]:
+        execute(target, float(opening), "placement_release")
+
+    for fraction in np.linspace(0, 1, 21)[1:]:
+        execute(target + [0, 0, 0.14 * fraction], 1.0, "retreat")
+    for _ in range(15):
+        execute(target + [0, 0, 0.14], 1.0, "settle")
+    return True
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     training_sources = [name for name, split in SOURCE_SPLITS.items() if split == "train"]
     parser.add_argument("--source", choices=training_sources, default="IMG_5539")
     parser.add_argument("--color", choices=COLORS, default="green")
     parser.add_argument("--camera", default="angle")
+    parser.add_argument("--placement", choices=("replay", "feedback"), default="replay")
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()
 
@@ -131,13 +212,15 @@ def main():
         peak_height = float(env.get_cube_state()[2])
         max_penetration = 0.0
         actions = []
+        phases = []
+        worst_contact = None
         close_rate = float(source["gripper_close_rate_rad_s"])
 
-        for index, action in enumerate(source["actions"]):
-            target = source["state_mocap_target"][index + 1].astype(np.float64)
+        def execute(target, requested_gripper, phase):
+            nonlocal peak_height, max_penetration, worst_contact
             previous = env.data.mocap_pos[env.mocap_id].copy()
-            requested_gripper = float(action[3])
             actions.append(np.r_[target - previous, requested_gripper])
+            phases.append(phase)
             env.set_mocap_pos(target)
 
             for _ in range(env.substeps):
@@ -150,12 +233,59 @@ def main():
                 mujoco.mj_step(env.model, env.data)
                 peak_height = max(peak_height, float(env.get_cube_state()[2]))
                 for contact in env.data.contact:
-                    if target_geometry in (contact.geom1, contact.geom2):
-                        max_penetration = max(max_penetration, -float(contact.dist))
+                    if target_geometry not in (contact.geom1, contact.geom2):
+                        continue
+                    depth = max(0.0, -float(contact.dist))
+                    if depth > max_penetration:
+                        max_penetration = depth
+                        other = contact.geom2 if contact.geom1 == target_geometry else contact.geom1
+                        name = mujoco.mj_id2name(env.model, mujoco.mjtObj.mjOBJ_GEOM, other)
+                        body = int(env.model.geom_bodyid[other])
+                        worst_contact = {
+                            "other_geometry": name,
+                            "other_body": mujoco.mj_id2name(env.model, mujoco.mjtObj.mjOBJ_BODY, body),
+                            "phase": phase,
+                            "time_s": float(env.data.time),
+                            "action_index": len(actions) - 1,
+                            "depth_m": depth,
+                        }
 
             observation = capture(env, args.camera)
             observations.append(observation)
             writer.write(cv2.cvtColor(observation["images"], cv2.COLOR_RGB2BGR))
+
+        preserved_steps = 0
+        placement_completed = None
+        placement_handoff = None
+        rim_top = max(
+            env.data.geom_xpos[env.model.geom(name).id, 2] + env.model.geom(name).size[2]
+            for name in ("bin_wall", "bin_wall2", "bin_wall3", "bin_wall4")
+        )
+        for index, action in enumerate(source["actions"]):
+            phase = str(source["phase"][index])
+            rotation = env.data.geom_xmat[target_geometry].reshape(3, 3)
+            bottom = (
+                env.data.geom_xpos[target_geometry, 2]
+                - np.abs(rotation[2]) @ env.model.geom_size[target_geometry]
+            )
+            near_bin = np.max(np.abs(
+                env.get_cube_state()[:2] - env.get_goal_pos()[:2]
+            )) < 0.05
+            clear_approach = (
+                phase == "recorded_transport"
+                and near_bin
+                and bottom > rim_top + 0.005
+            )
+            original_placement = phase in ("gentle_place", "release")
+            if args.placement == "feedback" and (clear_approach or original_placement):
+                placement_handoff = "clear_bin_approach" if clear_approach else "source_placement_phase"
+                placement_completed = place_with_feedback(env, execute)
+                break
+            target = source["state_mocap_target"][index + 1].astype(np.float64)
+            execute(target, float(action[3]), phase)
+            preserved_steps += 1
+        if args.placement == "feedback" and placement_completed is None:
+            raise ValueError("The source has no placement phase to replace.")
 
         arrays = {
             key: np.stack([observation[key] for observation in observations])
@@ -165,7 +295,8 @@ def main():
         assert len(arrays["images"]) == len(actions) + 1
         assert np.allclose(np.diff(arrays["time_s"]), env.dt_ctrl)
         assert np.allclose(np.diff(arrays["mocap_target"], axis=0), actions[:, :3])
-        assert np.allclose(actions, source["actions"], atol=1e-6)
+        assert np.allclose(actions[:preserved_steps], source["actions"][:preserved_steps], atol=1e-6)
+        assert np.array_equal(phases[:preserved_steps], source["phase"][:preserved_steps])
         for key, values in arrays.items():
             if not np.isfinite(values).all():
                 raise RuntimeError(f"Non-finite values in {key}.")
@@ -179,7 +310,8 @@ def main():
             cubes[:, distractors, :3] - initial_cubes[distractors], axis=-1
         ).max())
         task_success = bool(
-            peak_height > 0.06
+            (args.placement == "replay" or placement_completed)
+            and peak_height > 0.06
             and np.max(np.abs(final_cube[:2] - goal[:2])) < 0.04
             and 0.015 < final_cube[2] < 0.05
             and np.linalg.norm(env.get_ee_pos() - final_cube) > 0.07
@@ -191,7 +323,7 @@ def main():
             args.out / "episode.npz",
             **arrays,
             actions=actions,
-            phase=source["phase"],
+            phase=np.asarray(phases),
             instruction=np.array(instruction),
             source_video=np.array(args.source),
             split=np.array("train"),
@@ -207,6 +339,16 @@ def main():
             "phone_contribution": "Transport trajectory; other motion phases are scripted.",
             "layout": "Fixed target and bin; two distractors placed aside; no shuffling.",
             "camera": args.camera,
+            "placement_mode": args.placement,
+            "placement_completed": placement_completed,
+            "preserved_source_actions": preserved_steps,
+            "source_prefix_unchanged": True,
+            "placement_handoff": placement_handoff,
+            "recorded_transport_actions_preserved": int(np.sum(source["phase"][:preserved_steps] == "recorded_transport")),
+            "recorded_transport_actions_total": int(np.sum(source["phase"] == "recorded_transport")),
+            "recorded_transport_tail_replaced": bool(np.any(source["phase"][preserved_steps:] == "recorded_transport")),
+            "placement_teacher": "Simulator cube pose and geometry feedback" if args.placement == "feedback" else "Original saved commands",
+            "worst_target_contact": worst_contact,
             "image_shape": list(arrays["images"].shape),
             "robot_state_fields": [
                 "6 joint angles in radians",
