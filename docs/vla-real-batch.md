@@ -74,3 +74,5 @@ Omit `--episode` and `--step` to retain the original synthetic test. Recorded lo
 ## Next
 
 Camera framing and the first balanced collection pilot are now implemented. The [pilot](visual-pilot.md) recorded 12/18 task completions and a consistent third-slot grasp failure; correct that setup before expanding the corpus, while preserving phone-family boundaries. Freeze the accepted corpus and training-only normalization before any task fine-tuning. Keep the single-cube BC/world-model baseline unchanged, and measure VLA success separately once a saved policy can run closed-loop in simulation.
+
+A separate [human teleoperation interface check](vla-human-batch.md) now passes with nine measured state values and four achieved-motion/gripper labels. Its source-aware reader retains the phone checks above; a rerun reproduced this page's original carry-batch report and normalization exactly. The historical measurements on this page remain unchanged.

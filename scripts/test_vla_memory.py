@@ -14,6 +14,7 @@ from lerobot.policies.smolvla.configuration_smolvla import SmolVLAConfig
 from lerobot.policies.smolvla.modeling_smolvla import SmolVLAPolicy
 
 from generate_demo import SOURCE_SPLITS
+from convert_human_episode import COLORS, VALIDATION_EPISODES
 
 POLICY = "lerobot/smolvla_base"
 POLICY_REVISION = "5e8d12a6e2975b0e5e5fce7c8caf47c371d257b6"
@@ -31,7 +32,7 @@ def memory_usage():
     }
 
 
-def read_episode(folder):
+def read_phone_episode(folder):
     """Read a candidate for an interface test, without adopting it for training."""
     summary = json.loads((folder / "summary.json").read_text())
     path = folder / "episode.npz"
@@ -75,6 +76,21 @@ def read_episode(folder):
     if episode["instruction"].item() != summary["instruction"]:
         raise ValueError("Episode and report instructions differ.")
 
+    normalization = episode_normalization(
+        episode, {"source_family": family}
+    )
+    metadata = {
+        "source_family": family,
+        "split": "train",
+        "visual_episode_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "candidate_added_to_training": False,
+        "task_performance_measured": False,
+    }
+    return episode, normalization, metadata
+
+
+def episode_normalization(episode, provenance):
+    """Temporary statistics from action-labelled training rows only."""
     stats = {}
     for key, values in [
         ("observation.state", episode["robot_state"][:-1]),
@@ -86,22 +102,142 @@ def read_episode(folder):
             "mean": values.mean(axis=0).tolist(),
             "std": np.maximum(values.std(axis=0), 1e-6).tolist(),
         }
-    normalization = {
+    return {
         "purpose": "Temporary one-episode interface test; refit on the training corpus.",
-        "source_family": family,
+        **provenance,
         "split": "train",
-        "transitions": count,
+        "transitions": len(episode["actions"]),
         "minimum_std": 1e-6,
         "stats": stats,
     }
+
+
+def read_human_episode(folder, summary):
+    """Check human data for an interface test, without certifying physics."""
+    path = folder / "episode.npz"
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    if digest != summary["episode_sha256"]:
+        raise ValueError("Human episode checksum does not match its report.")
+
+    source = summary["source"]
+    raw_names = {
+        "state_joints", "state_ee", "state_gripper", "action_gripper",
+        "state_goal", "goal_pos",
+        *[f"pos_cube_{color}" for color in COLORS],
+    }
+    if set(source["array_sha256"]) != raw_names:
+        raise ValueError("Unexpected human source-array manifest.")
+
+    with np.load(path, allow_pickle=False) as saved:
+        episode = {
+            key: saved[key].copy()
+            for key in [
+                "images", "robot_state", "actions", "time_s",
+                "instruction", "split", "source_kind", "source_episode",
+            ]
+        }
+        raw = {key: saved[key].copy() for key in raw_names}
+
+    identifier = episode["source_episode"].item()
+    if (
+        not isinstance(identifier, int)
+        or isinstance(identifier, bool)
+        or not 0 <= identifier < 42
+        or identifier in VALIDATION_EPISODES
+    ):
+        raise ValueError("Use an original human training episode.")
+    if source["global_episode"] != identifier:
+        raise ValueError("Human episode identity differs from its report.")
+    if (
+        episode["source_kind"].item() != "human_teleoperation"
+        or summary["source_kind"] != "human_teleoperation"
+        or episode["split"].item() != "train"
+        or summary["split"] != "train"
+    ):
+        raise ValueError("Expected consistently labelled human training data.")
+    if summary["validation_episode_ids_zero_based"] != list(VALIDATION_EPISODES):
+        raise ValueError("The human validation split has changed.")
+
+    count = len(episode["actions"])
+    if count == 0 or episode["actions"].shape != (count, 4):
+        raise ValueError("Expected nonempty four-value human actions.")
+    if episode["robot_state"].shape != (count + 1, 9):
+        raise ValueError("Expected nine measured state values per observation.")
+    images = episode["images"]
+    if (
+        images.ndim != 4 or images.shape[0] != count + 1
+        or images.shape[-1] != 3 or images.dtype != np.uint8
+        or list(images.shape) != summary["image_shape"]
+    ):
+        raise ValueError("Human images are misaligned or incorrectly described.")
+    hz = float(source["control_hz"])
+    if (
+        not np.isclose(hz, 10.0)
+        or episode["time_s"].shape != (count + 1,)
+        or not np.allclose(episode["time_s"], np.arange(count + 1) / hz)
+        or summary["actions"] != count
+        or summary["observations"] != count + 1
+    ):
+        raise ValueError("Human counts or nominal timing are inconsistent.")
+
+    for key, values in raw.items():
+        if hashlib.sha256(values.tobytes()).hexdigest() != source["array_sha256"][key]:
+            raise ValueError(f"Human source checksum mismatch: {key}.")
+    expected_state = np.column_stack([
+        raw["state_joints"], raw["state_ee"][:, :3],
+    ])
+    expected_actions = np.column_stack([
+        np.diff(raw["state_ee"][:, :3], axis=0),
+        raw["action_gripper"][:-1],
+    ])
+    if not np.array_equal(episode["robot_state"], expected_state):
+        raise ValueError("Robot inputs differ from the measured human state.")
+    if not np.array_equal(episode["actions"], expected_actions):
+        raise ValueError("Human actions differ from their recorded definition.")
+
+    goal = raw["state_goal"]
+    if (
+        goal.shape != (count + 1, 3)
+        or not np.isin(goal, [0, 1]).all()
+        or not np.all(goal.sum(axis=1) == 1)
+        or not np.all(goal == goal[0])
+    ):
+        raise ValueError("Expected one constant human colour label.")
+    instruction = f"Put the {COLORS[int(goal[0].argmax())]} cube in the bin."
+    if (
+        episode["instruction"].item() != instruction
+        or summary["instruction"] != instruction
+    ):
+        raise ValueError("Human instruction differs from its recorded colour.")
+
+    # A source label for the report, not an inferred manipulation phase.
+    episode["phase"] = np.full(count, "human_teleoperation")
+    provenance = {
+        "source_kind": "human_teleoperation",
+        "source_episode": identifier,
+    }
+    normalization = episode_normalization(episode, provenance)
     metadata = {
-        "source_family": family,
+        **provenance,
+        "source_store": source["store"],
         "split": "train",
-        "visual_episode_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "visual_episode_sha256": digest,
+        "images_reconstructed": summary["images_reconstructed"],
+        "contact_quality_evaluated": summary["contact_quality_evaluated"],
+        "action_semantics": "Measured hand displacement and recorded gripper command",
         "candidate_added_to_training": False,
         "task_performance_measured": False,
     }
     return episode, normalization, metadata
+
+
+def read_episode(folder):
+    summary = json.loads((folder / "summary.json").read_text())
+    if summary.get("schema") == "human_visual_v1":
+        return read_human_episode(folder, summary)
+    if "schema" in summary:
+        raise ValueError("Unsupported visual episode schema.")
+    return read_phone_episode(folder)
 
 
 def load_policy(cache, episode=None):
@@ -136,7 +272,7 @@ def load_policy(cache, episode=None):
     if episode is not None:
         height, width = episode["images"].shape[1:3]
         config.input_features["observation.state"] = PolicyFeature(
-            FeatureType.STATE, (13,)
+            FeatureType.STATE, (episode["robot_state"].shape[1],)
         )
         config.input_features[camera] = PolicyFeature(
             FeatureType.VISUAL, (3, height, width)

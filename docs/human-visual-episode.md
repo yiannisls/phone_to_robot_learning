@@ -72,7 +72,7 @@ The path passed to `--lab` is explicit configuration. No personal filesystem pat
 
 ## What remains before training
 
-First adapt the VLA loader explicitly to human provenance and the nine-value input, then check a model batch without treating it as a task-performance result. Before adopting the corpus, check whether a declared controller can reproduce useful movement from the achieved-position action labels under physics. Reconstructed images do not establish this: original mocap position/orientation targets and velocities are missing. Four-value actions also do not represent intentional wrist rotation; the recorded orientations remain available for a later interface decision.
+The [source-aware human interface check](vla-human-batch.md) now passes for a normal batch and the final-action boundary, using temporary training-only statistics and no saved changed weights. Before adopting the corpus, check whether a declared controller can reproduce useful movement from the achieved-position action labels under physics. Reconstructed images do not establish this: original mocap position/orientation targets and velocities are missing. Four-value actions also do not represent intentional wrist rotation; the recorded orientations remain available for a later interface decision.
 
 Timestamps are inferred from the nominal 10 Hz setting; original wall-clock timestamps were not stored. The original wide camera makes cubes small, so framing still needs review before corpus conversion. Contact forces, penetration and placement quality are not certified by this pose reconstruction. The existing phone contact-quality checks are not bypassed or assigned fabricated pass flags.
 
