@@ -1,0 +1,36 @@
+{
+  "source_recording": "IMG_5539",
+  "frame": 105,
+  "frame_time_seconds": 3.5,
+  "marker_size_m": 0.03,
+  "axis_length_m": 0.035,
+  "mean_corner_reprojection_error_pixels": 0.258542537689209,
+  "axes_projected_pixels": [
+    [
+      464.1199126432441,
+      859.7504838564083
+    ],
+    [
+      327.28174276496367,
+      845.1772815434807
+    ],
+    [
+      449.76042455458526,
+      991.4725954101515
+    ],
+    [
+      467.1863097754126,
+      811.1148830390788
+    ]
+  ],
+  "pose_method": "Same solvePnP settings as estimate_pose.py; provisional camera calibration",
+  "trajectory": "Saved marker-centre image coordinates; hand is visible but not tracked",
+  "transport": "Saved smoothed and retimed transport, not raw measured height",
+  "sha256": {
+    "data/raw/IMG_5539.mp4": "aa987246877d8bb7405cefbc74cf68e8001ca84ea6242f03145f44a17ed889c3",
+    "data/processed/IMG_5539_marker_corners.csv": "53911ec4a7d6d0d34b49775338f09a03d7b48911b780bec9e20b3e2e61367fce",
+    "data/processed/IMG_5539_movement_corners.csv": "d579276e93ee61ede3819d1ec14e9ccbfc271229a15f6cacea9a294f42f56bca",
+    "data/processed/IMG_5539_transport.csv": "9ea9490ee11d9ea25b84e6609b5168eddcb5fbbc4f93a6a9941e848ef0a07cf8",
+    "docs/phone-only-confirmation.json": "1374b4e3241a8a597ecbf84eced5fa053b543ce4a5e72b9baf5f4f9f24a57431"
+  }
+}

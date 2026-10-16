@@ -18,15 +18,19 @@ I recorded myself moving an object into a container, then used those movements t
 
 I filmed five short videos of myself picking up an object, carrying it and placing it in a container. I attached an **ArUco marker**—the black-and-white square—to give the tracking code a consistent reference on the object.
 
-The marker's four corners let me estimate both **where the object is and how it is oriented** relative to the camera. A transform, or **TF**, describes the marker's position and orientation relative to the camera, so movement can be described in coordinates rather than just pixels.
+The marker's four corners let me estimate both **where the object is and how it is oriented** relative to the camera. The coloured axes below show the marker's local coordinate frame. Its transform, or **TF**, describes its position and orientation relative to the camera, so movement can be described in coordinates rather than just pixels.
+
+![Estimated X, Y and Z axes attached to the ArUco marker in my recording](docs/assets/phone-marker-frame.png)
+
+*Axes estimated from the detected marker corners using the same camera settings as the preprocessing pipeline.*
 
 ### Turn the footage into a usable path
 
 I selected the part of each recording where I moved the object. The pipeline then tracked the marker, estimated its movement in 3D, smoothed small fluctuations and adapted the path to the robot's workspace and pace.
 
-![The adapted lift extracted from my first phone recording](docs/assets/phone-transport.png)
+![My hand moving the marked object, its tracked image path, and the adapted lift used by the robot](docs/assets/phone-motion-path.png)
 
-*The lift curve comes from IMG_5539 after smoothing and adapting its motion for the robot.*
+*The line follows the marked object, not a separately tracked hand. The lift curve is the adapted robot path from the same recording.*
 
 These are the scripts behind the preparation, in the order they are used:
 

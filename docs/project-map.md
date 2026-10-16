@@ -99,3 +99,7 @@ The human replay also accepts `--jaw-torque-limit` for a separate contact diagno
 `evaluate_vla.py` loads the saved adapter, initializes a training scene once, then executes predictions from live images and robot measurements. The [first development rollout](human-vla-rollout.md) ran 400 steps but did not pick up the cube. It records model predictions, executed commands, physics traces and video, with no scripted grasp or world-model assistance.
 
 Follow-up: the [2,000-update experiment](human-vla-2000-updates.md) lowered fixed validation loss to 1.2959 but still failed to pick up the cube on the same development start. The original pilot remains preserved.
+
+## Presentation figures
+
+`make_presentation_figures.py` draws the README marker axes, recorded object path and percentage chart from saved inputs. It reads the original video and CSV/report files without changing them. To regenerate the figures, run `python scripts/make_presentation_figures.py --out work/readme-figures` from the repository root using the documented project dependencies. Choose a new output folder. [Figure sources](assets/presentation-sources.json) record the video frame, projection settings and input checksums.

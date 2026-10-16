@@ -6,10 +6,20 @@
     "control-results.png": "docs/reproduction-results.json; 80 reruns on saved development layouts.",
     "control-results-100.png": "docs/phone-only-confirmation.json; frozen 100-layout expanded evaluation, seed 20261015; first 20 counted once.",
     "control-success-percent.png": "docs/phone-only-confirmation.json summary: task_successes / episodes * 100; 100 layouts per controller and condition, 400 runs total. Historical count figure preserved.",
-    "learned-robot-transfer.mp4": "Unmodified copy of results/bc_v2_validation/validation.mp4; saved learned BC v2 validation rollout, source IMG_5542, 131 control steps. Separate illustration, not one of the 100-layout suite runs."
+    "learned-robot-transfer.mp4": "Unmodified copy of results/bc_v2_validation/validation.mp4; saved learned BC v2 validation rollout, source IMG_5542, 131 control steps. Separate illustration, not one of the 100-layout suite runs.",
+    "phone-marker-frame.png": "IMG_5539 frame 105 (3.5 s); saved marker corners projected with the solvePnP settings in estimate_pose.py. Estimated local XYZ axes; original photographic pixels preserved apart from crop/display scaling and overlay. See presentation-sources.json.",
+    "phone-motion-path.png": "IMG_5539 frame 105; complete selected marker-centre image path from IMG_5539_movement_corners.csv (2.5\u20137.3 s). Right: saved adapted lift from IMG_5539_transport.csv. Object trajectory, not hand tracking."
   },
   "sha256": {
     "learned-robot-transfer.mp4": "75b046f03838cab0c16ebf7345bdd5b268fc109ae5c18f36f831b82055c96e28",
-    "control-success-percent.png": "67b3a9ce586c9d94e476755484a9155382abfbe138abba3834d1b464ed9bba88"
+    "control-success-percent.png": "46ab879391ebdc437ee440b8a83c147e5e154733acc8898a6e0c21114cd5429d",
+    "phone-marker-frame.png": "8d571349fc3c3666b4b0503694dd067cd6816faf45dc92157cadb6fd815f554b",
+    "phone-motion-path.png": "2308eeee9d4201883a3b8e4fac4658fc6da29ff5a1eca8eef2d7b2b229ab63a7",
+    "presentation-sources.json": "1de17a2098fb6fd76f652ca5c246995d13087d5db06c26c8dfed4ff9581ce5fe"
+  },
+  "figure_generator": {
+    "script": "scripts/make_presentation_figures.py",
+    "sha256": "9cb4f23f60e738cc5a448835ba8fffbea171a87edcbe84367cf305408ef67c2c",
+    "command": "python scripts/make_presentation_figures.py --out work/readme-figures"
   }
 }
