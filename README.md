@@ -4,6 +4,10 @@ This project is my submission to the **Humanoid Internship Challenge**: use pers
 
 **From five phone recordings to a simulated robot that learns to pick, carry and place.**
 
+![My phone recording beside a successful learned robot rollout](docs/assets/phone-to-robot.png)
+
+*My recorded movement on the left; a learned robot transfer on the right. The images show separate examples.*
+
 I’m interested in how robots can learn useful movements from human examples. Building on my work with teleoperation and imitation learning, I wanted to explore how much I could achieve with a small dataset recorded on my phone—and whether predicting the consequences of an action could help the robot make better decisions.
 
 The project follows that idea from start to finish: recording and preprocessing five phone videos, turning their movement paths into robot demonstrations, training a behavioral-cloning policy, and adding a learned world model to help with gripper decisions. The code, visual examples and simulation results document each stage.
@@ -12,9 +16,7 @@ I recorded myself moving an object into a container, then used those movements t
 
 **The result: 99% task success across 100 tested starting layouts.** When I deliberately introduced an early-opening command, adding the world model raised task success from **49% to 99%**.
 
-![My phone recording beside a successful learned robot rollout](docs/assets/phone-to-robot.png)
 
-*My recorded movement on the left; a learned robot transfer on the right. The images show separate examples.*
 
 [Data preprocessing](#1-data-preprocessing) · [From movement to demonstrations](#2-the-middle--turning-movement-into-robot-demonstrations) · [Why the world model matters](#3-why-the-world-model-matters) · [Try it](#try-it)
 
