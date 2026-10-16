@@ -10,7 +10,7 @@ I recorded myself moving an object into a container, then used those movements t
 
 *My recorded movement on the left; a learned robot transfer on the right. The images show separate examples.*
 
-[Data preprocessing](#1-data-preprocessing) · [The working robot](#2-the-working-robot) · [Why the world model matters](#3-why-the-world-model-matters) · [Try it](#try-it)
+[Data preprocessing](#1-data-preprocessing) · [From movement to demonstrations](#2-the-middle--turning-movement-into-robot-demonstrations) · [Why the world model matters](#3-why-the-world-model-matters) · [Try it](#try-it)
 
 ## 1. Data preprocessing
 
@@ -46,7 +46,7 @@ These are the scripts behind the preparation, in the order they are used:
 
 Three recordings supply training examples, one is used for validation, and one is reserved for testing. The generated variations stay with their original recording. Before learning, numerical inputs are scaled using training data only.
 
-## 2. The working robot
+## 2. The middle — turning movement into robot demonstrations
 
 The phone supplies the **shape of the transport movement**. Scripted robot actions provide the approach, grasp and release needed to turn that path into a complete demonstration.
 
@@ -54,10 +54,22 @@ I then train **behavioral cloning (BC)**: a policy that learns actions from thos
 
 ```mermaid
 flowchart LR
-    A[My phone videos] --> B[Extract movement]
-    B --> C[Build robot demonstrations]
-    C --> D[Learn a policy]
-    D --> E[Pick, carry and place]
+    A[My phone recordings] --> B[Track the marked object]
+    B --> C[Adapt its transport path]
+    C --> D[Generate robot demonstrations]
+    S[Scripted grasp and release] --> D
+    D --> E[Learn actions with BC]
+    D --> F[Learn state changes with a world model]
+    E --> G[Move the simulated robot]
+    F --> H[Compare possible gripper outcomes]
+    H --> G
+
+    classDef data fill:#e8f2fb,stroke:#718ba8,color:#192f4e
+    classDef learned fill:#def4ef,stroke:#008c95,color:#192f4e
+    classDef robot fill:#192f4e,stroke:#192f4e,color:#ffffff
+    class A,B,C,D,S data
+    class E,F,H learned
+    class G robot
 ```
 
 [Watch a successful learned-policy rollout](docs/assets/learned-robot-transfer.mp4)
