@@ -1,8 +1,14 @@
 # Phone to Robot Learning
 
+This project is my submission to the **Humanoid Internship Challenge**: use personally collected data to drive a robotic manipulator in simulation.
+
 **From five phone recordings to a simulated robot that learns to pick, carry and place.**
 
-I recorded myself moving an object into a container, then used those movements to teach a simulated SO-100/101 arm. A learned policy chooses the robot's actions; a small world model helps it decide when to keep holding the object.
+I’m interested in how robots can learn useful movements from human examples. Building on my work with teleoperation and imitation learning, I wanted to explore how much I could achieve with a small dataset recorded on my phone—and whether predicting the consequences of an action could help the robot make better decisions.
+
+The project follows that idea from start to finish: recording and preprocessing five phone videos, turning their movement paths into robot demonstrations, training a behavioral-cloning policy, and adding a learned world model to help with gripper decisions. The code, visual examples and simulation results document each stage.
+
+I recorded myself moving an object into a container, then used those movements to teach a simulated SO-100/101 arm. The learned policy chooses movement commands, while the world model helps select whether to open or keep holding the object.
 
 **The result: 99% task success across 100 tested starting layouts.** When I deliberately introduced an early-opening command, adding the world model raised task success from **49% to 99%**.
 
