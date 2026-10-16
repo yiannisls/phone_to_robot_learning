@@ -4,6 +4,12 @@
     "phone-to-robot.png": "IMG_5539 at 4.5s; results/bc_v2_validation/validation.avi at 8.5s; frames are separate demonstrations, not synchronized.",
     "phone-transport.png": "Saved IMG_5539_transport.csv; smoothed, retargeted and retimed lift, not unmodified physical reconstruction.",
     "control-results.png": "docs/reproduction-results.json; 80 reruns on saved development layouts.",
-    "control-results-100.png": "docs/phone-only-confirmation.json; frozen 100-layout expanded evaluation, seed 20261015; first 20 counted once."
+    "control-results-100.png": "docs/phone-only-confirmation.json; frozen 100-layout expanded evaluation, seed 20261015; first 20 counted once.",
+    "control-success-percent.png": "docs/phone-only-confirmation.json summary: task_successes / episodes * 100; 100 layouts per controller and condition, 400 runs total. Historical count figure preserved.",
+    "learned-robot-transfer.mp4": "Unmodified copy of results/bc_v2_validation/validation.mp4; saved learned BC v2 validation rollout, source IMG_5542, 131 control steps. Separate illustration, not one of the 100-layout suite runs."
+  },
+  "sha256": {
+    "learned-robot-transfer.mp4": "75b046f03838cab0c16ebf7345bdd5b268fc109ae5c18f36f831b82055c96e28",
+    "control-success-percent.png": "67b3a9ce586c9d94e476755484a9155382abfbe138abba3834d1b464ed9bba88"
   }
 }
