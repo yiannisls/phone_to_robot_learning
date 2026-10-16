@@ -103,6 +103,14 @@ The world model's contribution here is clear: **it preserves the successful tran
 
 [Results and evaluation protocol](docs/phone-only-confirmation.md) · [How the world model selects gripper actions](docs/world_model_control.md)
 
+## Earlier work: teleoperation integration, deferred
+
+A separate [BC/DAgger lab](https://github.com/yiannisls/so101-behavioral-cloning) achieved **97% success in its original setup** and **82% with a shifted obstacle**, each measured over 100 runs. These use a different task setup from the phone-data controller presented here.
+
+An integration pilot combined one human approach with phone-derived transport and scripted release. It completed a transfer but failed the contact-depth check. This integration is deferred and has not entered policy training.
+
+[Archived integration pilot](docs/phone-lab-pilot.md) · [Data compatibility findings](docs/data-compatibility.md)
+
 ## Try it
 
 The [guided walkthrough](docs/walkthrough.md) explains installation, simulator setup and downloading the saved artifacts. The public artifact upload is still pending; [release instructions](docs/publishing.md) describe the prepared package.
